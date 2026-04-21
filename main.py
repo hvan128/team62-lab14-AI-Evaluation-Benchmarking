@@ -135,7 +135,7 @@ async def main():
     with open("reports/summary.json", "w", encoding="utf-8") as f:
         json.dump(v2_summary, f, ensure_ascii=False, indent=2)
     with open("reports/benchmark_results.json", "w", encoding="utf-8") as f:
-        json.dump(v2_results, f, ensure_ascii=False, indent=2)
+        json.dump({"v1": v1_results, "v2": v2_results}, f, ensure_ascii=False, indent=2)
 
     print("\n📁 Đã lưu: reports/summary.json + reports/benchmark_results.json")
 

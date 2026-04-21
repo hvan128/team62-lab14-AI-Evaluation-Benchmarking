@@ -65,6 +65,7 @@ class LLMJudge:
     ) -> Dict:
         """
         Gọi LLM với system prompt cho trước, parse JSON response.
+        Retry một lần nếu score == 0 (do lỗi API).
 
         Returns:
             {"score": int, "reasoning": str}
@@ -75,22 +76,28 @@ Ground Truth: {ground_truth}
 
 Chấm điểm và trả về JSON: {{"score": <int 1-5>, "reasoning": "<lý do>"}}"""
 
-        try:
-            response = await self.client.chat.completions.create(
-                model=self.model,
-                messages=[
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": user_msg}
-                ],
-                response_format={"type": "json_object"}
-            )
-            result = json.loads(response.choices[0].message.content)
-            return {
-                "score": int(result.get("score", 3)),
-                "reasoning": result.get("reasoning", "")
-            }
-        except Exception as e:
-            return {"score": 3, "reasoning": f"Lỗi API: {e}"}
+        async def _invoke() -> Dict:
+            try:
+                response = await self.client.chat.completions.create(
+                    model=self.model,
+                    messages=[
+                        {"role": "system", "content": system_prompt},
+                        {"role": "user", "content": user_msg}
+                    ],
+                    response_format={"type": "json_object"}
+                )
+                result = json.loads(response.choices[0].message.content)
+                return {
+                    "score": int(result.get("score", 3)),
+                    "reasoning": result.get("reasoning", "")
+                }
+            except Exception as e:
+                return {"score": 0, "reasoning": f"Lỗi API: {e}"}
+
+        result = await _invoke()
+        if result["score"] == 0:
+            result = await _invoke()
+        return result
 
     async def evaluate_multi_judge(
         self, question: str, answer: str, ground_truth: str
@@ -131,11 +138,12 @@ Chấm điểm và trả về JSON: {{"score": <int 1-5>, "reasoning": "<lý do>
         return {
             "final_score": round(final_score, 2),
             "agreement_rate": agreement_rate,
-            "individual_scores": {
-                "role_strict": float(score_strict),
-                "role_lenient": float(score_lenient)
+            "individual_results": {
+                self.model: {"score": score_strict, "reasoning": strict_result["reasoning"]},
+                f"{self.model}-lenient": {"score": score_lenient, "reasoning": lenient_result["reasoning"]},
             },
             "conflict": conflict,
+            "status": "conflict" if conflict else "consensus",
             "reasoning": strict_result["reasoning"]
         }
 
