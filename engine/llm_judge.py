@@ -26,8 +26,8 @@ import json
 import os
 from typing import Dict
 
-from dotenv import load_dotenv
 from openai import AsyncOpenAI
+from dotenv import load_dotenv
 
 load_dotenv()
 
@@ -58,7 +58,7 @@ SYSTEM_LENIENT = (
 class LLMJudge:
     def __init__(self, model: str = JUDGE_MODEL):
         self.model = model
-        self.client = AsyncOpenAI(api_key=os.getenv("OPENAI_API_KEY")) if os.getenv("OPENAI_API_KEY") else None
+        self.client = AsyncOpenAI()
 
     async def _call_judge(
         self, system_prompt: str, question: str, answer: str, ground_truth: str
@@ -69,48 +69,28 @@ class LLMJudge:
         Returns:
             {"score": int, "reasoning": str}
         """
-        if self.client is None:
-            gt_tokens = set(ground_truth.lower().split())
-            ans_tokens = set(answer.lower().split())
-            overlap = len(gt_tokens & ans_tokens) / max(1, len(gt_tokens))
-            if overlap >= 0.75:
-                score = 5
-            elif overlap >= 0.55:
-                score = 4
-            elif overlap >= 0.35:
-                score = 3
-            elif overlap >= 0.2:
-                score = 2
-            else:
-                score = 1
+        user_msg = f"""Question: {question}
+Answer: {answer}
+Ground Truth: {ground_truth}
+
+Chấm điểm và trả về JSON: {{"score": <int 1-5>, "reasoning": "<lý do>"}}"""
+
+        try:
+            response = await self.client.chat.completions.create(
+                model=self.model,
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user_msg}
+                ],
+                response_format={"type": "json_object"}
+            )
+            result = json.loads(response.choices[0].message.content)
             return {
-                "score": score,
-                "reasoning": "Fallback lexical judge (không có OpenAI API key).",
+                "score": int(result.get("score", 3)),
+                "reasoning": result.get("reasoning", "")
             }
-
-        user_message = (
-            f"Question: {question}\n"
-            f"Answer: {answer}\n"
-            f"Ground Truth: {ground_truth}"
-        )
-        response = await self.client.chat.completions.create(
-            model=self.model,
-            response_format={"type": "json_object"},
-            messages=[
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_message},
-            ],
-            temperature=0,
-        )
-
-        content = response.choices[0].message.content or "{}"
-        parsed = json.loads(content)
-        score = int(parsed.get("score", 1))
-        score = max(1, min(5, score))
-        return {
-            "score": score,
-            "reasoning": str(parsed.get("reasoning", "")),
-        }
+        except Exception as e:
+            return {"score": 3, "reasoning": f"Lỗi API: {e}"}
 
     async def evaluate_multi_judge(
         self, question: str, answer: str, ground_truth: str
@@ -119,32 +99,44 @@ class LLMJudge:
         Gọi 2 role judge song song, áp dụng conflict resolution.
 
         Returns:
-            Dict theo schema JudgeResult ở trên
+            Dict theo schema JudgeResult:
+            {
+                "final_score": float,
+                "agreement_rate": float,
+                "individual_scores": {"role_strict": float, "role_lenient": float},
+                "conflict": bool,
+                "reasoning": str
+            }
         """
-        strict_result, lenient_result = await asyncio.gather(
-            self._call_judge(SYSTEM_STRICT, question, answer, ground_truth),
-            self._call_judge(SYSTEM_LENIENT, question, answer, ground_truth),
-        )
+        # Gọi song song 2 judge
+        strict_task = self._call_judge(SYSTEM_STRICT, question, answer, ground_truth)
+        lenient_task = self._call_judge(SYSTEM_LENIENT, question, answer, ground_truth)
 
-        score_strict = float(strict_result["score"])
-        score_lenient = float(lenient_result["score"])
-        conflict = abs(score_strict - score_lenient) > 1
-        if conflict:
-            final_score = min(score_strict, score_lenient)
-            agreement_rate = 0.5
-        else:
+        strict_result, lenient_result = await asyncio.gather(strict_task, lenient_task)
+
+        score_strict = strict_result["score"]
+        score_lenient = lenient_result["score"]
+
+        # Conflict resolution
+        diff = abs(score_strict - score_lenient)
+        conflict = diff > 1
+
+        if not conflict:
             final_score = (score_strict + score_lenient) / 2
             agreement_rate = 1.0
+        else:
+            final_score = min(score_strict, score_lenient)
+            agreement_rate = 0.5
 
         return {
-            "final_score": float(final_score),
+            "final_score": round(final_score, 2),
             "agreement_rate": agreement_rate,
             "individual_scores": {
-                "role_strict": score_strict,
-                "role_lenient": score_lenient,
+                "role_strict": float(score_strict),
+                "role_lenient": float(score_lenient)
             },
             "conflict": conflict,
-            "reasoning": strict_result.get("reasoning", ""),
+            "reasoning": strict_result["reasoning"]
         }
 
     async def check_position_bias(
@@ -157,20 +149,15 @@ class LLMJudge:
         Returns:
             {"bias_detected": bool, "score_ab": float, "score_ba": float}
         """
-        result_ab = await self.evaluate_multi_judge(
-            question,
-            f"A: {answer_a}\nB: {answer_b}",
-            ground_truth,
-        )
-        result_ba = await self.evaluate_multi_judge(
-            question,
-            f"A: {answer_b}\nB: {answer_a}",
-            ground_truth,
-        )
-        score_ab = float(result_ab["final_score"])
-        score_ba = float(result_ba["final_score"])
+        result_ab = await self.evaluate_multi_judge(question, answer_a, ground_truth)
+        result_ba = await self.evaluate_multi_judge(question, answer_b, ground_truth)
+
+        score_ab = result_ab["final_score"]
+        score_ba = result_ba["final_score"]
+        bias_detected = abs(score_ab - score_ba) > 0.5
+
         return {
-            "bias_detected": abs(score_ab - score_ba) >= 1.0,
+            "bias_detected": bias_detected,
             "score_ab": score_ab,
-            "score_ba": score_ba,
+            "score_ba": score_ba
         }
