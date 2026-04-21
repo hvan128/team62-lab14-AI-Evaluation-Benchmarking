@@ -40,8 +40,9 @@ class MainAgent:
 
         chroma_path = os.getenv("CHROMA_DB_PATH", "data/chroma_db")
         self._chroma = chromadb.PersistentClient(path=chroma_path)
-        collection_name = os.getenv("CHROMA_COLLECTION_NAME", "rag_documents")
+        collection_name = os.getenv("CHROMA_COLLECTION_NAME", "lab14_seed_kb")
         self._collection = self._chroma.get_collection(collection_name)
+        self._embed_model = "text-embedding-ada-002"
 
         self._llm = AsyncOpenAI(api_key=os.getenv("OPENAI_API_KEY"))
         self._model = os.getenv("AGENT_MODEL", "gpt-4o-mini")
@@ -63,10 +64,15 @@ class MainAgent:
             return await self._query_v1(question, start)
         return await self._query_v2(question, start)
 
+    async def _embed(self, text: str) -> List[float]:
+        resp = await self._llm.embeddings.create(model=self._embed_model, input=text)
+        return resp.data[0].embedding
+
     async def _query_v1(self, question: str, start: float) -> Dict:
         """V1: top_k=2, prompt đơn giản, temperature=0.8"""
+        emb = await self._embed(question)
         results = self._collection.query(
-            query_texts=[question],
+            query_embeddings=[emb],
             n_results=2,
         )
         chunk_ids: List[str] = results["ids"][0]
@@ -107,8 +113,9 @@ class MainAgent:
 
     async def _query_v2(self, question: str, start: float) -> Dict:
         """V2: top_k=5, filter distance < 0.5, prompt kỹ, temperature=0.1"""
+        emb = await self._embed(question)
         results = self._collection.query(
-            query_texts=[question],
+            query_embeddings=[emb],
             n_results=5,
         )
         chunk_ids: List[str] = results["ids"][0]
