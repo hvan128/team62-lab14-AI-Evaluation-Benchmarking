@@ -27,7 +27,6 @@ import os
 import time
 from typing import Dict, List
 
-import chromadb
 from dotenv import load_dotenv
 from openai import AsyncOpenAI
 
@@ -123,10 +122,7 @@ class MainAgent:
 
     async def _query_v1(self, question: str, start: float) -> Dict:
         """V1: top_k=2, prompt đơn giản, temperature=0.8"""
-        results = self._collection.query(
-            query_texts=[question],
-            n_results=2,
-        )
+        results = query_collection(self._collection, question, n_results=2)
         chunk_ids: List[str] = results["ids"][0]
         contexts: List[str] = results["documents"][0]
 
