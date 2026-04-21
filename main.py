@@ -25,6 +25,50 @@ RELEASE_GATE = {
 COST_PER_1K_TOKENS = 0.00015     # gpt-4o-mini input price USD
 
 
+def to_template_results(results: list) -> list:
+    """Chuẩn hoá TestResult nội bộ về schema benchmark_results_template.json."""
+    normalized = []
+    for r in results:
+        judge = r.get("judge", {})
+        individual_scores = judge.get("individual_scores", {})
+        individual_results = judge.get("individual_results", {})
+        is_conflict = bool(judge.get("conflict", False))
+
+        if not individual_results:
+            individual_results = {
+                "role_strict": {
+                    "score": float(individual_scores.get("role_strict", 0.0)),
+                    "reasoning": "",
+                },
+                "role_lenient": {
+                    "score": float(individual_scores.get("role_lenient", 0.0)),
+                    "reasoning": "",
+                },
+            }
+
+        normalized.append(
+            {
+                "test_case": r.get("test_case", ""),
+                "agent_response": r.get("agent_response", ""),
+                "latency": round(float(r.get("latency_ms", 0.0)) / 1000, 6),
+                "ragas": {
+                    "hit_rate": float(r.get("ragas", {}).get("hit_rate", 0.0)),
+                    "mrr": float(r.get("ragas", {}).get("mrr", 0.0)),
+                    "faithfulness": float(r.get("ragas", {}).get("faithfulness", 0.0)),
+                    "relevancy": float(r.get("ragas", {}).get("relevancy", 0.0)),
+                },
+                "judge": {
+                    "final_score": float(judge.get("final_score", 0.0)),
+                    "agreement_rate": float(judge.get("agreement_rate", 0.0)),
+                    "individual_results": individual_results,
+                    "status": "conflict" if is_conflict else "consensus",
+                },
+                "status": r.get("status", "fail"),
+            }
+        )
+    return normalized
+
+
 def load_dataset(path: str = "data/golden_set.jsonl"):
     if not os.path.exists(path):
         raise FileNotFoundError(
@@ -79,10 +123,11 @@ def release_gate(v1_summary: dict, v2_summary: dict) -> str:
     """
     delta = v2_summary["metrics"]["avg_score"] - v1_summary["metrics"]["avg_score"]
     hit_rate_drop = v1_summary["metrics"]["hit_rate"] - v2_summary["metrics"]["hit_rate"]
-    
-    if delta >= RELEASE_GATE.get("min_score_delta", 0.0) and hit_rate_drop <= RELEASE_GATE.get("max_hit_rate_drop", 0.05):
+    if (
+        delta >= RELEASE_GATE["min_score_delta"]
+        and hit_rate_drop <= RELEASE_GATE["max_hit_rate_drop"]
+    ):
         return "APPROVE"
-    
     return "BLOCK"
 
 
@@ -134,8 +179,13 @@ async def main():
     os.makedirs("reports", exist_ok=True)
     with open("reports/summary.json", "w", encoding="utf-8") as f:
         json.dump(v2_summary, f, ensure_ascii=False, indent=2)
+
+    benchmark_payload = {
+        "v1": to_template_results(v1_results),
+        "v2": to_template_results(v2_results),
+    }
     with open("reports/benchmark_results.json", "w", encoding="utf-8") as f:
-        json.dump(v2_results, f, ensure_ascii=False, indent=2)
+        json.dump(benchmark_payload, f, ensure_ascii=False, indent=2)
 
     print("\n📁 Đã lưu: reports/summary.json + reports/benchmark_results.json")
 

@@ -27,24 +27,89 @@ import os
 import time
 from typing import Dict, List
 
-import chromadb
 from dotenv import load_dotenv
 from openai import AsyncOpenAI
 
-load_dotenv()
+from engine.chroma_utils import get_or_bootstrap_collection, query_collection
 
+load_dotenv()
 
 class MainAgent:
     def __init__(self):
         self.name = "SupportAgent"
+        base_model = os.getenv("AGENT_MODEL", "gpt-4o-mini")
+        self.model_v1 = os.getenv("AGENT_MODEL_V1", base_model)
+        self.model_v2 = os.getenv("AGENT_MODEL_V2", base_model)
+        self.client = AsyncOpenAI(api_key=os.getenv("OPENAI_API_KEY")) if os.getenv("OPENAI_API_KEY") else None
+        self.collection = None
 
-        chroma_path = os.getenv("CHROMA_DB_PATH", "data/chroma_db")
-        self._chroma = chromadb.PersistentClient(path=chroma_path)
-        collection_name = os.getenv("CHROMA_COLLECTION_NAME", "rag_documents")
-        self._collection = self._chroma.get_collection(collection_name)
+        chroma_path = os.getenv("CHROMA_PATH", "data/chroma_db")
+        collection_name = os.getenv("CHROMA_COLLECTION", "lab14_seed_kb")
+        try:
+            self.collection = get_or_bootstrap_collection(
+                chroma_path, collection_name=collection_name
+            )
+        except Exception:
+            self.collection = None
 
-        self._llm = AsyncOpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-        self._model = os.getenv("AGENT_MODEL", "gpt-4o-mini")
+    def _retrieve(self, question: str, top_k: int) -> Dict:
+        if self.collection is None:
+            return {"ids": [], "documents": [], "distances": []}
+
+        try:
+            result = query_collection(self.collection, question, n_results=top_k)
+        except Exception:
+            return {"ids": [], "documents": [], "distances": []}
+
+        ids = result.get("ids", [[]])
+        docs = result.get("documents", [[]])
+        distances = result.get("distances", [[]])
+        return {
+            "ids": ids[0] if ids else [],
+            "documents": docs[0] if docs else [],
+            "distances": distances[0] if distances else [],
+        }
+
+    async def _generate_answer(
+        self,
+        question: str,
+        contexts: List[str],
+        temperature: float,
+        model: str,
+    ) -> Dict:
+        if not contexts:
+            return {
+                "answer": "Không có thông tin phù hợp trong tài liệu hiện có.",
+                "tokens_used": 0,
+            }
+
+        if self.client is None:
+            joined = "\n\n".join(contexts[:2])
+            return {
+                "answer": f"Tóm tắt từ context:\n{joined[:600]}",
+                "tokens_used": 0,
+            }
+
+        context_text = "\n\n".join(contexts)
+        response = await self.client.chat.completions.create(
+            model=model,
+            temperature=temperature,
+            messages=[
+                {
+                    "role": "system",
+                    "content": "Bạn là trợ lý nội bộ. Chỉ được trả lời dựa trên context. Nếu không đủ thông tin, phải nói rõ không có thông tin.",
+                },
+                {
+                    "role": "user",
+                    "content": f"Question: {question}\n\nContext:\n{context_text}",
+                },
+            ],
+        )
+
+        return {
+            "answer": response.choices[0].message.content or "",
+            "tokens_used": getattr(response.usage, "total_tokens", 0) if response.usage else 0,
+        }
 
     async def query(self, question: str, version: str = "v2") -> Dict:
         """
@@ -65,97 +130,60 @@ class MainAgent:
 
     async def _query_v1(self, question: str, start: float) -> Dict:
         """V1: top_k=2, prompt đơn giản, temperature=0.8"""
-        results = self._collection.query(
-            query_texts=[question],
-            n_results=2,
-        )
-        chunk_ids: List[str] = results["ids"][0]
-        contexts: List[str] = results["documents"][0]
-
-        context_block = "\n\n".join(contexts)
-        messages = [
-            {
-                "role": "system",
-                "content": (
-                    "Bạn là trợ lý hỗ trợ khách hàng. "
-                    "Trả lời ngắn gọn dựa trên tài liệu sau.\n\n"
-                    + context_block
-                ),
-            },
-            {"role": "user", "content": question},
-        ]
-
-        completion = await self._llm.chat.completions.create(
-            model=self._model,
-            messages=messages,
+        retrieval = self._retrieve(question, top_k=2)
+        gen = await self._generate_answer(
+            question,
+            retrieval["documents"],
             temperature=0.8,
+            model=self.model_v1,
         )
-        answer = completion.choices[0].message.content
-        tokens_used = completion.usage.total_tokens
-
         return {
-            "answer": answer,
-            "retrieved_chunk_ids": chunk_ids,
-            "contexts": contexts,
+            "answer": gen["answer"],
+            "retrieved_chunk_ids": retrieval["ids"],
+            "contexts": retrieval["documents"],
             "metadata": {
                 "version": "v1",
-                "model": self._model,
-                "tokens_used": tokens_used,
+                "model": self.model_v1,
+                "tokens_used": gen["tokens_used"],
                 "latency_ms": (time.perf_counter() - start) * 1000,
             },
         }
 
     async def _query_v2(self, question: str, start: float) -> Dict:
-        """V2: top_k=5, filter distance < 0.5, prompt kỹ, temperature=0.1"""
-        results = self._collection.query(
-            query_texts=[question],
-            n_results=5,
-        )
-        chunk_ids: List[str] = results["ids"][0]
-        contexts: List[str] = results["documents"][0]
-        distances: List[float] = results["distances"][0]
+        """V2: top_k=5, filter score threshold, prompt kỹ, temperature=0.1"""
+        retrieval = self._retrieve(question, top_k=5)
+        filtered_ids = []
+        filtered_docs = []
 
-        # Chỉ giữ chunk có distance < 0.5 (relevance cao); fallback top-2 nếu lọc hết
-        filtered = [
-            (cid, ctx)
-            for cid, ctx, dist in zip(chunk_ids, contexts, distances)
-            if dist < 0.5
-        ] or list(zip(chunk_ids[:2], contexts[:2]))
+        if retrieval["distances"]:
+            for chunk_id, doc, dist in zip(
+                retrieval["ids"], retrieval["documents"], retrieval["distances"]
+            ):
+                if dist is None or dist <= 0.5:
+                    filtered_ids.append(chunk_id)
+                    filtered_docs.append(doc)
+            if not filtered_ids:
+                # Fallback to top results when threshold is too strict for current embedding space.
+                filtered_ids = retrieval["ids"]
+                filtered_docs = retrieval["documents"]
+        else:
+            filtered_ids = retrieval["ids"]
+            filtered_docs = retrieval["documents"]
 
-        filtered_ids = [x[0] for x in filtered]
-        filtered_contexts = [x[1] for x in filtered]
-
-        context_block = "\n\n".join(
-            f"[Nguồn {i + 1}] {ctx}" for i, ctx in enumerate(filtered_contexts)
-        )
-        system_prompt = (
-            "Bạn là chuyên gia hỗ trợ khách hàng. "
-            "Dựa CHÍNH XÁC vào tài liệu dưới đây, hãy trả lời câu hỏi một cách đầy đủ, "
-            "có trích dẫn nguồn [Nguồn X] khi cần. "
-            "Nếu tài liệu không đủ thông tin, hãy nói rõ điều đó.\n\n"
-            f"{context_block}"
-        )
-        messages = [
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": question},
-        ]
-
-        completion = await self._llm.chat.completions.create(
-            model=self._model,
-            messages=messages,
+        gen = await self._generate_answer(
+            question,
+            filtered_docs,
             temperature=0.1,
+            model=self.model_v2,
         )
-        answer = completion.choices[0].message.content
-        tokens_used = completion.usage.total_tokens
-
         return {
-            "answer": answer,
+            "answer": gen["answer"],
             "retrieved_chunk_ids": filtered_ids,
-            "contexts": filtered_contexts,
+            "contexts": filtered_docs,
             "metadata": {
                 "version": "v2",
-                "model": self._model,
-                "tokens_used": tokens_used,
+                "model": self.model_v2,
+                "tokens_used": gen["tokens_used"],
                 "latency_ms": (time.perf_counter() - start) * 1000,
             },
         }

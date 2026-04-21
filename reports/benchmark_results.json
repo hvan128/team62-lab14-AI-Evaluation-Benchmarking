@@ -1,0 +1,2976 @@
+{
+  "v1": [
+    {
+      "test_case": "Ticket P1 được tạo lúc 22:47. Đúng theo SLA, ai nhận thông báo đầu tiên và qua kênh nào? Deadline escalation là mấy giờ?",
+      "agent_response": "Không có thông tin về ai nhận thông báo đầu tiên, kênh nào và deadline escalation cho ticket P1 được tạo lúc 22:47.",
+      "latency": 2.95103,
+      "ragas": {
+        "hit_rate": 1.0,
+        "mrr": 1.0,
+        "faithfulness": 0.34782608695652173,
+        "relevancy": 0.6
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không cung cấp thông tin chính xác về kênh thông báo, đối tượng nhận thông báo và thời gian deadline escalation, dẫn đến thiếu sót nghiêm trọng."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không cung cấp thông tin nào về kênh thông báo, đối tượng nhận thông báo hay thời gian deadline escalation, hoàn toàn thiếu sót so với thông tin cần thiết."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Khách hàng đặt đơn ngày 31/01/2026 và gửi yêu cầu hoàn tiền ngày 07/02/2026 vì lỗi nhà sản xuất. Sản phẩm chưa kích hoạt, không phải Flash Sale, không phải kỹ thuật số. Chính sách nào áp dụng và có được hoàn tiền không?",
+      "agent_response": "Không có thông tin về chính sách hoàn tiền cụ thể cho trường hợp này.",
+      "latency": 2.906894,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.4,
+        "relevancy": 0.125
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không cung cấp thông tin chính xác về chính sách hoàn tiền áp dụng cho trường hợp cụ thể, và không đề cập đến sự khác biệt giữa chính sách v3 và v4, dẫn đến thiếu sót trong thông tin."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không cung cấp thông tin về chính sách hoàn tiền cụ thể cho trường hợp này, mặc dù có đề cập đến việc không có thông tin. Tuy nhiên, nó không nhận ra rằng đơn đặt trước áp dụng chính sách phiên bản 3 và không đề cập đến sự khác biệt giữa các phiên bản chính sách."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Engineer cần Level 3 access để khắc phục P1 đang active. Bao nhiêu người phải phê duyệt? Ai là người phê duyệt cuối cùng (người phê duyệt có thẩm quyền cao nhất)?",
+      "agent_response": "Không có thông tin về số người cần phê duyệt để cấp Level 3 access cho engineer hoặc ai là người phê duyệt cuối cùng.",
+      "latency": 3.172851,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.3181818181818182,
+        "relevancy": 0.4117647058823529
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không cung cấp thông tin chính xác về số người cần phê duyệt, tên các phê duyệt và người phê duyệt cuối cùng."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không cung cấp thông tin chính xác về số người cần phê duyệt, tên các phê duyệt và người phê duyệt cuối cùng."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Khi khách hàng chọn nhận store credit thay vì hoàn tiền, họ nhận được bao nhiêu phần trăm so với số tiền gốc cần hoàn?",
+      "agent_response": "Không có thông tin.",
+      "latency": 2.290475,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.5,
+        "relevancy": 0.0
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không cung cấp thông tin chính xác về tỷ lệ phần trăm, dẫn đến thiếu sót nghiêm trọng."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không cung cấp thông tin chính xác nào về tỷ lệ phần trăm, dẫn đến thiếu sót nghiêm trọng trong độ chính xác và đầy đủ thông tin."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Ticket P1 được tạo và on-call engineer không phản hồi sau 10 phút. Theo đúng SLA, hệ thống sẽ làm gì tiếp theo?",
+      "agent_response": "Không có thông tin về chu kỳ đổi mật khẩu và số ngày cảnh báo trước trong context.",
+      "latency": 2.86401,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.6666666666666666,
+        "relevancy": 0.05128205128205128
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không đề cập đến hành động tự động escalate và đối tượng là Senior Engineer, do đó không chính xác và không đầy đủ thông tin."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không nêu đúng hành động tự động escalate và đối tượng là Senior Engineer, chỉ đề cập đến việc thiếu thông tin mà không giải thích đúng quy trình."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Một nhân viên mới đang trong probation period muốn làm remote vì lý do cá nhân. Yêu cầu này có được chấp thuận không? Điều kiện để được làm remote là gì?",
+      "agent_response": "Nhân viên trong probation period KHÔNG được phép làm remote. Chỉ nhân viên đã qua probation period mới được phép làm remote tối đa 2 ngày/tuần với điều kiện được Team Lead phê duyệt.",
+      "latency": 2.785206,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 1.0,
+        "relevancy": 0.2857142857142857
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 5.0,
+            "reasoning": "Câu trả lời hoàn toàn chính xác, đầy đủ thông tin quan trọng và không có thông tin sai lệch."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 5.0,
+            "reasoning": "Câu trả lời chính xác và đầy đủ thông tin quan trọng về việc nhân viên trong probation period không được làm remote, điều kiện cần thiết và giới hạn về số ngày làm remote."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "pass"
+    },
+    {
+      "test_case": "Mức phạt tài chính cụ thể khi đội IT vi phạm SLA P1 resolution time (không resolve trong 4 giờ) là bao nhiêu?",
+      "agent_response": "Không có thông tin về mức phạt tài chính cụ thể khi đội IT vi phạm SLA P1 resolution time.",
+      "latency": 3.472589,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.15,
+        "relevancy": 0.5925925925925926
+      },
+      "judge": {
+        "final_score": 4.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 4.0,
+            "reasoning": "Câu trả lời chính xác khi khẳng định không có thông tin về mức phạt tài chính cụ thể, nhưng thiếu phần gợi ý liên hệ bộ phận liên quan để tra cứu."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 4.0,
+            "reasoning": "Câu trả lời chính xác khi nói rằng không có thông tin về mức phạt tài chính cụ thể, nhưng thiếu chi tiết về việc không bịa ra con số phạt và gợi ý liên hệ bộ phận liên quan."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "pass"
+    },
+    {
+      "test_case": "Theo quy định IT nội bộ, nhân viên phải đổi mật khẩu sau bao nhiêu ngày? Và hệ thống cảnh báo trước bao nhiêu ngày?",
+      "agent_response": "Không có thông tin về quy định IT nội bộ cụ thể liên quan đến chu kỳ đổi mật khẩu và số ngày cảnh báo trước.",
+      "latency": 2.926719,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.7307692307692307,
+        "relevancy": 0.37142857142857144
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không cung cấp thông tin chính xác về chu kỳ đổi mật khẩu và số ngày cảnh báo trước, hoàn toàn thiếu sót thông tin quan trọng."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không cung cấp thông tin cụ thể nào về chu kỳ đổi mật khẩu và số ngày cảnh báo trước, do đó không đáp ứng yêu cầu về độ chính xác và đầy đủ."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Sự cố P1 xảy ra lúc 2am. Đồng thời cần cấp Level 2 access tạm thời cho contractor để thực hiện emergency fix. Hãy nêu đầy đủ: (1) các bước SLA P1 notification phải làm ngay, và (2) điều kiện để cấp Level 2 emergency access.",
+      "agent_response": "(1) Các bước SLA P1 notification phải làm ngay:\n- Thông báo cho tất cả các bên liên quan (bao gồm nhưng không giới hạn ở: quản lý cấp cao, đội IT, và các bộ phận liên quan) về sự cố P1 xảy ra lúc 2am.\n- Ghi lại thời gian và nội dung thông báo để đảm bảo tuân thủ quy trình.\n- Cập nhật thường xuyên về tiến độ xử lý sự cố cho các bên liên quan theo tần suất quy định trong SLA.\n\n(2) Điều kiện để cấp Level 2 emergency access:\n- Cần có sự chấp thuận từ người quản lý trực tiếp (Line Manager).\n- Phải có lý do hợp lý cho việc yêu cầu cấp access tạm thời.\n- Cần đảm bảo rằng việc cấp access không vi phạm các chính sách bảo mật hiện có.\n- Cần ghi nhận lại tất cả các thông tin liên quan đến việc cấp quyền tạm thời cho contractor.",
+      "latency": 6.208938,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.41414141414141414,
+        "relevancy": 0.2830188679245283
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 0.5,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không đầy đủ thông tin quan trọng về các kênh notification và điều kiện cấp Level 2 emergency access, không đề cập đến escalation deadline và các yêu cầu cụ thể khác."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 3.0,
+            "reasoning": "Câu trả lời cung cấp các bước thông báo P1 và điều kiện cấp Level 2 access, nhưng thiếu thông tin quan trọng như các kênh notification cụ thể và điều kiện emergency bypass cần có sự chấp thuận của IT Admin on-call."
+          }
+        },
+        "status": "conflict"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Khách hàng mua sản phẩm trong chương trình Flash Sale, nhưng phát hiện sản phẩm bị lỗi từ nhà sản xuất và yêu cầu hoàn tiền trong vòng 5 ngày. Có được hoàn tiền không? Giải thích theo đúng chính sách.",
+      "agent_response": "Theo chính sách, khách hàng có thể yêu cầu hoàn tiền trong vòng 7 ngày làm việc kể từ thời điểm xác nhận đơn hàng. Do đó, nếu khách hàng phát hiện sản phẩm bị lỗi từ nhà sản xuất và yêu cầu hoàn tiền trong vòng 5 ngày, yêu cầu này là hợp lệ và có thể được thực hiện.",
+      "latency": 3.832404,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.5813953488372093,
+        "relevancy": 0.4716981132075472
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời sai hoàn toàn về chính sách hoàn tiền trong chương trình Flash Sale, không nêu đúng lý do và không trích dẫn nguồn chính xác."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời sai hoàn toàn về chính sách hoàn tiền trong chương trình Flash Sale, không nêu rõ lý do ngoại lệ và không trích dẫn nguồn chính xác."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "SLA xử lý ticket P1 là bao lâu?",
+      "agent_response": "Không có thông tin về SLA xử lý ticket P1.",
+      "latency": 2.063579,
+      "ragas": {
+        "hit_rate": 1.0,
+        "mrr": 1.0,
+        "faithfulness": 0.3,
+        "relevancy": 0.38461538461538464
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin về SLA xử lý ticket P1, trong khi thông tin đúng là có SLA phản hồi ban đầu 15 phút và thời gian xử lý 4 giờ."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác và thiếu thông tin quan trọng về SLA xử lý ticket P1."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Khách hàng có thể yêu cầu hoàn tiền trong bao nhiêu ngày?",
+      "agent_response": "Không có thông tin về thời gian khách hàng có thể yêu cầu hoàn tiền.",
+      "latency": 1.847512,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.2857142857142857,
+        "relevancy": 0.4444444444444444
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin đúng về thời gian hoàn tiền, dẫn đến thiếu sót nghiêm trọng."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác và thiếu thông tin quan trọng về thời gian hoàn tiền."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Ai phải phê duyệt để cấp quyền Level 3?",
+      "agent_response": "Không có thông tin về ai phải phê duyệt để cấp quyền Level 3.",
+      "latency": 1.939682,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.35714285714285715,
+        "relevancy": 0.6428571428571429
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin về những người cần phê duyệt, dẫn đến thiếu sót nghiêm trọng."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác và thiếu thông tin quan trọng về những người cần phê duyệt."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Tài khoản bị khóa sau bao nhiêu lần đăng nhập sai?",
+      "agent_response": "Không có thông tin về số lần đăng nhập sai dẫn đến việc khóa tài khoản.",
+      "latency": 2.269162,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.125,
+        "relevancy": 0.35
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin đúng về số lần đăng nhập sai dẫn đến khóa tài khoản."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin đúng về số lần đăng nhập sai dẫn đến khóa tài khoản."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Nhân viên được làm remote tối đa mấy ngày mỗi tuần?",
+      "agent_response": "Không có thông tin.",
+      "latency": 1.761317,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.25,
+        "relevancy": 0.0
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác và thiếu thông tin quan trọng về số ngày làm remote và điều kiện phê duyệt."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin cụ thể về số ngày làm remote, chỉ nói là 'không có thông tin'."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Ticket P1 không được phản hồi sau 10 phút. Hệ thống tự động làm gì?",
+      "agent_response": "Không có thông tin về việc hệ thống tự động làm gì nếu Ticket P1 không được phản hồi sau 10 phút.",
+      "latency": 1.879034,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.2857142857142857,
+        "relevancy": 0.7142857142857143
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin về việc hệ thống tự động escalate Ticket P1 và gửi thông báo, dẫn đến thiếu sót nghiêm trọng."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác và thiếu thông tin quan trọng về hành động của hệ thống khi không có phản hồi."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Sản phẩm kỹ thuật số (license key) có được hoàn tiền không?",
+      "agent_response": "Không có thông tin về việc sản phẩm kỹ thuật số (license key) có được hoàn tiền hay không.",
+      "latency": 1.978762,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.23529411764705882,
+        "relevancy": 0.7058823529411765
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác và thiếu thông tin quan trọng về chính sách hoàn tiền đối với sản phẩm kỹ thuật số."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác và thiếu thông tin quan trọng về chính sách hoàn tiền cụ thể cho sản phẩm kỹ thuật số."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Quy trình xử lý sự cố P1 gồm mấy bước và bước đầu tiên là gì?",
+      "agent_response": "Quy trình xử lý sự cố P1 gồm 5 bước. Bước đầu tiên là tiếp nhận — on-call engineer xác nhận severity trong 5 phút.",
+      "latency": 2.32261,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 1.0,
+        "relevancy": 0.48
+      },
+      "judge": {
+        "final_score": 4.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 4.0,
+            "reasoning": "Câu trả lời chính xác về số bước và bước đầu tiên, nhưng thiếu thông tin về các bước tiếp theo trong quy trình."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 4.0,
+            "reasoning": "Câu trả lời chính xác về số bước và bước đầu tiên, nhưng thiếu thông tin về các bước tiếp theo trong quy trình."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "pass"
+    },
+    {
+      "test_case": "ERR-403-AUTH là lỗi gì và cách xử lý?",
+      "agent_response": "Không có thông tin về lỗi ERR-403-AUTH và cách xử lý.",
+      "latency": 1.840178,
+      "ragas": {
+        "hit_rate": 1.0,
+        "mrr": 0.5,
+        "faithfulness": 0.46153846153846156,
+        "relevancy": 0.5333333333333333
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin về việc liên hệ IT Helpdesk, dẫn đến thiếu sót và không đầy đủ thông tin."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác vì nó không cung cấp thông tin về việc liên hệ IT Helpdesk, mặc dù nó đúng khi nói rằng không có thông tin về lỗi ERR-403-AUTH."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Store credit khi hoàn tiền có giá trị bao nhiêu so với tiền gốc?",
+      "agent_response": "Không có thông tin về giá trị của store credit khi hoàn tiền so với tiền gốc.",
+      "latency": 1.909293,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.25,
+        "relevancy": 0.6111111111111112
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin về giá trị của store credit, trong khi thông tin đúng là store credit có giá trị 110% so với tiền gốc."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác và thiếu thông tin quan trọng về giá trị của store credit so với tiền gốc."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Ticket P1 được tạo lúc 22:47. Ai sẽ nhận thông báo đầu tiên và qua kênh nào? Escalation xảy ra lúc mấy giờ?",
+      "agent_response": "Không có thông tin về Ticket P1 được tạo lúc nào, ai sẽ nhận thông báo đầu tiên và qua kênh nào, cũng như thời gian xảy ra escalation.",
+      "latency": 3.173924,
+      "ragas": {
+        "hit_rate": 1.0,
+        "mrr": 1.0,
+        "faithfulness": 0.25925925925925924,
+        "relevancy": 0.6129032258064516
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không cung cấp thông tin chính xác về Ticket P1, không đề cập đến ai nhận thông báo đầu tiên, kênh thông báo, và thời gian escalation."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời hoàn toàn sai lệch với thông tin trong Ground Truth, không cung cấp bất kỳ thông tin nào liên quan đến ticket P1."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Khách hàng đặt đơn ngày 31/01/2026 và yêu cầu hoàn tiền ngày 07/02/2026. Sản phẩm lỗi nhà sản xuất, chưa kích hoạt, không phải Flash Sale. Được hoàn tiền không?",
+      "agent_response": "Không có thông tin về chính sách hoàn tiền trong trường hợp sản phẩm lỗi nhà sản xuất trong context đã cung cấp.",
+      "latency": 2.06966,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.19047619047619047,
+        "relevancy": 0.1951219512195122
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 0.5,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì không đề cập đến sự khác biệt giữa các phiên bản chính sách hoàn tiền và không cung cấp thông tin cần thiết để xác định tình huống."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 3.0,
+            "reasoning": "Câu trả lời chỉ ra rằng không có thông tin về chính sách hoàn tiền, nhưng không đề cập đến sự phức tạp của trường hợp và cần xác nhận với CS Team, dẫn đến thiếu sót trong thông tin."
+          }
+        },
+        "status": "conflict"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Contractor cần Admin Access (Level 3) để khắc phục sự cố P1 đang active. Quy trình cấp quyền tạm thời như thế nào?",
+      "agent_response": "Không có thông tin về quy trình cấp quyền tạm thời cho Contractor cần Admin Access (Level 3) để khắc phục sự cố P1.",
+      "latency": 3.039438,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.20833333333333334,
+        "relevancy": 0.6206896551724138
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin đúng về quy trình cấp quyền tạm thời, và thiếu thông tin quan trọng về yêu cầu approval từ 3 bên."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác vì không đề cập đến yêu cầu phê duyệt từ 3 bên, mặc dù nó đúng khi nói rằng không có quy trình cấp quyền tạm thời."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Nhân viên vừa vào thử việc (trong probation period) muốn làm remote vì lý do cá nhân. Điều kiện là gì?",
+      "agent_response": "Nhân viên trong probation period KHÔNG được phép làm remote. Chỉ nhân viên đã qua probation period mới được phép làm remote tối đa 2 ngày/tuần với điều kiện được Team Lead phê duyệt.",
+      "latency": 2.582507,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 1.0,
+        "relevancy": 0.24324324324324326
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 5.0,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và đầy đủ thông tin theo Ground Truth, không có thông tin sai hoặc bịa đặt."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 5.0,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và đầy đủ thông tin quan trọng, không có thông tin bịa đặt."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "pass"
+    },
+    {
+      "test_case": "Ticket P1 lúc 2am. Cần cấp Level 2 access tạm thời cho contractor để thực hiện emergency fix. Đồng thời cần notify stakeholders theo SLA. Nêu đủ cả hai quy trình.",
+      "agent_response": "Không có thông tin cụ thể về quy trình cấp Level 2 access tạm thời cho contractor hoặc quy trình notify stakeholders theo SLA. Bạn cần tham khảo tài liệu nội bộ hoặc quy trình của tổ chức để có thông tin chi tiết về các bước cần thực hiện.",
+      "latency": 3.073518,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.35,
+        "relevancy": 0.35294117647058826
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không cung cấp thông tin chính xác về quy trình cấp Level 2 access tạm thời và quy trình notify stakeholders theo SLA, dẫn đến thiếu sót nghiêm trọng trong thông tin."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không cung cấp thông tin cụ thể về quy trình cấp Level 2 access và quy trình notify stakeholders theo SLA, dẫn đến thiếu sót trong độ đầy đủ thông tin."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "SLA xử lý ticket P1 là bao lâu?",
+      "agent_response": "Không có thông tin về SLA xử lý ticket P1 trong context đã cung cấp.",
+      "latency": 1.978747,
+      "ragas": {
+        "hit_rate": 1.0,
+        "mrr": 1.0,
+        "faithfulness": 0.26666666666666666,
+        "relevancy": 0.2777777777777778
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin về SLA xử lý ticket P1, trong khi thông tin này đã có sẵn trong ground truth."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin về SLA xử lý ticket P1, trong khi thông tin này có sẵn trong ground truth."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Khách hàng có thể yêu cầu hoàn tiền trong bao nhiêu ngày?",
+      "agent_response": "Không có thông tin về thời gian khách hàng có thể yêu cầu hoàn tiền.",
+      "latency": 1.812358,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.2857142857142857,
+        "relevancy": 0.4444444444444444
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin đúng về thời gian yêu cầu hoàn tiền, dẫn đến thiếu sót nghiêm trọng."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác và thiếu thông tin quan trọng về thời gian hoàn tiền."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Ai phải phê duyệt để cấp quyền Level 3?",
+      "agent_response": "Không có thông tin về ai phải phê duyệt để cấp quyền Level 3.",
+      "latency": 1.864373,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.35714285714285715,
+        "relevancy": 0.6428571428571429
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác và thiếu thông tin quan trọng về ai phải phê duyệt để cấp quyền Level 3."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác và thiếu thông tin quan trọng về những người cần phê duyệt."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Tài khoản bị khóa sau bao nhiêu lần đăng nhập sai?",
+      "agent_response": "Không có thông tin về việc tài khoản bị khóa sau bao nhiêu lần đăng nhập sai.",
+      "latency": 1.907123,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.11764705882352941,
+        "relevancy": 0.6470588235294118
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin đúng về số lần đăng nhập sai dẫn đến việc tài khoản bị khóa."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác vì thiếu thông tin quan trọng về số lần đăng nhập sai dẫn đến việc tài khoản bị khóa."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Nhân viên được làm remote tối đa mấy ngày mỗi tuần?",
+      "agent_response": "Không có thông tin.",
+      "latency": 1.549092,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.25,
+        "relevancy": 0.0
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác và thiếu thông tin quan trọng về số ngày làm remote và điều kiện phê duyệt."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin cụ thể về số ngày làm remote, mặc dù nó đúng khi nói rằng không có thông tin."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Ticket P1 không được phản hồi sau 10 phút. Hệ thống tự động làm gì?",
+      "agent_response": "Không có thông tin về việc hệ thống tự động làm gì sau 10 phút nếu Ticket P1 không được phản hồi.",
+      "latency": 2.390837,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.2857142857142857,
+        "relevancy": 0.7142857142857143
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin về việc Ticket P1 tự động escalate và gửi thông báo, dẫn đến thiếu sót nghiêm trọng."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác vì không đề cập đến việc Ticket P1 tự động escalate lên Senior Engineer và gửi thông báo tới Slack và PagerDuty, chỉ nói rằng không có thông tin."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Sản phẩm kỹ thuật số (license key) có được hoàn tiền không?",
+      "agent_response": "Không có thông tin về việc sản phẩm kỹ thuật số (license key) có được hoàn tiền hay không.",
+      "latency": 2.524702,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.23529411764705882,
+        "relevancy": 0.7058823529411765
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác và thiếu thông tin quan trọng về chính sách hoàn tiền đối với sản phẩm kỹ thuật số."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác và thiếu thông tin quan trọng về chính sách hoàn tiền cụ thể cho sản phẩm kỹ thuật số."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Quy trình xử lý sự cố P1 gồm mấy bước và bước đầu tiên là gì?",
+      "agent_response": "Quy trình xử lý sự cố P1 gồm 5 bước. Bước đầu tiên là tiếp nhận — on-call engineer xác nhận severity trong 5 phút.",
+      "latency": 2.421798,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 1.0,
+        "relevancy": 0.48
+      },
+      "judge": {
+        "final_score": 3.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 3.0,
+            "reasoning": "Câu trả lời đúng về số bước và bước đầu tiên, nhưng thiếu thông tin về các bước tiếp theo trong quy trình, dẫn đến không đầy đủ."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 4.0,
+            "reasoning": "Câu trả lời đúng về số bước và bước đầu tiên, nhưng thiếu thông tin về các bước tiếp theo trong quy trình."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "pass"
+    },
+    {
+      "test_case": "ERR-403-AUTH là lỗi gì và cách xử lý?",
+      "agent_response": "Không có thông tin về lỗi ERR-403-AUTH và cách xử lý trong context đã cung cấp.",
+      "latency": 2.180695,
+      "ragas": {
+        "hit_rate": 1.0,
+        "mrr": 0.5,
+        "faithfulness": 0.3888888888888889,
+        "relevancy": 0.4
+      },
+      "judge": {
+        "final_score": 2.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác hoàn toàn vì không cung cấp thông tin về việc liên hệ IT Helpdesk, chỉ nói rằng không có thông tin mà không đề cập đến cách xử lý."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 3.0,
+            "reasoning": "Câu trả lời xác nhận không có thông tin về lỗi ERR-403-AUTH, nhưng thiếu thông tin về việc liên hệ IT Helpdesk để được hỗ trợ, dẫn đến thiếu sót trong tính đầy đủ."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Store credit khi hoàn tiền có giá trị bao nhiêu so với tiền gốc?",
+      "agent_response": "Không có thông tin về giá trị store credit khi hoàn tiền so với tiền gốc.",
+      "latency": 1.736802,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.26666666666666666,
+        "relevancy": 0.6470588235294118
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác và thiếu thông tin quan trọng về giá trị store credit, không đáp ứng yêu cầu của Ground Truth."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác và thiếu thông tin quan trọng về giá trị store credit so với tiền gốc."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Ticket P1 được tạo lúc 22:47. Ai sẽ nhận thông báo đầu tiên và qua kênh nào? Escalation xảy ra lúc mấy giờ?",
+      "agent_response": "Không có thông tin về Ticket P1, ai sẽ nhận thông báo đầu tiên, kênh thông báo, hay thời gian xảy ra escalation.",
+      "latency": 2.677352,
+      "ragas": {
+        "hit_rate": 1.0,
+        "mrr": 1.0,
+        "faithfulness": 0.3,
+        "relevancy": 0.43333333333333335
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không cung cấp bất kỳ thông tin nào về Ticket P1, ai sẽ nhận thông báo đầu tiên, kênh thông báo, hay thời gian xảy ra escalation, hoàn toàn thiếu sót và không chính xác."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không cung cấp thông tin nào về Ticket P1, không đúng với thông tin trong Ground Truth."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Khách hàng đặt đơn ngày 31/01/2026 và yêu cầu hoàn tiền ngày 07/02/2026. Sản phẩm lỗi nhà sản xuất, chưa kích hoạt, không phải Flash Sale. Được hoàn tiền không?",
+      "agent_response": "Có thể hoàn tiền cho khách hàng trong trường hợp này vì sản phẩm lỗi do nhà sản xuất, chưa được kích hoạt và không phải là sản phẩm thuộc Flash Sale.",
+      "latency": 2.262078,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.3448275862068966,
+        "relevancy": 0.46153846153846156
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 0.5,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì không đề cập đến sự cần thiết phải xác nhận với CS Team về chính sách hoàn tiền phiên bản 3, mà chỉ dựa vào thông tin về sản phẩm lỗi."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 3.0,
+            "reasoning": "Câu trả lời đúng về khả năng hoàn tiền do sản phẩm lỗi và chưa kích hoạt, nhưng không đề cập đến sự phức tạp của chính sách hoàn tiền và cần xác nhận với CS Team, dẫn đến thiếu sót thông tin quan trọng."
+          }
+        },
+        "status": "conflict"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Contractor cần Admin Access (Level 3) để khắc phục sự cố P1 đang active. Quy trình cấp quyền tạm thời như thế nào?",
+      "agent_response": "Không có thông tin về quy trình cấp quyền tạm thời cho Contractor cần Admin Access (Level 3) để khắc phục sự cố P1.",
+      "latency": 2.634076,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.20833333333333334,
+        "relevancy": 0.6206896551724138
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin đúng về quy trình cấp quyền tạm thời, và thiếu thông tin quan trọng về yêu cầu phê duyệt từ 3 bên."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác vì không đề cập đến việc cần có sự phê duyệt từ 3 bên, mà chỉ nói rằng không có thông tin về quy trình. Thiếu sót này làm giảm độ chính xác và đầy đủ của câu trả lời."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Nhân viên vừa vào thử việc (trong probation period) muốn làm remote vì lý do cá nhân. Điều kiện là gì?",
+      "agent_response": "Nhân viên trong probation period KHÔNG được phép làm remote. Chỉ nhân viên đã qua probation period mới được phép làm remote tối đa 2 ngày/tuần với điều kiện được Team Lead phê duyệt.",
+      "latency": 2.855748,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 1.0,
+        "relevancy": 0.24324324324324326
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 5.0,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và đầy đủ thông tin theo Ground Truth, không có thông tin sai hoặc bịa đặt."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 5.0,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và đầy đủ thông tin quan trọng, không có thông tin bịa đặt."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "pass"
+    },
+    {
+      "test_case": "Ticket P1 lúc 2am. Cần cấp Level 2 access tạm thời cho contractor để thực hiện emergency fix. Đồng thời cần notify stakeholders theo SLA. Nêu đủ cả hai quy trình.",
+      "agent_response": "Không có thông tin cụ thể về quy trình cấp Level 2 access tạm thời cho contractor và quy trình notify stakeholders theo SLA trong context đã cung cấp.",
+      "latency": 2.237657,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.4230769230769231,
+        "relevancy": 0.34146341463414637
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không cung cấp thông tin chính xác về quy trình cấp Level 2 access tạm thời và quy trình notify stakeholders theo SLA, dẫn đến thiếu sót nghiêm trọng trong thông tin."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không cung cấp thông tin nào về quy trình cấp Level 2 access tạm thời và quy trình notify stakeholders theo SLA, hoàn toàn thiếu sót so với Ground Truth."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Theo tài liệu, thời gian hoàn tiền cho khách hàng là 5 ngày làm việc. Nếu khách hàng gửi yêu cầu hoàn tiền vào thứ Sáu, thì thời gian hoàn tiền sẽ là khi nào?",
+      "agent_response": "Nếu khách hàng gửi yêu cầu hoàn tiền vào thứ Sáu, thời gian hoàn tiền sẽ là 5 ngày làm việc sau đó. Tuy nhiên, không có thông tin cụ thể về ngày hoàn tiền sẽ rơi vào ngày nào.",
+      "latency": 2.605467,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.46875,
+        "relevancy": 0.5263157894736842
+      },
+      "judge": {
+        "final_score": 2.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác hoàn toàn vì không xác định rõ ngày hoàn tiền sẽ rơi vào ngày nào, mặc dù có thông tin về thời gian hoàn tiền là 5 ngày làm việc."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 3.0,
+            "reasoning": "Câu trả lời đúng về thời gian hoàn tiền nhưng thiếu thông tin cụ thể về ngày hoàn tiền sẽ rơi vào ngày nào."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Khách hàng đã đặt hàng vào ngày 10/01/2023 và gửi yêu cầu hoàn tiền vào ngày 20/01/2023. Theo chính sách hoàn tiền, khách hàng có thể hoàn tiền trong vòng 14 ngày. Vậy yêu cầu này có hợp lệ không?",
+      "agent_response": "Yêu cầu hoàn tiền của khách hàng không hợp lệ, vì khách hàng đã gửi yêu cầu hoàn tiền sau 10 ngày (từ ngày 10/01/2023 đến ngày 20/01/2023), trong khi chính sách hoàn tiền cho phép khách hàng hoàn tiền trong vòng 14 ngày.",
+      "latency": 2.781452,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.13793103448275862,
+        "relevancy": 0.5675675675675675
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời sai về thời gian hợp lệ của yêu cầu hoàn tiền, vì khách hàng vẫn trong khoảng thời gian 14 ngày."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời sai về thời gian yêu cầu hoàn tiền, vì khách hàng vẫn trong thời gian hợp lệ 14 ngày, nhưng không nêu rõ rằng yêu cầu đã quá thời gian cho phép."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Nếu một nhân viên vi phạm quy định về bảo mật thông tin, hình phạt sẽ là gì?",
+      "agent_response": "Không có thông tin.",
+      "latency": 1.938597,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.5,
+        "relevancy": 0.1
+      },
+      "judge": {
+        "final_score": 3.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 3.0,
+            "reasoning": "Câu trả lời không cung cấp thông tin đầy đủ về việc cần liên hệ bộ phận nhân sự, nhưng cũng không bịa đặt thông tin."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 4.0,
+            "reasoning": "Câu trả lời đúng về việc không có thông tin cụ thể, nhưng thiếu chi tiết về việc cần liên hệ bộ phận nhân sự."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "pass"
+    },
+    {
+      "test_case": "Một nhân viên trong thời gian thử việc muốn tham gia dự án quan trọng mà không có sự đồng ý của quản lý. Điều này có vi phạm quy định không?",
+      "agent_response": "Không có thông tin về quy định liên quan đến việc nhân viên trong thời gian thử việc tham gia dự án quan trọng mà không có sự đồng ý của quản lý.",
+      "latency": 2.427598,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.3448275862068966,
+        "relevancy": 0.6857142857142857
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì đã bỏ qua thông tin quan trọng về việc cần sự đồng ý của quản lý, dẫn đến việc vi phạm quy định."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác vì đã bỏ qua thông tin quan trọng về việc cần sự đồng ý của quản lý, mặc dù không bịa thêm thông tin."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Theo tài liệu, nếu một ticket P1 không được giải quyết trong 4 giờ, ai sẽ là người nhận thông báo đầu tiên?",
+      "agent_response": "Không có thông tin về ai sẽ là người nhận thông báo đầu tiên nếu một ticket P1 không được giải quyết trong 4 giờ.",
+      "latency": 2.446467,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.43478260869565216,
+        "relevancy": 0.7692307692307693
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì đã thiếu thông tin quan trọng về người nhận thông báo đầu tiên, là Senior Engineer."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác vì thiếu thông tin quan trọng về người nhận thông báo đầu tiên, mặc dù nó đúng khi nói rằng không có thông tin cụ thể trong câu trả lời."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Một khách hàng đã đặt hàng vào ngày 15/02/2023 và yêu cầu hoàn tiền vào ngày 01/03/2023. Theo chính sách, khách hàng có thể hoàn tiền trong vòng 30 ngày. Yêu cầu này có hợp lệ không?",
+      "agent_response": "Không có thông tin về chính sách hoàn tiền để xác định tính hợp lệ của yêu cầu hoàn tiền của khách hàng.",
+      "latency": 1.914174,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.2,
+        "relevancy": 0.32432432432432434
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì đã không nhận ra rằng yêu cầu hoàn tiền hợp lệ trong khoảng thời gian 30 ngày."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác vì đã bỏ qua thông tin quan trọng về thời gian hoàn tiền, mặc dù có lý do cho việc thiếu thông tin về chính sách."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Theo tài liệu, thời gian phản hồi tối đa cho ticket P2 là 2 giờ. Nếu ticket P2 được tạo lúc 10:00, thời gian phản hồi sẽ là khi nào?",
+      "agent_response": "Nếu ticket P2 được tạo lúc 10:00, thời gian phản hồi tối đa sẽ là 12:00.",
+      "latency": 2.115631,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.5882352941176471,
+        "relevancy": 0.64
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 5.0,
+            "reasoning": "Câu trả lời chính xác 100% và đầy đủ thông tin, không có thông tin sai."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 5.0,
+            "reasoning": "Câu trả lời chính xác và đầy đủ, nêu rõ thời gian phản hồi là 12:00 cùng ngày."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "pass"
+    },
+    {
+      "test_case": "Một nhân viên đã làm việc tại công ty được 6 tháng và muốn xin nghỉ phép không lương. Theo quy định, nhân viên phải làm việc ít nhất 1 năm mới được phép xin nghỉ phép không lương. Yêu cầu này có được chấp thuận không?",
+      "agent_response": "Không có thông tin về việc xin nghỉ phép không lương trong context đã cho.",
+      "latency": 2.144418,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.35714285714285715,
+        "relevancy": 0.2
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì đã bỏ qua thông tin quan trọng về quy định nghỉ phép không lương."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác vì đã bỏ qua thông tin quan trọng về quy định nghỉ phép không lương, dẫn đến việc không xác định được yêu cầu có được chấp thuận hay không."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Theo tài liệu, nhân viên cần phải đổi mật khẩu sau mỗi 30 ngày. Nếu một nhân viên quên đổi mật khẩu sau 30 ngày, hệ thống sẽ tự động khóa tài khoản sau bao nhiêu ngày?",
+      "agent_response": "Không có thông tin về số ngày hệ thống sẽ tự động khóa tài khoản nếu nhân viên quên đổi mật khẩu sau 30 ngày.",
+      "latency": 2.049045,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.375,
+        "relevancy": 0.5625
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì đã thiếu thông tin quan trọng về số ngày hệ thống sẽ tự động khóa tài khoản."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác vì thiếu thông tin quan trọng về số ngày hệ thống sẽ tự động khóa tài khoản."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Nếu một nhân viên không tuân thủ quy định về thời gian làm việc, hình phạt sẽ là gì?",
+      "agent_response": "Tôi không có thông tin về hình phạt đối với nhân viên không tuân thủ quy định về thời gian làm việc.",
+      "latency": 3.313523,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.25,
+        "relevancy": 0.56
+      },
+      "judge": {
+        "final_score": 2.0,
+        "agreement_rate": 0.5,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không cung cấp thông tin đầy đủ và chính xác về việc cần liên hệ bộ phận nhân sự, mặc dù nó đúng rằng không có thông tin cụ thể về hình phạt."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 4.0,
+            "reasoning": "Câu trả lời chính xác khi không có thông tin cụ thể về hình phạt, nhưng thiếu chi tiết về việc cần liên hệ bộ phận nhân sự."
+          }
+        },
+        "status": "conflict"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Một khách hàng đã đặt hàng vào ngày 01/01/2023 và yêu cầu hoàn tiền vào ngày 15/01/2023. Theo chính sách, khách hàng có thể hoàn tiền trong vòng 10 ngày. Yêu cầu này có hợp lệ không?",
+      "agent_response": "Không có thông tin về chính sách hoàn tiền cụ thể trong context. Do đó, tôi không thể xác định yêu cầu hoàn tiền của khách hàng có hợp lệ hay không.",
+      "latency": 2.714394,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.07692307692307693,
+        "relevancy": 0.358974358974359
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì đã không nhận ra rằng yêu cầu hoàn tiền đã quá thời hạn 10 ngày, dẫn đến việc không cung cấp thông tin đúng."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác vì đã không nhận ra rằng yêu cầu hoàn tiền đã quá thời hạn 10 ngày, mặc dù có thiếu thông tin về chính sách hoàn tiền."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Theo tài liệu, nếu một ticket P1 không được giải quyết trong 4 giờ, ai sẽ là người nhận thông báo đầu tiên?",
+      "agent_response": "Không có thông tin về ai sẽ là người nhận thông báo đầu tiên nếu một ticket P1 không được giải quyết trong 4 giờ.",
+      "latency": 2.381137,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.43478260869565216,
+        "relevancy": 0.7692307692307693
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì đã thiếu thông tin quan trọng về người nhận thông báo đầu tiên, là IT Manager."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác vì thiếu thông tin quan trọng về người nhận thông báo đầu tiên, mặc dù nó không bịa thêm thông tin."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Một nhân viên trong thời gian thử việc muốn tham gia một khóa đào tạo mà không có sự đồng ý của quản lý. Điều này có vi phạm quy định không?",
+      "agent_response": "Không có thông tin về quy định liên quan đến việc nhân viên trong thời gian thử việc tham gia khóa đào tạo mà không có sự đồng ý của quản lý.",
+      "latency": 2.681426,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.27586206896551724,
+        "relevancy": 0.6571428571428571
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì đã bỏ qua thông tin quan trọng về việc cần sự đồng ý của quản lý, dẫn đến việc không đáp ứng yêu cầu về độ chính xác và đầy đủ."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác vì đã bỏ qua thông tin quan trọng về việc cần sự đồng ý của quản lý, dẫn đến thiếu sót trong độ chính xác và đầy đủ."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Nếu một nhân viên vi phạm quy định về bảo mật thông tin, hình phạt sẽ là gì?",
+      "agent_response": "Không có thông tin.",
+      "latency": 2.525721,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.5,
+        "relevancy": 0.1
+      },
+      "judge": {
+        "final_score": 2.0,
+        "agreement_rate": 0.5,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác hoàn toàn vì nó không cung cấp thông tin về việc cần liên hệ bộ phận nhân sự để biết thêm chi tiết, mặc dù nó đúng rằng thông tin về hình phạt không có trong tài liệu hiện có."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 4.0,
+            "reasoning": "Câu trả lời đúng về việc không có thông tin cụ thể, nhưng thiếu chi tiết về việc cần liên hệ bộ phận nhân sự."
+          }
+        },
+        "status": "conflict"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Một khách hàng đã đặt hàng vào ngày 01/01/2023 và yêu cầu hoàn tiền vào ngày 10/01/2023. Theo chính sách, khách hàng có thể hoàn tiền trong vòng 15 ngày. Yêu cầu này có hợp lệ không?",
+      "agent_response": "Không có thông tin để xác định tính hợp lệ của yêu cầu hoàn tiền của khách hàng.",
+      "latency": 2.078653,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.11764705882352941,
+        "relevancy": 0.29411764705882354
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì đã không nhận ra rằng yêu cầu hoàn tiền hợp lệ trong khoảng thời gian 15 ngày."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác vì đã bỏ qua thông tin quan trọng về thời gian hoàn tiền, mặc dù có lý do cho rằng không đủ thông tin."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    }
+  ],
+  "v2": [
+    {
+      "test_case": "Ticket P1 được tạo lúc 22:47. Đúng theo SLA, ai nhận thông báo đầu tiên và qua kênh nào? Deadline escalation là mấy giờ?",
+      "agent_response": "Thông tin về ticket P1 được tạo lúc 22:47 như sau: \n\n- Ai nhận thông báo đầu tiên: Senior Engineer\n- Kênh thông báo: Slack #incident-p1, email incident@company.internal, và PagerDuty\n- Deadline escalation: 10 phút sau khi tạo ticket, tức là 22:57.",
+      "latency": 2.443577,
+      "ragas": {
+        "hit_rate": 1.0,
+        "mrr": 1.0,
+        "faithfulness": 0.9142857142857143,
+        "relevancy": 0.42857142857142855
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 5.0,
+            "reasoning": "Câu trả lời cung cấp thông tin chính xác về đối tượng nhận thông báo đầu tiên, các kênh thông báo và thời gian deadline escalation, hoàn toàn khớp với Ground Truth."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 5.0,
+            "reasoning": "Câu trả lời cung cấp đầy đủ thông tin chính xác về ai nhận thông báo đầu tiên, kênh thông báo và thời gian deadline escalation, hoàn toàn khớp với Ground Truth."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "pass"
+    },
+    {
+      "test_case": "Khách hàng đặt đơn ngày 31/01/2026 và gửi yêu cầu hoàn tiền ngày 07/02/2026 vì lỗi nhà sản xuất. Sản phẩm chưa kích hoạt, không phải Flash Sale, không phải kỹ thuật số. Chính sách nào áp dụng và có được hoàn tiền không?",
+      "agent_response": "Không có thông tin về chính sách hoàn tiền cụ thể trong trường hợp này.",
+      "latency": 2.47228,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.5333333333333333,
+        "relevancy": 0.125
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không cung cấp thông tin chính xác về chính sách hoàn tiền áp dụng cho đơn đặt hàng và không đề cập đến sự khác biệt giữa chính sách v3 và v4, dẫn đến thiếu sót thông tin quan trọng."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không cung cấp thông tin về chính sách hoàn tiền cụ thể và không xác định được liệu khách hàng có được hoàn tiền hay không, mặc dù đã nêu rõ rằng không có thông tin về chính sách."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Engineer cần Level 3 access để khắc phục P1 đang active. Bao nhiêu người phải phê duyệt? Ai là người phê duyệt cuối cùng (người phê duyệt có thẩm quyền cao nhất)?",
+      "agent_response": "Không có thông tin về số lượng người cần phê duyệt để cấp Level 3 access cho Engineer khắc phục P1 đang active, cũng như ai là người phê duyệt cuối cùng.",
+      "latency": 2.847861,
+      "ragas": {
+        "hit_rate": 1.0,
+        "mrr": 0.3333333333333333,
+        "faithfulness": 0.5172413793103449,
+        "relevancy": 0.5277777777777778
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không cung cấp thông tin chính xác về số lượng người cần phê duyệt, tên của những người phê duyệt và người phê duyệt cuối cùng, dẫn đến thiếu sót nghiêm trọng."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không cung cấp thông tin chính xác về số lượng người phê duyệt, tên các phê duyệt và người phê duyệt cuối cùng, hoàn toàn thiếu sót so với Ground Truth."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Khi khách hàng chọn nhận store credit thay vì hoàn tiền, họ nhận được bao nhiêu phần trăm so với số tiền gốc cần hoàn?",
+      "agent_response": "Không có thông tin về tỷ lệ phần trăm store credit mà khách hàng nhận được so với số tiền gốc cần hoàn.",
+      "latency": 2.410707,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.4782608695652174,
+        "relevancy": 0.5
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin về tỷ lệ phần trăm store credit, trong khi Ground Truth là 110%."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác và thiếu thông tin quan trọng về tỷ lệ phần trăm store credit."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Ticket P1 được tạo và on-call engineer không phản hồi sau 10 phút. Theo đúng SLA, hệ thống sẽ làm gì tiếp theo?",
+      "agent_response": "Hệ thống tự động escalate Ticket P1 lên Senior Engineer nếu không có phản hồi trong 10 phút. Đồng thời gửi thông báo tới Slack #incident-p1 và PagerDuty.",
+      "latency": 5.833306,
+      "ragas": {
+        "hit_rate": 1.0,
+        "mrr": 0.3333333333333333,
+        "faithfulness": 1.0,
+        "relevancy": 0.275
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 5.0,
+            "reasoning": "Câu trả lời chính xác 100% với thông tin đầy đủ về hành động tự động escalate lên Senior Engineer và không có thông tin sai lệch."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 5.0,
+            "reasoning": "Câu trả lời nêu đúng hành động tự động escalate Ticket P1 lên Senior Engineer và không có thông tin sai lệch về thời gian hoặc đối tượng escalation."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "pass"
+    },
+    {
+      "test_case": "Một nhân viên mới đang trong probation period muốn làm remote vì lý do cá nhân. Yêu cầu này có được chấp thuận không? Điều kiện để được làm remote là gì?",
+      "agent_response": "Nhân viên trong probation period KHÔNG được phép làm remote. Chỉ nhân viên đã qua probation period mới được phép làm remote tối đa 2 ngày/tuần với điều kiện được Team Lead phê duyệt.",
+      "latency": 2.356342,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 1.0,
+        "relevancy": 0.2857142857142857
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 5.0,
+            "reasoning": "Câu trả lời chính xác 100% với thông tin đầy đủ và không có thông tin sai lệch."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 5.0,
+            "reasoning": "Câu trả lời chính xác và đầy đủ thông tin quan trọng về việc nhân viên trong probation period không được làm remote, điều kiện cần thiết và giới hạn về số ngày làm remote."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "pass"
+    },
+    {
+      "test_case": "Mức phạt tài chính cụ thể khi đội IT vi phạm SLA P1 resolution time (không resolve trong 4 giờ) là bao nhiêu?",
+      "agent_response": "Không có thông tin về mức phạt tài chính cụ thể khi đội IT vi phạm SLA P1 resolution time.",
+      "latency": 2.349886,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.4,
+        "relevancy": 0.5925925925925926
+      },
+      "judge": {
+        "final_score": 4.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 4.0,
+            "reasoning": "Câu trả lời chính xác khi nói rằng không có thông tin về mức phạt tài chính cụ thể, nhưng thiếu phần gợi ý liên hệ bộ phận liên quan để tra cứu, do đó không đạt điểm tối đa."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 5.0,
+            "reasoning": "Câu trả lời chính xác khi khẳng định không có thông tin về mức phạt tài chính cụ thể và không bịa ra con số nào, đồng thời gợi ý liên hệ bộ phận liên quan."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "pass"
+    },
+    {
+      "test_case": "Theo quy định IT nội bộ, nhân viên phải đổi mật khẩu sau bao nhiêu ngày? Và hệ thống cảnh báo trước bao nhiêu ngày?",
+      "agent_response": "Không có thông tin.",
+      "latency": 2.102252,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.25,
+        "faithfulness": 0.75,
+        "relevancy": 0.0
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không cung cấp thông tin nào về chu kỳ đổi mật khẩu và số ngày cảnh báo trước, do đó không đáp ứng yêu cầu về độ chính xác và đầy đủ."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không cung cấp thông tin nào về chu kỳ đổi mật khẩu hoặc số ngày cảnh báo, do đó không đáp ứng yêu cầu về độ chính xác và đầy đủ."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Sự cố P1 xảy ra lúc 2am. Đồng thời cần cấp Level 2 access tạm thời cho contractor để thực hiện emergency fix. Hãy nêu đầy đủ: (1) các bước SLA P1 notification phải làm ngay, và (2) điều kiện để cấp Level 2 emergency access.",
+      "agent_response": "(1) Các bước SLA P1 notification phải làm ngay:\n- Gửi thông báo qua kênh Slack #incident-p1.\n- Gửi email đến incident@company.internal.\n- Kích hoạt thông báo qua PagerDuty.\n- Đảm bảo rằng escalation deadline được thiết lập là 10 phút để phản hồi từ Senior Engineer nếu không có phản hồi.\n\n(2) Điều kiện để cấp Level 2 emergency access:\n- Cần có sự phê duyệt đồng thời của Line Manager và IT Admin on-call.\n- Không cần sự phê duyệt từ IT Security cho Level 2 emergency access.",
+      "latency": 5.905685,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.8636363636363636,
+        "relevancy": 0.2875
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 5.0,
+            "reasoning": "Câu trả lời cung cấp đầy đủ các bước SLA P1 notification và điều kiện cấp Level 2 emergency access, hoàn toàn chính xác và không có thông tin sai lệch."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 5.0,
+            "reasoning": "Câu trả lời đã nêu đầy đủ các bước SLA P1 notification và điều kiện cấp Level 2 emergency access, đúng với thông tin trong Ground Truth."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "pass"
+    },
+    {
+      "test_case": "Khách hàng mua sản phẩm trong chương trình Flash Sale, nhưng phát hiện sản phẩm bị lỗi từ nhà sản xuất và yêu cầu hoàn tiền trong vòng 5 ngày. Có được hoàn tiền không? Giải thích theo đúng chính sách.",
+      "agent_response": "Theo chính sách, khách hàng có thể yêu cầu hoàn tiền trong vòng 7 ngày làm việc kể từ thời điểm xác nhận đơn hàng. Do đó, nếu khách hàng phát hiện sản phẩm bị lỗi từ nhà sản xuất và yêu cầu hoàn tiền trong vòng 5 ngày, thì yêu cầu hoàn tiền của khách hàng là hợp lệ.",
+      "latency": 3.414533,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.6904761904761905,
+        "relevancy": 0.4528301886792453
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời sai hoàn toàn về chính sách hoàn tiền trong chương trình Flash Sale, không nêu đúng lý do và không trích dẫn nguồn chính xác."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời sai hoàn toàn về chính sách hoàn tiền trong chương trình Flash Sale, không nêu đúng lý do và không trích dẫn nguồn chính xác."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "SLA xử lý ticket P1 là bao lâu?",
+      "agent_response": "Không có thông tin về SLA xử lý ticket P1.",
+      "latency": 2.530164,
+      "ragas": {
+        "hit_rate": 1.0,
+        "mrr": 1.0,
+        "faithfulness": 0.6,
+        "relevancy": 0.38461538461538464
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin về SLA xử lý ticket P1, trong khi thông tin đúng là có SLA phản hồi ban đầu 15 phút và thời gian xử lý 4 giờ."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin về SLA xử lý ticket P1, trong khi thông tin này đã được nêu rõ trong Ground Truth."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Khách hàng có thể yêu cầu hoàn tiền trong bao nhiêu ngày?",
+      "agent_response": "Không có thông tin.",
+      "latency": 1.855943,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.75,
+        "relevancy": 0.06666666666666667
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin đúng về thời gian yêu cầu hoàn tiền."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác và thiếu thông tin quan trọng về thời gian hoàn tiền."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Ai phải phê duyệt để cấp quyền Level 3?",
+      "agent_response": "Không có thông tin về ai phải phê duyệt để cấp quyền Level 3 trong context đã cung cấp.",
+      "latency": 2.353221,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.6111111111111112,
+        "relevancy": 0.5
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin về ba người cần phê duyệt, dẫn đến thiếu sót nghiêm trọng."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác vì thiếu thông tin quan trọng về những người cần phê duyệt, mặc dù nó đúng khi nói rằng không có thông tin trong context."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Tài khoản bị khóa sau bao nhiêu lần đăng nhập sai?",
+      "agent_response": "Không có thông tin về số lần đăng nhập sai dẫn đến việc tài khoản bị khóa.",
+      "latency": 2.371294,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.23529411764705882,
+        "relevancy": 0.4
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin đúng về số lần đăng nhập sai dẫn đến việc tài khoản bị khóa."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin đúng về số lần đăng nhập sai dẫn đến việc tài khoản bị khóa."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Nhân viên được làm remote tối đa mấy ngày mỗi tuần?",
+      "agent_response": "Không có thông tin về số ngày tối đa mà nhân viên được làm remote mỗi tuần.",
+      "latency": 2.373627,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.4117647058823529,
+        "relevancy": 0.5555555555555556
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin đúng về số ngày tối đa mà nhân viên được làm remote."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác vì thiếu thông tin quan trọng về số ngày tối đa mà nhân viên được làm remote, mặc dù nó không bịa thêm thông tin."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Ticket P1 không được phản hồi sau 10 phút. Hệ thống tự động làm gì?",
+      "agent_response": "Thông tin về việc hệ thống tự động làm gì khi Ticket P1 không được phản hồi sau 10 phút không có trong tài liệu hiện có.",
+      "latency": 2.168997,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.64,
+        "relevancy": 0.6
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin về việc Ticket P1 tự động escalate và gửi thông báo, dẫn đến thiếu sót nghiêm trọng."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác vì không đề cập đến việc Ticket P1 tự động escalate lên Senior Engineer và gửi thông báo tới Slack và PagerDuty, chỉ nói rằng thông tin không có trong tài liệu."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Sản phẩm kỹ thuật số (license key) có được hoàn tiền không?",
+      "agent_response": "Không có thông tin về việc sản phẩm kỹ thuật số (license key) có được hoàn tiền hay không.",
+      "latency": 2.174617,
+      "ragas": {
+        "hit_rate": 1.0,
+        "mrr": 0.3333333333333333,
+        "faithfulness": 0.4117647058823529,
+        "relevancy": 0.7058823529411765
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác và thiếu thông tin quan trọng về chính sách hoàn tiền đối với sản phẩm kỹ thuật số."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác vì thiếu thông tin quan trọng về chính sách hoàn tiền cụ thể cho sản phẩm kỹ thuật số."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Quy trình xử lý sự cố P1 gồm mấy bước và bước đầu tiên là gì?",
+      "agent_response": "Quy trình xử lý sự cố P1 gồm 5 bước: (1) Tiếp nhận — on-call engineer xác nhận severity trong 5 phút, (2) Thông báo tới Slack và email, (3) Triage và phân công trong 10 phút, (4) Xử lý với update mỗi 30 phút, (5) Resolution và incident report trong 24 giờ.",
+      "latency": 2.923084,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 1.0,
+        "relevancy": 0.2127659574468085
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 5.0,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và đầy đủ thông tin như trong Ground Truth."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 5.0,
+            "reasoning": "Câu trả lời chính xác và đầy đủ thông tin về quy trình xử lý sự cố P1, không có thông tin bịa đặt."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "pass"
+    },
+    {
+      "test_case": "ERR-403-AUTH là lỗi gì và cách xử lý?",
+      "agent_response": "Không có thông tin về lỗi ERR-403-AUTH và cách xử lý.",
+      "latency": 2.085972,
+      "ragas": {
+        "hit_rate": 1.0,
+        "mrr": 0.5,
+        "faithfulness": 0.6153846153846154,
+        "relevancy": 0.5333333333333333
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin về việc liên hệ IT Helpdesk, dẫn đến thiếu sót trong thông tin quan trọng."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác vì nó không cung cấp thông tin về việc liên hệ IT Helpdesk, mặc dù nó đúng khi nói rằng không có thông tin về lỗi ERR-403-AUTH."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Store credit khi hoàn tiền có giá trị bao nhiêu so với tiền gốc?",
+      "agent_response": "Không có thông tin về giá trị của store credit khi hoàn tiền so với tiền gốc.",
+      "latency": 2.452362,
+      "ragas": {
+        "hit_rate": 1.0,
+        "mrr": 0.3333333333333333,
+        "faithfulness": 0.4375,
+        "relevancy": 0.6111111111111112
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin về giá trị của store credit, trong khi Ground Truth chỉ rõ rằng giá trị là 110% so với tiền gốc."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác và thiếu thông tin quan trọng về giá trị của store credit so với tiền gốc."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Ticket P1 được tạo lúc 22:47. Ai sẽ nhận thông báo đầu tiên và qua kênh nào? Escalation xảy ra lúc mấy giờ?",
+      "agent_response": "Không có thông tin về thời gian thông báo đầu tiên cho Ticket P1, kênh thông báo, và thời gian xảy ra escalation.",
+      "latency": 3.118277,
+      "ragas": {
+        "hit_rate": 1.0,
+        "mrr": 1.0,
+        "faithfulness": 0.7222222222222222,
+        "relevancy": 0.36666666666666664
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không cung cấp thông tin chính xác về thông báo đầu tiên và thời gian escalation, hoàn toàn thiếu sót so với Ground Truth."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không cung cấp thông tin chính xác về thông báo đầu tiên và thời gian escalation, hoàn toàn thiếu sót thông tin quan trọng."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Khách hàng đặt đơn ngày 31/01/2026 và yêu cầu hoàn tiền ngày 07/02/2026. Sản phẩm lỗi nhà sản xuất, chưa kích hoạt, không phải Flash Sale. Được hoàn tiền không?",
+      "agent_response": "Không có thông tin về chính sách hoàn tiền cho sản phẩm lỗi nhà sản xuất trong context đã cung cấp.",
+      "latency": 2.422926,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.45,
+        "relevancy": 0.2
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì không đề cập đến việc cần xác nhận với CS Team về chính sách hoàn tiền phiên bản 3, dẫn đến thiếu sót thông tin quan trọng."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác vì không đề cập đến việc áp dụng chính sách hoàn tiền phiên bản 3, mà chỉ nói về việc thiếu thông tin. Điều này làm giảm độ chính xác và đầy đủ của câu trả lời."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Contractor cần Admin Access (Level 3) để khắc phục sự cố P1 đang active. Quy trình cấp quyền tạm thời như thế nào?",
+      "agent_response": "Không có thông tin về quy trình cấp quyền tạm thời cho Contractor cần Admin Access (Level 3) để khắc phục sự cố P1.",
+      "latency": 3.573262,
+      "ragas": {
+        "hit_rate": 1.0,
+        "mrr": 0.3333333333333333,
+        "faithfulness": 0.4583333333333333,
+        "relevancy": 0.6206896551724138
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin đúng về quy trình cấp quyền tạm thời, dẫn đến thiếu sót nghiêm trọng trong thông tin."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác vì không đề cập đến yêu cầu phê duyệt từ 3 bên, mặc dù nó đúng khi nói rằng không có thông tin về quy trình cấp quyền tạm thời."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Nhân viên vừa vào thử việc (trong probation period) muốn làm remote vì lý do cá nhân. Điều kiện là gì?",
+      "agent_response": "Nhân viên trong probation period KHÔNG được phép làm remote. Chỉ nhân viên đã qua probation period mới được phép làm remote tối đa 2 ngày/tuần với điều kiện được Team Lead phê duyệt.",
+      "latency": 2.887107,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 1.0,
+        "relevancy": 0.24324324324324326
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 5.0,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và đầy đủ thông tin theo Ground Truth, không có thông tin sai hoặc bịa đặt."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 5.0,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và đầy đủ thông tin quan trọng, không có thông tin bịa đặt."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "pass"
+    },
+    {
+      "test_case": "Ticket P1 lúc 2am. Cần cấp Level 2 access tạm thời cho contractor để thực hiện emergency fix. Đồng thời cần notify stakeholders theo SLA. Nêu đủ cả hai quy trình.",
+      "agent_response": "Để cấp Level 2 access tạm thời cho contractor và notify stakeholders theo SLA, quy trình như sau:\n\n1. **Cấp Level 2 Access Tạm Thời:**\n   - Xác định lý do cần cấp quyền tạm thời (emergency fix cho sự cố P1).\n   - Gửi yêu cầu cấp quyền tạm thời đến IT Admin và Line Manager để xin phê duyệt.\n   - Sau khi nhận được phê duyệt từ cả hai bên, IT Admin sẽ thực hiện việc cấp quyền Level 2 cho contractor.\n   - Ghi chú lại thời gian và lý do cấp quyền tạm thời để theo dõi.\n\n2. **Notify Stakeholders theo SLA:**\n   - Xác định danh sách stakeholders cần được thông báo (bao gồm các bên liên quan đến sự cố P1).\n   - Soạn thảo thông báo chi tiết về sự cố, lý do cấp quyền tạm thời, và các bước tiếp theo.\n   - Gửi thông báo đến tất cả stakeholders qua email hoặc hệ thống thông báo nội bộ theo quy định trong SLA.\n   - Đảm bảo rằng thông báo được gửi trong thời gian quy định theo SLA để đảm bảo tuân thủ.\n\nLưu ý: Quy trình cụ thể có thể thay đổi tùy theo chính sách và quy định nội bộ của tổ chức.",
+      "latency": 5.567145,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.5151515151515151,
+        "relevancy": 0.21904761904761905
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 0.5,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác hoàn toàn so với Ground Truth. Quy trình notify stakeholders không đúng với các kênh thông báo cụ thể và thời gian phản hồi được nêu trong Ground Truth. Quy trình cấp Level 2 access cũng không chính xác về việc không cần IT Security và cách thức phê duyệt."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 3.0,
+            "reasoning": "Câu trả lời cung cấp quy trình cấp Level 2 access và notify stakeholders, nhưng thiếu chi tiết cụ thể về cách thức thông báo theo SLA và không đề cập đến các kênh cụ thể như Slack, email hay PagerDuty. Ngoài ra, không nêu rõ quy trình phê duyệt và bypass cho Level 2 access trong tình huống khẩn cấp."
+          }
+        },
+        "status": "conflict"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "SLA xử lý ticket P1 là bao lâu?",
+      "agent_response": "Không có thông tin về SLA xử lý ticket P1.",
+      "latency": 2.08376,
+      "ragas": {
+        "hit_rate": 1.0,
+        "mrr": 1.0,
+        "faithfulness": 0.6,
+        "relevancy": 0.38461538461538464
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin đúng về SLA xử lý ticket P1."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời hoàn toàn sai vì không cung cấp thông tin chính xác về SLA xử lý ticket P1."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Khách hàng có thể yêu cầu hoàn tiền trong bao nhiêu ngày?",
+      "agent_response": "Không có thông tin.",
+      "latency": 2.179986,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.75,
+        "relevancy": 0.06666666666666667
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác và thiếu thông tin quan trọng về thời gian hoàn tiền."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác và thiếu thông tin quan trọng về thời gian hoàn tiền."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Ai phải phê duyệt để cấp quyền Level 3?",
+      "agent_response": "Không có thông tin về ai phải phê duyệt để cấp quyền Level 3 trong context đã cung cấp.",
+      "latency": 2.824126,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.6111111111111112,
+        "relevancy": 0.5
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin về những người cần phê duyệt, dẫn đến thiếu sót nghiêm trọng."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác vì thiếu thông tin quan trọng về những người cần phê duyệt, mặc dù nó đúng khi nói rằng không có thông tin trong context."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Tài khoản bị khóa sau bao nhiêu lần đăng nhập sai?",
+      "agent_response": "Không có thông tin về số lần đăng nhập sai dẫn đến việc khóa tài khoản.",
+      "latency": 2.340629,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.1875,
+        "relevancy": 0.35
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin đúng về số lần đăng nhập sai dẫn đến khóa tài khoản."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin đúng về số lần đăng nhập sai dẫn đến khóa tài khoản, mặc dù nó không bịa thêm thông tin."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Nhân viên được làm remote tối đa mấy ngày mỗi tuần?",
+      "agent_response": "Không có thông tin về số ngày tối đa mà nhân viên được làm remote mỗi tuần.",
+      "latency": 2.113539,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.4117647058823529,
+        "relevancy": 0.5555555555555556
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin đúng về số ngày tối đa mà nhân viên được làm remote, dẫn đến thiếu sót nghiêm trọng."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác vì thiếu thông tin quan trọng về số ngày tối đa mà nhân viên có thể làm remote, mặc dù nó không bịa thêm thông tin."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Ticket P1 không được phản hồi sau 10 phút. Hệ thống tự động làm gì?",
+      "agent_response": "Hệ thống tự động sẽ thông báo tới Slack và email sau 10 phút nếu Ticket P1 không được phản hồi.",
+      "latency": 2.393045,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.6190476190476191,
+        "relevancy": 0.5652173913043478
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 0.5,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì thông tin về việc tự động escalate lên Senior Engineer và gửi thông báo tới PagerDuty không được đề cập."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 3.0,
+            "reasoning": "Câu trả lời đúng về việc có thông báo nhưng không chính xác về hành động chính xác của hệ thống là escalate lên Senior Engineer."
+          }
+        },
+        "status": "conflict"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Sản phẩm kỹ thuật số (license key) có được hoàn tiền không?",
+      "agent_response": "Không có thông tin về việc sản phẩm kỹ thuật số (license key) có được hoàn tiền hay không.",
+      "latency": 2.215362,
+      "ragas": {
+        "hit_rate": 1.0,
+        "mrr": 0.3333333333333333,
+        "faithfulness": 0.4117647058823529,
+        "relevancy": 0.7058823529411765
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác và thiếu thông tin quan trọng về chính sách hoàn tiền đối với sản phẩm kỹ thuật số."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác vì thiếu thông tin quan trọng về chính sách hoàn tiền cụ thể cho sản phẩm kỹ thuật số."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Quy trình xử lý sự cố P1 gồm mấy bước và bước đầu tiên là gì?",
+      "agent_response": "Quy trình xử lý sự cố P1 gồm 5 bước: (1) Tiếp nhận — on-call engineer xác nhận severity trong 5 phút, (2) Thông báo tới Slack và email, (3) Triage và phân công trong 10 phút, (4) Xử lý với update mỗi 30 phút, (5) Resolution và incident report trong 24 giờ. Bước đầu tiên là tiếp nhận.",
+      "latency": 3.239293,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 1.0,
+        "relevancy": 0.2765957446808511
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 5.0,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và đầy đủ thông tin quan trọng, không có thông tin sai lệch."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 5.0,
+            "reasoning": "Câu trả lời chính xác về số bước và nội dung của bước đầu tiên, không có thông tin sai lệch."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "pass"
+    },
+    {
+      "test_case": "ERR-403-AUTH là lỗi gì và cách xử lý?",
+      "agent_response": "Không có thông tin về lỗi ERR-403-AUTH và cách xử lý.",
+      "latency": 3.290823,
+      "ragas": {
+        "hit_rate": 1.0,
+        "mrr": 0.5,
+        "faithfulness": 0.6153846153846154,
+        "relevancy": 0.5333333333333333
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin về việc liên hệ IT Helpdesk, dẫn đến thiếu sót và không đầy đủ."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác vì nó không cung cấp thông tin về việc liên hệ IT Helpdesk, mặc dù nó đúng khi nói rằng không có thông tin về lỗi ERR-403-AUTH."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Store credit khi hoàn tiền có giá trị bao nhiêu so với tiền gốc?",
+      "agent_response": "Không có thông tin về giá trị của store credit khi hoàn tiền so với tiền gốc.",
+      "latency": 1.80959,
+      "ragas": {
+        "hit_rate": 1.0,
+        "mrr": 0.3333333333333333,
+        "faithfulness": 0.4375,
+        "relevancy": 0.6111111111111112
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin về giá trị của store credit khi hoàn tiền, trong khi Ground Truth đã chỉ rõ là 110% so với số tiền hoàn."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác và thiếu thông tin quan trọng về giá trị của store credit so với tiền gốc."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Ticket P1 được tạo lúc 22:47. Ai sẽ nhận thông báo đầu tiên và qua kênh nào? Escalation xảy ra lúc mấy giờ?",
+      "agent_response": "Không có thông tin về thời gian thông báo đầu tiên cho Ticket P1, kênh thông báo, và thời gian xảy ra escalation.",
+      "latency": 3.83619,
+      "ragas": {
+        "hit_rate": 1.0,
+        "mrr": 1.0,
+        "faithfulness": 0.7222222222222222,
+        "relevancy": 0.36666666666666664
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không cung cấp thông tin chính xác về thời gian thông báo đầu tiên, kênh thông báo và thời gian xảy ra escalation, hoàn toàn thiếu sót so với Ground Truth."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không cung cấp thông tin chính xác về thông báo đầu tiên và thời gian escalation, hoàn toàn thiếu sót thông tin quan trọng."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Khách hàng đặt đơn ngày 31/01/2026 và yêu cầu hoàn tiền ngày 07/02/2026. Sản phẩm lỗi nhà sản xuất, chưa kích hoạt, không phải Flash Sale. Được hoàn tiền không?",
+      "agent_response": "Không có thông tin về chính sách hoàn tiền cho sản phẩm lỗi nhà sản xuất trong context đã cung cấp.",
+      "latency": 2.459294,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.45,
+        "relevancy": 0.2
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì không đề cập đến việc áp dụng chính sách hoàn tiền phiên bản 3, mà chỉ nói rằng không có thông tin về chính sách hoàn tiền, dẫn đến thiếu sót thông tin quan trọng."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác vì không đề cập đến việc áp dụng chính sách hoàn tiền phiên bản 3, mà chỉ nói về việc thiếu thông tin. Điều này làm giảm độ chính xác và tính đầy đủ của câu trả lời."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Contractor cần Admin Access (Level 3) để khắc phục sự cố P1 đang active. Quy trình cấp quyền tạm thời như thế nào?",
+      "agent_response": "Không có thông tin về quy trình cấp quyền tạm thời cho Contractor cần Admin Access (Level 3) để khắc phục sự cố P1.",
+      "latency": 2.788176,
+      "ragas": {
+        "hit_rate": 1.0,
+        "mrr": 0.3333333333333333,
+        "faithfulness": 0.4583333333333333,
+        "relevancy": 0.6206896551724138
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin đúng về quy trình cấp quyền tạm thời, dẫn đến thiếu sót nghiêm trọng."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác vì không đề cập đến việc cần có sự phê duyệt từ 3 bên, mà chỉ nói rằng không có thông tin về quy trình. Thiếu sót này làm giảm độ chính xác và đầy đủ của câu trả lời."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Nhân viên vừa vào thử việc (trong probation period) muốn làm remote vì lý do cá nhân. Điều kiện là gì?",
+      "agent_response": "Nhân viên trong probation period KHÔNG được phép làm remote. Chỉ nhân viên đã qua probation period mới được phép làm remote tối đa 2 ngày/tuần với điều kiện được Team Lead phê duyệt.",
+      "latency": 2.385108,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 1.0,
+        "relevancy": 0.24324324324324326
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 5.0,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và đầy đủ thông tin theo Ground Truth, không có thông tin sai hoặc bịa đặt."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 5.0,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và đầy đủ thông tin quan trọng, không có thông tin bịa đặt."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "pass"
+    },
+    {
+      "test_case": "Ticket P1 lúc 2am. Cần cấp Level 2 access tạm thời cho contractor để thực hiện emergency fix. Đồng thời cần notify stakeholders theo SLA. Nêu đủ cả hai quy trình.",
+      "agent_response": "Không có thông tin cụ thể về quy trình cấp Level 2 access tạm thời cho contractor và quy trình notify stakeholders theo SLA. Bạn cần tham khảo tài liệu hoặc quy trình nội bộ để biết thêm chi tiết.",
+      "latency": 2.726344,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.6666666666666666,
+        "relevancy": 0.32653061224489793
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không cung cấp thông tin chính xác về quy trình cấp Level 2 access tạm thời và quy trình notify stakeholders theo SLA, dẫn đến thiếu sót nghiêm trọng trong độ chính xác và đầy đủ thông tin."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không cung cấp thông tin cụ thể về quy trình cấp Level 2 access và quy trình notify stakeholders theo SLA, dẫn đến thiếu sót trong độ đầy đủ thông tin."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Theo tài liệu, thời gian hoàn tiền cho khách hàng là 5 ngày làm việc. Nếu khách hàng gửi yêu cầu hoàn tiền vào thứ Sáu, thì thời gian hoàn tiền sẽ là khi nào?",
+      "agent_response": "Nếu khách hàng gửi yêu cầu hoàn tiền vào thứ Sáu, thời gian hoàn tiền sẽ là 5 ngày làm việc sau đó. Do thứ Bảy và Chủ Nhật không được tính là ngày làm việc, thời gian hoàn tiền sẽ hoàn tất vào thứ Sáu của tuần kế tiếp.",
+      "latency": 2.462395,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.6176470588235294,
+        "relevancy": 0.4634146341463415
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 5.0,
+            "reasoning": "Câu trả lời chính xác 100% và đầy đủ thông tin quan trọng, không có thông tin sai."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 5.0,
+            "reasoning": "Câu trả lời chính xác và đầy đủ, nêu rõ thời gian hoàn tiền sẽ là thứ Sáu tuần sau, đúng với thông tin trong Ground Truth."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "pass"
+    },
+    {
+      "test_case": "Khách hàng đã đặt hàng vào ngày 10/01/2023 và gửi yêu cầu hoàn tiền vào ngày 20/01/2023. Theo chính sách hoàn tiền, khách hàng có thể hoàn tiền trong vòng 14 ngày. Vậy yêu cầu này có hợp lệ không?",
+      "agent_response": "Không có thông tin về chính sách hoàn tiền trong context.",
+      "latency": 1.96557,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.36363636363636365,
+        "relevancy": 0.21212121212121213
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì đã không nhận ra rằng yêu cầu hoàn tiền không hợp lệ do đã quá 14 ngày kể từ ngày đặt hàng."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác vì đã bỏ qua thông tin quan trọng về thời gian hoàn tiền. Yêu cầu hoàn tiền không hợp lệ do đã quá 14 ngày."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Nếu một nhân viên vi phạm quy định về bảo mật thông tin, hình phạt sẽ là gì?",
+      "agent_response": "Thông tin về hình phạt cụ thể khi nhân viên vi phạm quy định về bảo mật thông tin KHÔNG có trong tài liệu hiện có. Bạn có thể liên hệ bộ phận nhân sự hoặc bộ phận pháp lý để biết thêm chi tiết.",
+      "latency": 2.599398,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.6111111111111112,
+        "relevancy": 0.3170731707317073
+      },
+      "judge": {
+        "final_score": 4.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 4.0,
+            "reasoning": "Câu trả lời gần đúng với Ground Truth nhưng thiếu thông tin về việc liên hệ bộ phận pháp lý, do đó không hoàn toàn đầy đủ."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 5.0,
+            "reasoning": "Câu trả lời chính xác và đầy đủ thông tin quan trọng, không có thông tin bịa đặt."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "pass"
+    },
+    {
+      "test_case": "Một nhân viên trong thời gian thử việc muốn tham gia dự án quan trọng mà không có sự đồng ý của quản lý. Điều này có vi phạm quy định không?",
+      "agent_response": "Không có thông tin về việc nhân viên trong thời gian thử việc tham gia dự án quan trọng mà không có sự đồng ý của quản lý có vi phạm quy định hay không.",
+      "latency": 2.477257,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.25,
+        "faithfulness": 0.43333333333333335,
+        "relevancy": 0.7647058823529411
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác và thiếu thông tin quan trọng về việc cần sự đồng ý của quản lý."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác và thiếu thông tin quan trọng về việc cần sự đồng ý của quản lý."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Theo tài liệu, nếu một ticket P1 không được giải quyết trong 4 giờ, ai sẽ là người nhận thông báo đầu tiên?",
+      "agent_response": "Không có thông tin về ai sẽ là người nhận thông báo đầu tiên nếu một ticket P1 không được giải quyết trong 4 giờ.",
+      "latency": 2.459749,
+      "ragas": {
+        "hit_rate": 1.0,
+        "mrr": 0.3333333333333333,
+        "faithfulness": 0.6521739130434783,
+        "relevancy": 0.7692307692307693
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì đã thiếu thông tin quan trọng về người nhận thông báo đầu tiên, dẫn đến việc không đáp ứng được yêu cầu của câu hỏi."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác vì đã thiếu thông tin quan trọng về người nhận thông báo đầu tiên, mặc dù nó đúng khi nói rằng không có thông tin cụ thể trong câu trả lời."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Một khách hàng đã đặt hàng vào ngày 15/02/2023 và yêu cầu hoàn tiền vào ngày 01/03/2023. Theo chính sách, khách hàng có thể hoàn tiền trong vòng 30 ngày. Yêu cầu này có hợp lệ không?",
+      "agent_response": "Không có thông tin về chính sách hoàn tiền cụ thể trong context.",
+      "latency": 2.110752,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.38461538461538464,
+        "relevancy": 0.23529411764705882
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì đã bỏ qua thông tin quan trọng về thời gian hoàn tiền hợp lệ."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác vì đã bỏ qua thông tin quan trọng về thời gian hoàn tiền hợp lệ."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Theo tài liệu, thời gian phản hồi tối đa cho ticket P2 là 2 giờ. Nếu ticket P2 được tạo lúc 10:00, thời gian phản hồi sẽ là khi nào?",
+      "agent_response": "Theo tài liệu, thời gian phản hồi tối đa cho ticket P2 là 2 giờ. Nếu ticket P2 được tạo lúc 10:00, thời gian phản hồi sẽ là 12:00.",
+      "latency": 2.473806,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.6521739130434783,
+        "relevancy": 0.88
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 5.0,
+            "reasoning": "Câu trả lời chính xác 100% và đầy đủ thông tin quan trọng, không có thông tin sai."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 5.0,
+            "reasoning": "Câu trả lời chính xác và đầy đủ thông tin, chỉ ra thời gian phản hồi là 12:00 cùng ngày."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "pass"
+    },
+    {
+      "test_case": "Một nhân viên đã làm việc tại công ty được 6 tháng và muốn xin nghỉ phép không lương. Theo quy định, nhân viên phải làm việc ít nhất 1 năm mới được phép xin nghỉ phép không lương. Yêu cầu này có được chấp thuận không?",
+      "agent_response": "Thông tin về việc nhân viên đã làm việc tại công ty được 6 tháng và muốn xin nghỉ phép không lương không có trong context. Tuy nhiên, theo quy định đã nêu, nhân viên phải làm việc ít nhất 1 năm mới được phép xin nghỉ phép không lương. Do đó, yêu cầu này sẽ không được chấp thuận.",
+      "latency": 2.967666,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.29545454545454547,
+        "relevancy": 0.7333333333333333
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 5.0,
+            "reasoning": "Câu trả lời chính xác 100% với thông tin đầy đủ và không có thông tin sai lệch."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 5.0,
+            "reasoning": "Câu trả lời chính xác và đầy đủ, nêu rõ lý do yêu cầu không được chấp thuận dựa trên quy định về thời gian làm việc."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "pass"
+    },
+    {
+      "test_case": "Theo tài liệu, nhân viên cần phải đổi mật khẩu sau mỗi 30 ngày. Nếu một nhân viên quên đổi mật khẩu sau 30 ngày, hệ thống sẽ tự động khóa tài khoản sau bao nhiêu ngày?",
+      "agent_response": "Không có thông tin về thời gian hệ thống tự động khóa tài khoản sau khi nhân viên quên đổi mật khẩu.",
+      "latency": 2.192779,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.7272727272727273,
+        "relevancy": 0.4117647058823529
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin đúng về thời gian hệ thống tự động khóa tài khoản."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác vì thiếu thông tin quan trọng về thời gian khóa tài khoản, mặc dù nó không bịa thêm thông tin."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Nếu một nhân viên không tuân thủ quy định về thời gian làm việc, hình phạt sẽ là gì?",
+      "agent_response": "Không có thông tin về hình phạt cụ thể khi một nhân viên không tuân thủ quy định về thời gian làm việc.",
+      "latency": 2.34271,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.5238095238095238,
+        "relevancy": 0.6
+      },
+      "judge": {
+        "final_score": 4.0,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 4.0,
+            "reasoning": "Câu trả lời gần đúng nhưng thiếu thông tin về việc cần liên hệ bộ phận nhân sự để biết thêm chi tiết, do đó không hoàn toàn đầy đủ."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 4.0,
+            "reasoning": "Câu trả lời chính xác khi nói rằng không có thông tin cụ thể về hình phạt, nhưng thiếu chi tiết về việc cần liên hệ bộ phận nhân sự."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "pass"
+    },
+    {
+      "test_case": "Một khách hàng đã đặt hàng vào ngày 01/01/2023 và yêu cầu hoàn tiền vào ngày 15/01/2023. Theo chính sách, khách hàng có thể hoàn tiền trong vòng 10 ngày. Yêu cầu này có hợp lệ không?",
+      "agent_response": "Không có thông tin về chính sách hoàn tiền trong context đã cung cấp.",
+      "latency": 2.586925,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.5,
+        "relevancy": 0.24242424242424243
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì đã không nhận ra rằng yêu cầu hoàn tiền không hợp lệ do đã quá 10 ngày."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác vì đã không nhận ra rằng yêu cầu hoàn tiền không hợp lệ do đã quá thời hạn 10 ngày, mặc dù có lý do hợp lý cho việc thiếu thông tin về chính sách."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Theo tài liệu, nếu một ticket P1 không được giải quyết trong 4 giờ, ai sẽ là người nhận thông báo đầu tiên?",
+      "agent_response": "Không có thông tin về ai sẽ là người nhận thông báo đầu tiên nếu một ticket P1 không được giải quyết trong 4 giờ.",
+      "latency": 2.212009,
+      "ragas": {
+        "hit_rate": 1.0,
+        "mrr": 0.3333333333333333,
+        "faithfulness": 0.6521739130434783,
+        "relevancy": 0.7692307692307693
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin đúng về người nhận thông báo đầu tiên, theo Ground Truth."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác vì thiếu thông tin quan trọng về người nhận thông báo đầu tiên, mặc dù nó không bịa thêm thông tin."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Một nhân viên trong thời gian thử việc muốn tham gia một khóa đào tạo mà không có sự đồng ý của quản lý. Điều này có vi phạm quy định không?",
+      "agent_response": "Không có thông tin về việc nhân viên trong thời gian thử việc tham gia khóa đào tạo mà không có sự đồng ý của quản lý có vi phạm quy định hay không.",
+      "latency": 2.442856,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.2,
+        "faithfulness": 0.5517241379310345,
+        "relevancy": 0.7575757575757576
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin đúng về việc nhân viên cần sự đồng ý của quản lý để tham gia khóa đào tạo."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin đúng về quy định, mặc dù có thừa nhận thiếu thông tin."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    },
+    {
+      "test_case": "Nếu một nhân viên vi phạm quy định về bảo mật thông tin, hình phạt sẽ là gì?",
+      "agent_response": "Thông tin về hình phạt cụ thể khi nhân viên vi phạm quy định về bảo mật thông tin KHÔNG có trong tài liệu hiện có. Bạn có thể liên hệ bộ phận nhân sự hoặc bộ phận pháp lý để biết thêm chi tiết.",
+      "latency": 2.84979,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.6111111111111112,
+        "relevancy": 0.3170731707317073
+      },
+      "judge": {
+        "final_score": 4.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 4.0,
+            "reasoning": "Câu trả lời gần đúng với Ground Truth nhưng có thêm thông tin không cần thiết về bộ phận pháp lý, làm giảm độ chính xác."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 5.0,
+            "reasoning": "Câu trả lời chính xác và đầy đủ thông tin quan trọng, không có thông tin bịa đặt."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "pass"
+    },
+    {
+      "test_case": "Một khách hàng đã đặt hàng vào ngày 01/01/2023 và yêu cầu hoàn tiền vào ngày 10/01/2023. Theo chính sách, khách hàng có thể hoàn tiền trong vòng 15 ngày. Yêu cầu này có hợp lệ không?",
+      "agent_response": "Không có thông tin về chính sách hoàn tiền của khách hàng trong context đã cung cấp.",
+      "latency": 2.389001,
+      "ragas": {
+        "hit_rate": 0.0,
+        "mrr": 0.0,
+        "faithfulness": 0.47058823529411764,
+        "relevancy": 0.29411764705882354
+      },
+      "judge": {
+        "final_score": 1.5,
+        "agreement_rate": 1.0,
+        "individual_results": {
+          "gpt-4o-mini (strict)": {
+            "score": 1.0,
+            "reasoning": "Câu trả lời không chính xác vì đã bỏ qua thông tin quan trọng về thời gian hoàn tiền, dẫn đến kết luận sai."
+          },
+          "gpt-4o-mini (lenient)": {
+            "score": 2.0,
+            "reasoning": "Câu trả lời không chính xác vì đã bỏ qua thông tin quan trọng về thời gian hoàn tiền, mặc dù có đề cập đến việc không có thông tin về chính sách."
+          }
+        },
+        "status": "consensus"
+      },
+      "status": "fail"
+    }
+  ]
+}

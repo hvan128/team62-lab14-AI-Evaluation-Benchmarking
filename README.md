@@ -1,81 +1,152 @@
-# 🚀 Lab Day 14: AI Evaluation Factory (Team Edition)
+# Lab14 AI Evaluation Benchmarking
 
-## 🎯 Tổng quan
-"Nếu bạn không thể đo lường nó, bạn không thể cải thiện nó." — Nhiệm vụ của nhóm bạn là xây dựng một **Hệ thống đánh giá tự động** chuyên nghiệp để benchmark AI Agent. Hệ thống này phải chứng minh được bằng con số cụ thể: Agent đang tốt ở đâu và tệ ở đâu.
+## Mục tiêu
+Xây dựng hệ thống benchmark để chứng minh Version 2 tốt hơn Version 1 bằng số liệu cụ thể:
+- Retrieval metrics
+- Judge score metrics
+- Quality/latency/cost trade-off
+- Phân tích nguyên nhân lỗi và đề xuất cải tiến
 
----
+## Luồng công việc tổng hợp (Checklist theo phase)
 
-## 🕒 Lịch trình thực hiện (4 Tiếng)
-- **Giai đoạn 1 (45'):** Thiết kế Golden Dataset & Script SDG. Tạo ra ít nhất 50 test cases chất lượng.
-- **Giai đoạn 2 (90'):** Phát triển Eval Engine (RAGAS, Custom Judge) & Async Runner.
-- **Giai đoạn 3 (60'):** Chạy Benchmark, Phân cụm lỗi (Failure Clustering) & Phân tích "5 Whys".
-- **Giai đoạn 4 (45'):** Tối ưu Agent dựa trên kết quả & Hoàn thiện báo cáo nộp bài.
+### PHASE 1 - DATASET
 
----
+#### Bước 1: Chuẩn bị source data
+- Thu thập hoặc xác nhận:
+	- Tài liệu gốc
+	- Knowledge base
+	- Vector DB (nếu có)
+	- Chunk text + chunk id
+- Nếu đã có vector DB, cần có cách truy vết chunk để đánh giá retrieval.
 
-## 🛠️ Các nhiệm vụ chính (Expert Mission)
+#### Bước 2: Chuẩn hóa chunk
+- Mỗi chunk cần có:
+	- chunk_id
+	- chunk_text
+	- source_document
+- Kiểm tra lại tính đầy đủ của metadata trước khi sinh dataset.
 
-### 1. Retrieval & SDG (Nhóm Data)
-- **Retrieval Eval:** Tính toán Hit Rate và MRR cho Vector DB. Bạn phải chứng minh được Retrieval stage hoạt động tốt trước khi đánh giá Generation.
-- **SDG:** Tạo 50+ cases, bao gồm cả Ground Truth IDs của tài liệu để tính Hit Rate.
+#### Bước 3: Thiết kế prompt sinh dataset
+- Prompt sinh case phải bắt buộc trả về:
+	- question
+	- expected_answer
+	- ground_truth_chunk_ids
+	- difficulty
+	- category
+	- metadata cần thiết
+- Cần có hướng dẫn hard case và ví dụ mẫu.
 
-### 2. Multi-Judge Consensus Engine (Nhóm AI/Backend)
-- **Consensus logic:** Sử dụng ít nhất 2 model Judge khác nhau. 
-- **Calibration:** Tính toán hệ số đồng thuận (Agreement Rate) và xử lý xung đột điểm số tự động.
+#### Bước 4: Tạo golden dataset
+- Tạo tối thiểu 50 test cases.
+- Bao gồm:
+	- easy, medium, hard
+	- multi-hop reasoning
+	- retrieval dễ sai
+	- case dễ hallucination
 
-### 3. Regression Release Gate (Nhóm DevOps/Analyst)
-- **Delta Analysis:** So sánh kết quả của Agent phiên bản mới với phiên bản cũ.
-- **Auto-Gate:** Viết logic tự động quyết định "Release" hoặc "Rollback" dựa trên các chỉ số Chất lượng/Chi phí/Hiệu năng.
+#### Bước 5: Manual review dataset (bắt buộc)
+- Review tối thiểu một phần dataset bằng tay:
+	- Câu hỏi có rõ ràng không
+	- Expected answer có đúng policy không
+	- Ground truth chunk ids có hợp lệ không
+	- Source có khớp domain không
+- Tài liệu cần có:
+	- `analysis/manual_review_dataset.md`
 
----
+### PHASE 2 - AGENT VERSIONING
 
-## 📤 Danh mục nộp bài (Submission Checklist)
-Nhóm nộp 1 đường dẫn Repository (GitHub/GitLab) chứa:
-1. [ ] **Source Code**: Toàn bộ mã nguồn hoàn chỉnh.
-2. [ ] **Reports**: File `reports/summary.json` và `reports/benchmark_results.json` (được tạo ra sau khi chạy `main.py`).
-3. [ ] **Group Report**: File `analysis/failure_analysis.md` (đã điền đầy đủ).
-4. [ ] **Individual Reports**: Các file `analysis/reflections/reflection_[Tên_SV].md`.
+#### Bước 6: Tạo Version 1 (baseline)
+- Cấu hình retrieval/prompt cơ bản để làm mốc so sánh.
 
----
+#### Bước 7: Tạo Version 2 (improved)
+- Nâng cấp retrieval/prompt/logic để hướng tới:
+	- Hit rate cao hơn
+	- Judge score cao hơn
+	- Chất lượng ổn định hơn
 
-## 🏆 Bí kíp đạt điểm tuyệt đối (Expert Tips)
+### PHASE 3 - TRUST / JUDGE
 
-### ✅ Đánh giá Retrieval (15%)
-Nhóm nào chỉ đánh giá câu trả lời mà bỏ qua bước Retrieval sẽ không thể đạt điểm tối đa. Bạn cần biết chính xác chunk nào đang gây ra lỗi Hallucination.
+#### Bước 8: Multi-judge
+- Dùng ít nhất 2 judge role/model.
+- Có agreement rate và conflict handling.
 
-### ✅ Multi-Judge Reliability (20%)
-Việc chỉ tin vào một Judge (ví dụ GPT-4o) là một sai lầm trong sản phẩm thực tế. Hãy chứng minh hệ thống của bạn khách quan bằng cách so sánh nhiều Judge model và tính toán độ tin cậy của chúng.
+#### Bước 9: Verify judge (bắt buộc)
+- Spot-check bằng tay một tập case đại diện.
+- Đối chiếu kết quả judge với đánh giá thủ công.
+- Tài liệu cần có:
+	- `analysis/judge_spot_check_report.md`
 
-### ✅ Tối ưu hiệu năng & Chi phí (15%)
-Hệ thống Expert phải chạy cực nhanh (Async) và phải có báo cáo chi tiết về "Giá tiền cho mỗi lần Eval". Hãy đề xuất cách giảm 30% chi phí eval mà không giảm độ chính xác.
+### PHASE 4 - BENCHMARK
 
-### ✅ Phân tích nguyên nhân gốc rễ (Root Cause) (20%)
-Báo cáo 5 Whys phải chỉ ra được lỗi nằm ở đâu: Ingestion pipeline, Chunking strategy, Retrieval, hay Prompting.
+#### Bước 10: Chạy benchmark cho V1
+- Chạy toàn bộ dataset với agent V1.
 
----
+#### Bước 11: Chạy benchmark cho V2
+- Chạy cùng dataset với agent V2 để so sánh công bằng.
 
-## 🔧 Hướng dẫn chạy
+#### Bước 12: Tính metrics
+- Tối thiểu:
+	- Hit Rate, MRR
+	- Faithfulness, Relevancy
+	- Judge final score, agreement rate
+	- Latency, Cost
+- Kết quả được lưu tại:
+	- `reports/summary.json`
+	- `reports/benchmark_results.json`
+
+### PHASE 5 - ANALYSIS
+
+#### Bước 13: Failure analysis và root cause
+- Phân tích không chỉ nêu V2 tốt hơn, mà phải nêu:
+	- Tốt hơn ở đâu
+	- Vì sao tốt hơn
+	- Rủi ro còn lại
+	- Action tiếp theo
+- Tài liệu cần có:
+	- `analysis/failure_analysis.md`
+
+### PHASE 6 - REPORT
+
+#### Bước 14: Final report package
+- Gồm:
+	- Executive summary
+	- Benchmark comparison
+	- Trust analysis
+	- Risk analysis
+	- Recommendation + Next action
+- Reflection cá nhân mỗi thành viên:
+	- `analysis/reflections/reflection_member_01.md`
+	- `analysis/reflections/reflection_member_02.md`
+	- `analysis/reflections/reflection_member_03.md`
+	- `analysis/reflections/reflection_member_04.md`
+	- `analysis/reflections/reflection_member_05.md`
+	- `analysis/reflections/reflection_member_06.md`
+
+## Cách chạy từ đầu đến cuối
 
 ```bash
-# 1. Cài đặt dependencies
+# 1) Cài đặt phụ thuộc
 pip install -r requirements.txt
 
-# 2. Tạo Golden Dataset (chạy trước khi benchmark)
+# 2) Tạo lại golden dataset
 python data/synthetic_gen.py
 
-# 3. Chạy Benchmark & tạo reports
+# 3) Chạy benchmark V1/V2 + release gate
 python main.py
 
-# 4. Kiểm tra định dạng trước khi nộp
+# 4) Kiểm tra cấu trúc nộp bài
 python check_lab.py
 ```
 
----
+## Kiểm tra trước khi nộp
+- Đã có dataset >= 50 case trong `data/golden_set.jsonl`
+- Đã có report benchmark mới nhất trong `reports/`
+- Đã điền đầy đủ:
+	- `analysis/manual_review_dataset.md`
+	- `analysis/judge_spot_check_report.md`
+	- `analysis/failure_analysis.md`
+	- reflection cho từng thành viên trong `analysis/reflections/`
 
-## ⚠️ Lưu ý quan trọng
-- **Bắt buộc** chạy `python data/synthetic_gen.py` trước để tạo file `data/golden_set.jsonl`. File này không được commit sẵn trong repo.
-- Trước khi nộp bài, hãy chạy `python check_lab.py` để đảm bảo định dạng dữ liệu đã chuẩn. Bất kỳ lỗi định dạng nào dẫn đến việc script chấm điểm tự động không chạy được sẽ bị trừ 5 điểm thủ tục.
-- File `.env` chứa API Key **KHÔNG** được push lên GitHub.
-
----
-*Chúc nhóm bạn xây dựng được một Evaluation Factory thực sự mạnh mẽ!*
+## Lưu ý
+- Không commit `.env` và secret key.
+- Nếu thay đổi dataset hoặc prompt retrieval, phải chạy lại benchmark để cập nhật report.

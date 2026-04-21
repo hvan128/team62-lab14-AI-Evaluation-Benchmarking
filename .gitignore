@@ -2,8 +2,8 @@
 __pycache__/
 *.pyc
 .DS_Store
-data/golden_set.jsonl
-data/chroma_db/
-reports/*.json
+# data/golden_set.jsonl
+# data/chroma_db/
+# reports/*.json
 !reports/.gitkeep
 .venv/

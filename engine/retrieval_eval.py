@@ -24,10 +24,44 @@ BatchRetrievalResult schema:
 """
 
 import asyncio
+import re
 from typing import Dict, List
 
 
 class RetrievalEvaluator:
+    _TOKEN_RE = re.compile(r"\w+", flags=re.UNICODE)
+
+    def _tokenize(self, text: str) -> List[str]:
+        return self._TOKEN_RE.findall((text or "").lower())
+
+    def calculate_faithfulness(self, answer: str, contexts: List[str]) -> float:
+        """
+        Ước lượng faithfulness bằng tỉ lệ token trong answer xuất hiện trong retrieved contexts.
+        """
+        answer_tokens = set(self._tokenize(answer))
+        if not answer_tokens:
+            return 0.0
+
+        context_tokens = set(self._tokenize(" ".join(contexts or [])))
+        if not context_tokens:
+            return 0.0
+
+        covered = len(answer_tokens & context_tokens)
+        return covered / len(answer_tokens)
+
+    def calculate_relevancy(self, question: str, answer: str) -> float:
+        """
+        Ước lượng relevancy bằng Jaccard similarity giữa token question và answer.
+        """
+        q_tokens = set(self._tokenize(question))
+        a_tokens = set(self._tokenize(answer))
+        if not q_tokens or not a_tokens:
+            return 0.0
+
+        inter = len(q_tokens & a_tokens)
+        union = len(q_tokens | a_tokens)
+        return inter / union if union else 0.0
+
     def calculate_hit_rate(
         self, expected_ids: List[str], retrieved_ids: List[str], top_k: int = 3
     ) -> float:
