@@ -1,0 +1,1542 @@
+[
+  {
+    "test_case": "Ticket P1 được tạo lúc 22:47. Đúng theo SLA, ai nhận thông báo đầu tiên và qua kênh nào? Deadline escalation là mấy giờ?",
+    "agent_response": "Theo quy định về SLA (Service Level Agreement), ticket P1 phải được xử lý ngay lập tức. Thông thường, người nhận thông báo đầu tiên sẽ là người quản lý hoặc nhóm hỗ trợ cấp cao nhất liên quan đến ticket đó. Thông báo sẽ được gửi qua kênh nội bộ, thường là qua email hoặc hệ thống ticket nội bộ.\n\nVề deadline escalation, thông thường, ticket P1 cần được xử lý trong vòng 1 giờ. Do đó, nếu ticket P1 được tạo lúc 22:47, deadline escalation sẽ là 23:47. \n\nNếu bạn cần thêm thông tin chi tiết hoặc có câu hỏi khác, hãy cho tôi biết!",
+    "retrieved_chunk_ids": [
+      "it_helpdesk_faq_004",
+      "it_helpdesk_faq_003",
+      "policy_refund_v4_003",
+      "policy_refund_v4_005",
+      "hr_leave_policy_002"
+    ],
+    "latency_ms": 2810.606749999998,
+    "tokens_used": 675,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 1.5,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 1.0,
+        "role_lenient": 2.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời không cung cấp đúng kênh thông báo, không đúng thời gian escalation và không đúng đối tượng escalation. Tất cả các thông tin đều sai."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "Khách hàng đặt đơn ngày 31/01/2026 và gửi yêu cầu hoàn tiền ngày 07/02/2026 vì lỗi nhà sản xuất. Sản phẩm chưa kích hoạt, không phải Flash Sale, không phải kỹ thuật số. Chính sách nào áp dụng và có được hoàn tiền không?",
+    "agent_response": "Để xác định xem yêu cầu hoàn tiền của khách hàng có đủ điều kiện hay không, chúng ta cần xem xét các điều kiện hoàn tiền theo quy trình đã được quy định.\n\nTheo quy trình hoàn tiền, khách hàng cần gửi yêu cầu qua hệ thống ticket nội bộ với category \"Refund Request\". Sau đó, CS Agent sẽ xem xét yêu cầu trong vòng 1 ngày làm việc và xác nhận điều kiện đủ điều kiện. Nếu sản phẩm chưa kích hoạt và không thuộc các trường hợp ngoại lệ như Flash Sale hay sản phẩm kỹ thuật số, thì yêu cầu hoàn tiền có khả năng được chấp nhận.\n\nTrong trường hợp này, khách hàng đã đặt đơn vào ngày 31/01/2026 và gửi yêu cầu hoàn tiền vào ngày 07/02/2026. Sản phẩm chưa kích hoạt và không thuộc các trường hợp ngoại lệ, do đó, yêu cầu hoàn tiền có thể được chấp nhận.\n\nTóm lại, chính sách hoàn tiền áp dụng cho trường hợp này là chính sách hoàn tiền thông thường, và khách hàng có khả năng được hoàn tiền. Tuy nhiên, để chắc chắn, khách hàng cần thực hiện các bước theo quy trình hoàn tiền đã nêu [Nguồn 3].",
+    "retrieved_chunk_ids": [
+      "it_helpdesk_faq_004",
+      "it_helpdesk_faq_003",
+      "policy_refund_v4_003",
+      "policy_refund_v4_005",
+      "hr_leave_policy_002"
+    ],
+    "latency_ms": 4028.753500000004,
+    "tokens_used": 812,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 1.5,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 1.0,
+        "role_lenient": 2.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời không chính xác vì không nhắc đến việc đơn đặt hàng thuộc chính sách phiên bản 3 và chỉ dựa trên thông tin phiên bản 4, dẫn đến thiếu sót trong thông tin quan trọng."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "Engineer cần Level 3 access để khắc phục P1 đang active. Bao nhiêu người phải phê duyệt? Ai là người phê duyệt cuối cùng (người phê duyệt có thẩm quyền cao nhất)?",
+    "agent_response": "Để cấp quyền Level 3 access cho Engineer khắc phục sự cố P1 đang active, cần có sự phê duyệt của 3 người. Người phê duyệt cuối cùng, tức là người có thẩm quyền cao nhất trong quy trình này, là IT Manager.",
+    "retrieved_chunk_ids": [
+      "it_helpdesk_faq_003",
+      "it_helpdesk_faq_004",
+      "hr_leave_policy_002",
+      "policy_refund_v4_003",
+      "policy_refund_v4_005"
+    ],
+    "latency_ms": 1904.0908749999978,
+    "tokens_used": 606,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 1.5,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 1.0,
+        "role_lenient": 2.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời sai về tên các người phê duyệt và cũng không đúng người phê duyệt cao nhất."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "Khi khách hàng chọn nhận store credit thay vì hoàn tiền, họ nhận được bao nhiêu phần trăm so với số tiền gốc cần hoàn?",
+    "agent_response": "Khi khách hàng chọn nhận store credit thay vì hoàn tiền, họ sẽ nhận được 100% số tiền gốc cần hoàn. Điều này có nghĩa là khách hàng sẽ nhận lại toàn bộ số tiền mà họ đã chi cho sản phẩm, nhưng dưới hình thức tín dụng để sử dụng cho các giao dịch trong tương lai tại cửa hàng. Tuy nhiên, để được nhận store credit, khách hàng vẫn cần đáp ứng các điều kiện hoàn tiền như sản phẩm bị lỗi do nhà sản xuất, yêu cầu gửi trong vòng 7 ngày làm việc, và sản phẩm chưa được sử dụng hoặc mở seal [Nguồn 4].",
+    "retrieved_chunk_ids": [
+      "it_helpdesk_faq_004",
+      "policy_refund_v4_005",
+      "hr_leave_policy_002",
+      "policy_refund_v4_001",
+      "policy_refund_v4_003"
+    ],
+    "latency_ms": 2535.7067079999956,
+    "tokens_used": 645,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 1.5,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 1.0,
+        "role_lenient": 2.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời sai 100% về phần trăm store credit (nêu là 100% nhưng thực tế là 110%) và không đầy đủ thông tin về bonus, do đó không đạt yêu cầu về độ chính xác và tính đầy đủ."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "Ticket P1 được tạo và on-call engineer không phản hồi sau 10 phút. Theo đúng SLA, hệ thống sẽ làm gì tiếp theo?",
+    "agent_response": "Theo quy trình SLA, nếu ticket P1 được tạo và on-call engineer không phản hồi sau 10 phút, hệ thống sẽ tự động escalated ticket đó lên cấp độ cao hơn hoặc thông báo cho quản lý để có biện pháp xử lý kịp thời. Tuy nhiên, thông tin chi tiết về quy trình escalated không được cung cấp trong tài liệu nội bộ hiện có. Bạn có thể tham khảo thêm từ bộ phận IT hoặc tài liệu hướng dẫn cụ thể về SLA để biết thêm chi tiết.",
+    "retrieved_chunk_ids": [
+      "it_helpdesk_faq_004",
+      "it_helpdesk_faq_003",
+      "policy_refund_v4_003",
+      "hr_leave_policy_002",
+      "hr_leave_policy_003"
+    ],
+    "latency_ms": 2715.9247919999993,
+    "tokens_used": 691,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 3.5,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 3.0,
+        "role_lenient": 4.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời nêu đúng hành động tự động escalate nhưng không chính xác về đối tượng cụ thể là Senior Engineer, do đó không hoàn toàn chính xác và chưa đầy đủ thông tin."
+    },
+    "status": "pass"
+  },
+  {
+    "test_case": "Một nhân viên mới đang trong probation period muốn làm remote vì lý do cá nhân. Yêu cầu này có được chấp thuận không? Điều kiện để được làm remote là gì?",
+    "agent_response": "Yêu cầu làm remote trong thời gian probation period (thời gian thử việc) thường phụ thuộc vào chính sách của công ty và sự phê duyệt của Line Manager. Theo quy định nội bộ, nhân viên trong thời gian thử việc có thể không được phép làm việc từ xa, nhưng điều này có thể thay đổi tùy theo từng trường hợp cụ thể và sự đồng ý của quản lý trực tiếp.\n\nĐể được làm remote, nhân viên cần phải đáp ứng các điều kiện sau:\n1. Có sự phê duyệt bằng văn bản từ Line Manager.\n2. Đảm bảo rằng công việc có thể thực hiện hiệu quả từ xa và không ảnh hưởng đến tiến độ công việc.\n\nNhân viên nên thảo luận trực tiếp với Line Manager của mình để xem xét khả năng và điều kiện cụ thể cho yêu cầu làm remote.",
+    "retrieved_chunk_ids": [
+      "hr_leave_policy_002",
+      "it_helpdesk_faq_003",
+      "policy_refund_v4_005",
+      "policy_refund_v4_003",
+      "it_helpdesk_faq_004"
+    ],
+    "latency_ms": 3292.3329589999994,
+    "tokens_used": 710,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 2.0,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 2.0,
+        "role_lenient": 2.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời có những thông tin hợp lệ về phê duyệt và điều kiện nhưng không chính xác hoàn toàn vì không xác nhận rằng nhân viên trong probation period KHÔNG được làm remote, và không đề cập đến giới hạn tối đa 2 ngày/tuần cũng như yêu cầu phê duyệt của Team Lead."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "Mức phạt tài chính cụ thể khi đội IT vi phạm SLA P1 resolution time (không resolve trong 4 giờ) là bao nhiêu?",
+    "agent_response": "Xin lỗi, nhưng thông tin về mức phạt tài chính cụ thể khi đội IT vi phạm SLA P1 resolution time không có trong các tài liệu nội bộ mà tôi có. Bạn có thể kiểm tra với bộ phận quản lý hoặc phòng nhân sự để biết thêm chi tiết về quy định này.",
+    "retrieved_chunk_ids": [
+      "hr_leave_policy_002",
+      "it_helpdesk_faq_004",
+      "it_helpdesk_faq_003",
+      "policy_refund_v4_003",
+      "it_helpdesk_faq_001"
+    ],
+    "latency_ms": 1585.3653329999986,
+    "tokens_used": 652,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 5.0,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 5.0,
+        "role_lenient": 5.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời chính xác 100% về việc thông tin không có trong tài liệu, không bịa đặt con số phạt nào và gợi ý liên hệ bộ phận liên quan."
+    },
+    "status": "pass"
+  },
+  {
+    "test_case": "Theo quy định IT nội bộ, nhân viên phải đổi mật khẩu sau bao nhiêu ngày? Và hệ thống cảnh báo trước bao nhiêu ngày?",
+    "agent_response": "Theo quy định IT nội bộ, nhân viên phải đổi mật khẩu sau 90 ngày. Hệ thống sẽ cảnh báo trước 10 ngày để nhắc nhở nhân viên thực hiện việc đổi mật khẩu.",
+    "retrieved_chunk_ids": [
+      "it_helpdesk_faq_004",
+      "hr_leave_policy_002",
+      "policy_refund_v4_003",
+      "it_helpdesk_faq_003",
+      "policy_refund_v4_005"
+    ],
+    "latency_ms": 1364.9957079999986,
+    "tokens_used": 572,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 1,
+      "agreement_rate": 0.5,
+      "individual_scores": {
+        "role_strict": 1.0,
+        "role_lenient": 5.0
+      },
+      "conflict": true,
+      "reasoning": "Thời gian đổi mật khẩu và số ngày cảnh báo không được xác định cụ thể trong câu trả lời và không có nguồn được trích dẫn."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "Sự cố P1 xảy ra lúc 2am. Đồng thời cần cấp Level 2 access tạm thời cho contractor để thực hiện emergency fix. Hãy nêu đầy đủ: (1) các bước SLA P1 notification phải làm ngay, và (2) điều kiện để cấp Level 2 emergency access.",
+    "agent_response": "(1) Các bước SLA P1 notification phải làm ngay:\n\n- Bước 1: Ngay khi sự cố P1 xảy ra, người phát hiện sự cố phải tạo ticket P1 trong hệ thống ticket nội bộ.\n- Bước 2: Thông báo ngay cho IT Admin và Line Manager qua email hoặc điện thoại để họ nắm bắt tình hình.\n- Bước 3: Theo dõi tình hình sự cố và cập nhật thông tin trong ticket cho đến khi sự cố được giải quyết.\n\n(2) Điều kiện để cấp Level 2 emergency access:\n\n- Cần có sự phê duyệt bằng văn bản từ Line Manager hoặc người có thẩm quyền.\n- Contractor phải có lý do chính đáng và cần thiết để thực hiện emergency fix, chứng minh được rằng việc cấp quyền truy cập là cần thiết để khắc phục sự cố nhanh chóng.\n\nNếu cần thêm thông tin chi tiết, bạn có thể liên hệ với IT Admin hoặc tham khảo quy trình nội bộ.",
+    "retrieved_chunk_ids": [
+      "it_helpdesk_faq_003",
+      "it_helpdesk_faq_004",
+      "hr_leave_policy_002",
+      "policy_refund_v4_005",
+      "policy_refund_v4_003"
+    ],
+    "latency_ms": 6756.265584000002,
+    "tokens_used": 767,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 2.0,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 2.0,
+        "role_lenient": 2.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời chỉ liệt kê một số bước thông báo và điều kiện cấp quyền truy cập nhưng thiếu sót về các kênh notification cụ thể, không đề cập đến deadline escalation và không chính xác về điều kiện cấp quyền emergency. Không đầy đủ thông tin quan trọng theo Ground Truth."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "Khách hàng mua sản phẩm trong chương trình Flash Sale, nhưng phát hiện sản phẩm bị lỗi từ nhà sản xuất và yêu cầu hoàn tiền trong vòng 5 ngày. Có được hoàn tiền không? Giải thích theo đúng chính sách.",
+    "agent_response": "Khách hàng có thể yêu cầu hoàn tiền cho sản phẩm bị lỗi từ nhà sản xuất theo chính sách hoàn tiền của công ty. Để thực hiện yêu cầu hoàn tiền, khách hàng cần làm theo các bước sau:\n\n1. **Gửi yêu cầu qua hệ thống ticket nội bộ** với category \"Refund Request\".\n2. **CS Agent sẽ xem xét yêu cầu** trong vòng 1 ngày làm việc và xác nhận điều kiện đủ điều kiện cho việc hoàn tiền.\n3. Nếu yêu cầu đủ điều kiện, **CS Agent sẽ chuyển yêu cầu sang Finance Team** để xử lý hoàn tiền.\n4. **Finance Team sẽ xử lý trong 3-5 ngày làm việc** và thông báo kết quả cho khách hàng.\n\nVì khách hàng đã phát hiện sản phẩm bị lỗi trong vòng 5 ngày, nên yêu cầu hoàn tiền của họ sẽ được xem xét và có khả năng được chấp nhận nếu đáp ứng đủ điều kiện theo quy định. [Nguồn 3]",
+    "retrieved_chunk_ids": [
+      "it_helpdesk_faq_004",
+      "it_helpdesk_faq_003",
+      "policy_refund_v4_003",
+      "policy_refund_v4_005",
+      "hr_leave_policy_002"
+    ],
+    "latency_ms": 3711.2469169999968,
+    "tokens_used": 749,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 1.0,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 1.0,
+        "role_lenient": 1.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời hoàn toàn sai lệch so với Ground Truth, với kết luận rằng khách hàng có thể hoàn tiền trong khi thực tế là không được hoàn tiền theo chính sách Flash Sale."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "SLA xử lý ticket P1 là bao lâu?",
+    "agent_response": "Theo tài liệu nội bộ, SLA xử lý ticket P1 là 1 giờ. Nếu bạn cần thêm thông tin hoặc hỗ trợ, hãy cho tôi biết!",
+    "retrieved_chunk_ids": [
+      "it_helpdesk_faq_003",
+      "it_helpdesk_faq_004",
+      "hr_leave_policy_002",
+      "it_helpdesk_faq_001",
+      "policy_refund_v4_003"
+    ],
+    "latency_ms": 1125.5147079999972,
+    "tokens_used": 602,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 1.5,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 1.0,
+        "role_lenient": 2.0
+      },
+      "conflict": false,
+      "reasoning": "Thông tin về SLA xử lý ticket P1 được đưa ra hoàn toàn sai sót, không chính xác với Ground Truth."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "Khách hàng có thể yêu cầu hoàn tiền trong bao nhiêu ngày?",
+    "agent_response": "Khách hàng có thể yêu cầu hoàn tiền bất kỳ lúc nào bằng cách gửi yêu cầu qua hệ thống ticket nội bộ với category \"Refund Request\". Sau khi gửi yêu cầu, CS Agent sẽ xem xét trong vòng 1 ngày làm việc. Nếu yêu cầu đủ điều kiện, Finance Team sẽ xử lý hoàn tiền trong 3-5 ngày làm việc tiếp theo. Do đó, tổng thời gian từ khi khách hàng gửi yêu cầu đến khi hoàn tiền có thể mất từ 4 đến 6 ngày làm việc [Nguồn 4].",
+    "retrieved_chunk_ids": [
+      "it_helpdesk_faq_004",
+      "it_helpdesk_faq_003",
+      "hr_leave_policy_002",
+      "policy_refund_v4_003",
+      "policy_refund_v4_005"
+    ],
+    "latency_ms": 2097.6047500000022,
+    "tokens_used": 624,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 1.5,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 1.0,
+        "role_lenient": 2.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời sai thông tin về thời gian yêu cầu hoàn tiền, trong khi Ground Truth xác định phải trong vòng 7 ngày làm việc. Hơn nữa, thông tin về việc gửi yêu cầu qua hệ thống ticket và thời gian xét duyệt không liên quan đến câu hỏi."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "Ai phải phê duyệt để cấp quyền Level 3?",
+    "agent_response": "Để cấp quyền Level 3, cần có sự phê duyệt của Line Manager. Quy trình này yêu cầu phải có sự đồng ý bằng văn bản từ Line Manager trước khi thực hiện cấp quyền [Nguồn 2].",
+    "retrieved_chunk_ids": [
+      "policy_refund_v4_003",
+      "hr_leave_policy_002",
+      "it_helpdesk_faq_004",
+      "policy_refund_v4_005",
+      "it_helpdesk_faq_003"
+    ],
+    "latency_ms": 1455.7490410000041,
+    "tokens_used": 561,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 2.5,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 2.0,
+        "role_lenient": 3.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời chỉ đề cập đến Line Manager mà không nhắc đến IT Admin và IT Security, dẫn đến thiếu sót thông tin quan trọng."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "Tài khoản bị khóa sau bao nhiêu lần đăng nhập sai?",
+    "agent_response": "Tài khoản sẽ bị khóa sau 5 lần đăng nhập sai. Nếu bạn gặp phải tình huống này, hãy liên hệ với bộ phận IT qua email it-access@company.internal để được hỗ trợ mở khóa tài khoản.",
+    "retrieved_chunk_ids": [
+      "it_helpdesk_faq_004",
+      "it_helpdesk_faq_003",
+      "hr_leave_policy_002",
+      "policy_refund_v4_003",
+      "access_control_sop_006"
+    ],
+    "latency_ms": 1382.750417000004,
+    "tokens_used": 546,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 5.0,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 5.0,
+        "role_lenient": 5.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời chính xác 100% và đầy đủ thông tin quan trọng liên quan đến việc tài khoản bị khóa sau bao nhiêu lần đăng nhập sai."
+    },
+    "status": "pass"
+  },
+  {
+    "test_case": "Nhân viên được làm remote tối đa mấy ngày mỗi tuần?",
+    "agent_response": "Theo tài liệu nội bộ hiện tại, không có thông tin cụ thể về số ngày tối đa mà nhân viên có thể làm việc từ xa mỗi tuần. Để biết thêm chi tiết về chính sách làm việc từ xa, bạn có thể liên hệ với bộ phận HR hoặc tham khảo các tài liệu chính sách nội bộ liên quan.",
+    "retrieved_chunk_ids": [
+      "policy_refund_v4_003",
+      "it_helpdesk_faq_003",
+      "it_helpdesk_faq_004",
+      "hr_leave_policy_002",
+      "policy_refund_v4_005"
+    ],
+    "latency_ms": 1482.777082999995,
+    "tokens_used": 582,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 1.5,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 1.0,
+        "role_lenient": 2.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời không chính xác vì không cung cấp thông tin cụ thể về số ngày tối đa mà nhân viên có thể làm remote và thiếu thông tin quan trọng từ Ground Truth."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "Ticket P1 không được phản hồi sau 10 phút. Hệ thống tự động làm gì?",
+    "agent_response": "Theo quy trình nội bộ, nếu ticket P1 không được phản hồi sau 10 phút, hệ thống sẽ tự động gửi thông báo nhắc nhở đến các nhân viên có trách nhiệm xử lý ticket đó. Tuy nhiên, thông tin chi tiết về quy trình này không được cung cấp trong các tài liệu nội bộ mà tôi có. Bạn có thể kiểm tra thêm trong hệ thống ticket hoặc liên hệ với bộ phận IT để biết thêm thông tin cụ thể.",
+    "retrieved_chunk_ids": [
+      "it_helpdesk_faq_004",
+      "policy_refund_v4_003",
+      "it_helpdesk_faq_003",
+      "hr_leave_policy_002",
+      "hr_leave_policy_003"
+    ],
+    "latency_ms": 2582.4460000000045,
+    "tokens_used": 671,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 1.5,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 1.0,
+        "role_lenient": 2.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời không chính xác vì đã không nêu đúng hành động của hệ thống, không đầy đủ thông tin và có hiện tượng bịa đặt thông tin liên quan đến quy trình."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "Sản phẩm kỹ thuật số (license key) có được hoàn tiền không?",
+    "agent_response": "Theo quy trình hoàn tiền, sản phẩm kỹ thuật số như license key thường không đủ điều kiện hoàn tiền. Tuy nhiên, để xác nhận cụ thể về trường hợp của bạn, bạn cần gửi yêu cầu qua hệ thống ticket nội bộ với category \"Refund Request\". CS Agent sẽ xem xét yêu cầu của bạn trong vòng 1 ngày làm việc và xác nhận điều kiện đủ điều kiện hoàn tiền [Nguồn 4].",
+    "retrieved_chunk_ids": [
+      "it_helpdesk_faq_004",
+      "it_helpdesk_faq_003",
+      "hr_leave_policy_002",
+      "policy_refund_v4_003",
+      "it_helpdesk_faq_005"
+    ],
+    "latency_ms": 1971.5685839999965,
+    "tokens_used": 618,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 1,
+      "agreement_rate": 0.5,
+      "individual_scores": {
+        "role_strict": 1.0,
+        "role_lenient": 3.0
+      },
+      "conflict": true,
+      "reasoning": "Câu trả lời không chính xác vì nó vi phạm chính sách hoàn tiền rõ ràng và thiếu thông tin quan trọng từ Ground Truth."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "Quy trình xử lý sự cố P1 gồm mấy bước và bước đầu tiên là gì?",
+    "agent_response": "Quy trình xử lý sự cố P1 gồm 5 bước. Bước đầu tiên là xác định và ghi nhận sự cố. Sau khi ghi nhận, các bước tiếp theo sẽ được thực hiện để phân tích, khắc phục và thông báo kết quả cho người dùng. Nếu bạn cần thêm thông tin chi tiết về từng bước, hãy cho tôi biết!",
+    "retrieved_chunk_ids": [
+      "hr_leave_policy_002",
+      "it_helpdesk_faq_003",
+      "access_control_sop_000",
+      "it_helpdesk_faq_004",
+      "it_helpdesk_faq_001"
+    ],
+    "latency_ms": 1814.9654159999998,
+    "tokens_used": 594,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 2.5,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 2.0,
+        "role_lenient": 3.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời chỉ đúng ở mức độ có 5 bước, nhưng thông tin chi tiết về từng bước không chính xác và không đầy đủ theo Ground Truth, có thông tin bịa thêm ngoài context."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "ERR-403-AUTH là lỗi gì và cách xử lý?",
+    "agent_response": "Lỗi ERR-403-AUTH thường liên quan đến việc truy cập bị từ chối do thiếu quyền truy cập hoặc xác thực không hợp lệ. Để xử lý lỗi này, bạn có thể thực hiện các bước sau:\n\n1. **Kiểm tra quyền truy cập**: Đảm bảo rằng bạn có quyền truy cập vào tài nguyên hoặc trang web mà bạn đang cố gắng truy cập. Nếu không, hãy liên hệ với quản trị viên hệ thống hoặc bộ phận IT để được cấp quyền.\n\n2. **Đăng nhập lại**: Nếu bạn đã đăng nhập, hãy thử đăng xuất và đăng nhập lại để làm mới phiên làm việc của bạn.\n\n3. **Xóa cache và cookie**: Đôi khi, dữ liệu cache hoặc cookie cũ có thể gây ra lỗi. Hãy thử xóa cache và cookie của trình duyệt và sau đó thử truy cập lại.\n\n4. **Kiểm tra URL**: Đảm bảo rằng bạn đang nhập đúng URL. Một lỗi nhỏ trong địa chỉ có thể dẫn đến lỗi 403.\n\n5. **Liên hệ với bộ phận hỗ trợ**: Nếu các bước trên không giải quyết được vấn đề, hãy tạo một ticket hỗ trợ cho bộ phận IT để họ có thể kiểm tra và xử lý lỗi này.\n\nNếu bạn cần thêm thông tin hoặc hỗ trợ, hãy liên hệ với bộ phận IT qua email hoặc hotline nội bộ.",
+    "retrieved_chunk_ids": [
+      "it_helpdesk_faq_003",
+      "it_helpdesk_faq_004",
+      "hr_leave_policy_002",
+      "policy_refund_v4_005",
+      "policy_refund_v4_003"
+    ],
+    "latency_ms": 4332.02575,
+    "tokens_used": 802,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 1.5,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 1.0,
+        "role_lenient": 2.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời cung cấp thông tin cụ thể và các bước xử lý lỗi ERR-403-AUTH, nhưng không chính xác với thông tin chính xác từ Ground Truth, do không tồn tại thông tin về mã lỗi này trong tài liệu nội bộ."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "Store credit khi hoàn tiền có giá trị bao nhiêu so với tiền gốc?",
+    "agent_response": "Theo thông tin hiện có, không có quy định cụ thể nào về giá trị của store credit khi hoàn tiền so với tiền gốc. Tuy nhiên, thông thường, store credit sẽ có giá trị tương đương với số tiền gốc mà khách hàng đã chi trả, trừ khi có thông báo khác từ công ty. Để biết thông tin chính xác hơn, bạn có thể liên hệ với bộ phận hỗ trợ khách hàng qua email cs-refund@company.internal hoặc hotline nội bộ ext. 1234.",
+    "retrieved_chunk_ids": [
+      "it_helpdesk_faq_004",
+      "it_helpdesk_faq_003",
+      "policy_refund_v4_005",
+      "policy_refund_v4_002",
+      "policy_refund_v4_003"
+    ],
+    "latency_ms": 2071.284292000001,
+    "tokens_used": 633,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 1.5,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 1.0,
+        "role_lenient": 2.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời không chính xác vì nó đưa ra thông tin sai lệch về giá trị của store credit và thiếu thông tin quan trọng so với Ground Truth."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "Ticket P1 được tạo lúc 22:47. Ai sẽ nhận thông báo đầu tiên và qua kênh nào? Escalation xảy ra lúc mấy giờ?",
+    "agent_response": "Theo quy trình xử lý ticket, ticket P1 sẽ được chuyển đến nhóm hỗ trợ ngay lập tức. Tuy nhiên, thông tin cụ thể về ai sẽ nhận thông báo đầu tiên và qua kênh nào không được nêu rõ trong tài liệu nội bộ mà tôi có. \n\nVề phần escalation, thông thường, nếu ticket không được giải quyết trong thời gian quy định, nó sẽ được escalated lên cấp cao hơn. Tuy nhiên, thời gian cụ thể cho việc escalation cũng không được đề cập trong tài liệu. \n\nNếu bạn cần thêm thông tin chi tiết về quy trình này, tôi khuyên bạn nên liên hệ với bộ phận IT hoặc quản lý trực tiếp để có thông tin chính xác hơn.",
+    "retrieved_chunk_ids": [
+      "it_helpdesk_faq_004",
+      "policy_refund_v4_003",
+      "it_helpdesk_faq_003",
+      "policy_refund_v4_005",
+      "access_control_sop_000"
+    ],
+    "latency_ms": 2721.0125000000007,
+    "tokens_used": 639,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 1.5,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 1.0,
+        "role_lenient": 2.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời không chính xác và thiếu thông tin quan trọng, không đề cập đến việc thông báo qua kênh nào và thời gian escalation cụ thể."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "Khách hàng đặt đơn ngày 31/01/2026 và yêu cầu hoàn tiền ngày 07/02/2026. Sản phẩm lỗi nhà sản xuất, chưa kích hoạt, không phải Flash Sale. Được hoàn tiền không?",
+    "agent_response": "Theo quy trình hoàn tiền, khách hàng có thể được hoàn tiền nếu sản phẩm lỗi do nhà sản xuất, chưa kích hoạt và không phải là sản phẩm trong chương trình Flash Sale. \n\nBước 1: Khách hàng cần gửi yêu cầu hoàn tiền qua hệ thống ticket nội bộ với category \"Refund Request\". \n\nBước 2: CS Agent sẽ xem xét yêu cầu trong vòng 1 ngày làm việc và xác nhận điều kiện đủ điều kiện.\n\nBước 3: Nếu yêu cầu đủ điều kiện, nó sẽ được chuyển sang Finance Team để xử lý hoàn tiền.\n\nBước 4: Finance Team sẽ xử lý trong 3-5 ngày làm việc và thông báo kết quả cho khách hàng [Nguồn 4].\n\nVì sản phẩm lỗi do nhà sản xuất, chưa kích hoạt và không phải Flash Sale, khách hàng có khả năng được hoàn tiền. Tuy nhiên, để xác nhận chính xác, khách hàng cần thực hiện các bước nêu trên.",
+    "retrieved_chunk_ids": [
+      "it_helpdesk_faq_004",
+      "it_helpdesk_faq_003",
+      "policy_refund_v4_005",
+      "policy_refund_v4_003",
+      "hr_leave_policy_002"
+    ],
+    "latency_ms": 3103.671124999998,
+    "tokens_used": 749,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 2.5,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 2.0,
+        "role_lenient": 3.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời đề cập đến quy trình hoàn tiền nhưng không chính xác vì không theo đúng thông tin về chính sách hoàn tiền phiên bản 3. Cần phải nhấn mạnh rằng cần xác nhận với CS Team về nội dung chính sách này."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "Contractor cần Admin Access (Level 3) để khắc phục sự cố P1 đang active. Quy trình cấp quyền tạm thời như thế nào?",
+    "agent_response": "Để cấp quyền Admin Access (Level 4) cho Contractor nhằm khắc phục sự cố P1 đang active, bạn cần thực hiện theo quy trình sau:\n\n1. **Phê duyệt**: Yêu cầu cấp quyền Admin Access cần được phê duyệt bởi IT Manager và CISO.\n2. **Thời gian xử lý**: Thời gian xử lý cho quyền Admin Access là 5 ngày làm việc.\n3. **Yêu cầu thêm**: Contractor cần hoàn thành training bắt buộc về security policy trước khi được cấp quyền.\n\nTuy nhiên, nếu Contractor cần quyền tạm thời để khắc phục sự cố ngay lập tức, bạn có thể xem xét việc cấp quyền Elevated Access (Level 3) trước, với các bước như sau:\n\n1. **Phê duyệt**: Yêu cầu cấp quyền Elevated Access cần được phê duyệt bởi Line Manager và IT Admin.\n2. **Thời gian xử lý**: Thời gian xử lý cho quyền Elevated Access là 3 ngày làm việc.\n\nLưu ý rằng việc cấp quyền tạm thời cần được thực hiện nhanh chóng và có sự đồng ý của các bên liên quan để đảm bảo an toàn và tuân thủ chính sách bảo mật.",
+    "retrieved_chunk_ids": [
+      "hr_leave_policy_002",
+      "it_helpdesk_faq_004",
+      "it_helpdesk_faq_003",
+      "access_control_sop_001",
+      "policy_refund_v4_003"
+    ],
+    "latency_ms": 4066.5618339999983,
+    "tokens_used": 933,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 1.5,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 1.0,
+        "role_lenient": 2.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời sai về việc có thể cấp quyền Elevated Access tạm thời mà không cần sự đồng ý của đủ 3 bên liên quan. Thông tin về SOP không được đề cập đầy đủ, dẫn đến không chính xác."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "Nhân viên vừa vào thử việc (trong probation period) muốn làm remote vì lý do cá nhân. Điều kiện là gì?",
+    "agent_response": "Nhân viên trong thời gian thử việc (probation period) muốn làm việc từ xa (remote) cần phải có sự phê duyệt từ Line Manager. Điều này có thể bao gồm việc trình bày lý do cụ thể và đảm bảo rằng công việc có thể được thực hiện hiệu quả từ xa. Nếu được Line Manager chấp thuận, nhân viên có thể tiến hành làm việc từ xa theo quy định của công ty. \n\nLưu ý rằng quy trình và điều kiện cụ thể có thể khác nhau tùy thuộc vào chính sách của công ty, vì vậy nhân viên nên tham khảo thêm từ bộ phận nhân sự hoặc Line Manager của mình để có thông tin chi tiết hơn.",
+    "retrieved_chunk_ids": [
+      "hr_leave_policy_002",
+      "it_helpdesk_faq_004",
+      "it_helpdesk_faq_003",
+      "policy_refund_v4_003",
+      "policy_refund_v4_005"
+    ],
+    "latency_ms": 2637.024959000001,
+    "tokens_used": 668,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 1.5,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 1.0,
+        "role_lenient": 2.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời hoàn toàn sai lệch với thông tin chính xác, khẳng định rằng nhân viên trong thời gian thử việc có thể làm remote, điều này trái ngược với Ground Truth."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "Ticket P1 lúc 2am. Cần cấp Level 2 access tạm thời cho contractor để thực hiện emergency fix. Đồng thời cần notify stakeholders theo SLA. Nêu đủ cả hai quy trình.",
+    "agent_response": "Để cấp Level 2 access tạm thời cho contractor và notify stakeholders theo SLA, bạn cần thực hiện các bước sau:\n\n### Quy trình cấp Level 2 access tạm thời cho contractor:\n1. **Tạo ticket P1**: Gửi yêu cầu qua hệ thống ticket nội bộ với category \"Access Request\" và ghi rõ lý do cần cấp Level 2 access tạm thời cho contractor để thực hiện emergency fix.\n2. **Phê duyệt**: Đảm bảo rằng yêu cầu được phê duyệt bởi Line Manager hoặc người có thẩm quyền liên quan.\n3. **Cấp quyền**: Sau khi được phê duyệt, IT Admin sẽ tiến hành cấp Level 2 access cho contractor theo yêu cầu.\n4. **Theo dõi**: Đảm bảo contractor thực hiện công việc và sau khi hoàn thành, thu hồi quyền truy cập.\n\n### Quy trình notify stakeholders theo SLA:\n1. **Xác định stakeholders**: Liệt kê các bên liên quan cần được thông báo về tình huống khẩn cấp này.\n2. **Soạn thông báo**: Soạn một thông báo ngắn gọn, rõ ràng về tình huống, lý do cấp quyền tạm thời và thời gian dự kiến hoàn thành công việc.\n3. **Gửi thông báo**: Gửi thông báo qua email hoặc hệ thống nội bộ đến tất cả stakeholders đã xác định.\n4. **Theo dõi phản hồi**: Theo dõi phản hồi từ stakeholders để đảm bảo mọi người đều nắm bắt thông tin và không có vấn đề phát sinh.\n\nLưu ý rằng việc notify stakeholders cần được thực hiện nhanh chóng để đảm bảo tuân thủ SLA và giữ cho tất cả các bên liên quan được thông tin đầy đủ về tình huống khẩn cấp này.",
+    "retrieved_chunk_ids": [
+      "it_helpdesk_faq_003",
+      "it_helpdesk_faq_004",
+      "hr_leave_policy_002",
+      "policy_refund_v4_005",
+      "policy_refund_v4_003"
+    ],
+    "latency_ms": 6224.813124999997,
+    "tokens_used": 911,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 2.5,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 2.0,
+        "role_lenient": 3.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời không chính xác hoàn toàn vì các bước được nêu không khớp với quy trình đúng theo Ground Truth. Quy trình notify stakeholders không đề cập đến việc sử dụng Slack, email cụ thể, hay hệ thống PagerDuty, và quy trình cấp Level 2 access không đúng khi không nêu rõ sự cấp phép đồng thời của Line Manager và IT Admin on-call cũng như không cần sự phê duyệt của IT Security. Thông tin còn thiếu và có một số sự nhầm lẫn trong việc thực hiện quy trình."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "SLA xử lý ticket P1 là bao lâu?",
+    "agent_response": "Theo tài liệu nội bộ, SLA xử lý ticket P1 là trong vòng 1 giờ. Nếu bạn cần thêm thông tin hoặc hỗ trợ, hãy cho tôi biết!",
+    "retrieved_chunk_ids": [
+      "it_helpdesk_faq_003",
+      "it_helpdesk_faq_004",
+      "hr_leave_policy_002",
+      "it_helpdesk_faq_001",
+      "policy_refund_v4_003"
+    ],
+    "latency_ms": 1121.1434169999989,
+    "tokens_used": 604,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 1.5,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 1.0,
+        "role_lenient": 2.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời sai hoàn toàn vì thông tin SLA xử lý ticket P1 là không chính xác, không đầy đủ và có thông tin sai lệch."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "Khách hàng có thể yêu cầu hoàn tiền trong bao nhiêu ngày?",
+    "agent_response": "Khách hàng có thể yêu cầu hoàn tiền bất cứ lúc nào bằng cách gửi yêu cầu qua hệ thống ticket nội bộ với category \"Refund Request\". Sau khi yêu cầu được gửi, CS Agent sẽ xem xét trong vòng 1 ngày làm việc để xác nhận điều kiện đủ điều kiện. Nếu đủ điều kiện, yêu cầu sẽ được chuyển sang Finance Team để xử lý hoàn tiền trong khoảng thời gian từ 3-5 ngày làm việc [Nguồn 4].",
+    "retrieved_chunk_ids": [
+      "it_helpdesk_faq_004",
+      "it_helpdesk_faq_003",
+      "hr_leave_policy_002",
+      "policy_refund_v4_003",
+      "policy_refund_v4_005"
+    ],
+    "latency_ms": 2137.174166999998,
+    "tokens_used": 609,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 1,
+      "agreement_rate": 0.5,
+      "individual_scores": {
+        "role_strict": 1.0,
+        "role_lenient": 3.0
+      },
+      "conflict": true,
+      "reasoning": "Câu trả lời hoàn toàn sai lệch so với thông tin chính xác trong Ground Truth về thời gian yêu cầu hoàn tiền."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "Ai phải phê duyệt để cấp quyền Level 3?",
+    "agent_response": "Để cấp quyền Level 3, cần có sự phê duyệt của Line Manager. Quy trình này yêu cầu phải có sự đồng ý bằng văn bản từ Line Manager trước khi thực hiện cấp quyền [Nguồn 2].",
+    "retrieved_chunk_ids": [
+      "policy_refund_v4_003",
+      "hr_leave_policy_002",
+      "it_helpdesk_faq_004",
+      "policy_refund_v4_005",
+      "it_helpdesk_faq_003"
+    ],
+    "latency_ms": 1623.454417000005,
+    "tokens_used": 561,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 1,
+      "agreement_rate": 0.5,
+      "individual_scores": {
+        "role_strict": 1.0,
+        "role_lenient": 3.0
+      },
+      "conflict": true,
+      "reasoning": "Câu trả lời thiếu thông tin quan trọng về sự phê duyệt cần có từ IT Admin và IT Security, chỉ đề cập đến Line Manager."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "Tài khoản bị khóa sau bao nhiêu lần đăng nhập sai?",
+    "agent_response": "Tài khoản sẽ bị khóa sau 5 lần đăng nhập sai. Nếu bạn gặp phải tình huống này, hãy liên hệ với bộ phận IT để được hỗ trợ mở khóa tài khoản.",
+    "retrieved_chunk_ids": [
+      "it_helpdesk_faq_004",
+      "it_helpdesk_faq_003",
+      "hr_leave_policy_002",
+      "policy_refund_v4_003",
+      "access_control_sop_006"
+    ],
+    "latency_ms": 1227.7162919999967,
+    "tokens_used": 539,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 5.0,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 5.0,
+        "role_lenient": 5.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời chính xác hoàn toàn về số lần đăng nhập sai dẫn đến việc khóa tài khoản và cung cấp thông tin bổ sung hữu ích."
+    },
+    "status": "pass"
+  },
+  {
+    "test_case": "Nhân viên được làm remote tối đa mấy ngày mỗi tuần?",
+    "agent_response": "Thông tin về số ngày làm việc từ xa (remote) không được đề cập trong các tài liệu nội bộ mà tôi có. Để biết chính xác quy định về số ngày làm remote tối đa mỗi tuần, bạn nên tham khảo chính sách làm việc từ xa của công ty hoặc liên hệ với bộ phận nhân sự (HR) để được hỗ trợ.",
+    "retrieved_chunk_ids": [
+      "policy_refund_v4_003",
+      "it_helpdesk_faq_003",
+      "it_helpdesk_faq_004",
+      "hr_leave_policy_002",
+      "policy_refund_v4_005"
+    ],
+    "latency_ms": 1758.3104590000005,
+    "tokens_used": 587,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 1.5,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 1.0,
+        "role_lenient": 2.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời không cung cấp thông tin chính xác về số ngày làm việc từ xa và thiếu sót thông tin quan trọng từ Ground Truth."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "Ticket P1 không được phản hồi sau 10 phút. Hệ thống tự động làm gì?",
+    "agent_response": "Theo quy trình nội bộ, nếu ticket P1 không được phản hồi sau 10 phút, hệ thống sẽ tự động escalated (tăng mức độ ưu tiên) ticket đó lên cho người quản lý hoặc bộ phận liên quan để đảm bảo yêu cầu được xử lý kịp thời. Tuy nhiên, thông tin chi tiết về quy trình này không được đề cập trong các nguồn tài liệu mà tôi có. Bạn có thể kiểm tra thêm trong hệ thống ticket nội bộ hoặc hỏi bộ phận IT để biết thêm thông tin cụ thể.",
+    "retrieved_chunk_ids": [
+      "it_helpdesk_faq_004",
+      "policy_refund_v4_003",
+      "it_helpdesk_faq_003",
+      "hr_leave_policy_002",
+      "hr_leave_policy_003"
+    ],
+    "latency_ms": 3860.5760840000016,
+    "tokens_used": 687,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 2.5,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 2.0,
+        "role_lenient": 3.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời có thông tin sai do không nêu rõ rằng ticket P1 sẽ tự động escalate lên Senior Engineer và không đề cập đến việc gửi thông báo tới Slack #incident-p1 và PagerDuty."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "Sản phẩm kỹ thuật số (license key) có được hoàn tiền không?",
+    "agent_response": "Theo quy trình hoàn tiền, sản phẩm kỹ thuật số như license key thường không đủ điều kiện hoàn tiền. Tuy nhiên, để xác nhận cụ thể về điều kiện hoàn tiền cho sản phẩm này, bạn cần gửi yêu cầu qua hệ thống ticket nội bộ với category \"Refund Request\". CS Agent sẽ xem xét yêu cầu của bạn trong vòng 1 ngày làm việc và xác nhận điều kiện đủ điều kiện. Nếu đủ điều kiện, yêu cầu sẽ được chuyển sang Finance Team để xử lý hoàn tiền [Nguồn 4].",
+    "retrieved_chunk_ids": [
+      "it_helpdesk_faq_004",
+      "it_helpdesk_faq_003",
+      "hr_leave_policy_002",
+      "policy_refund_v4_003",
+      "it_helpdesk_faq_005"
+    ],
+    "latency_ms": 2505.0174170000046,
+    "tokens_used": 639,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 2,
+      "agreement_rate": 0.5,
+      "individual_scores": {
+        "role_strict": 2.0,
+        "role_lenient": 4.0
+      },
+      "conflict": true,
+      "reasoning": "Câu trả lời đưa ra thông tin không chính xác về chính sách hoàn tiền đối với sản phẩm kỹ thuật số và thiếu thông tin quan trọng về lý do cụ thể cho việc không được hoàn tiền."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "Quy trình xử lý sự cố P1 gồm mấy bước và bước đầu tiên là gì?",
+    "agent_response": "Quy trình xử lý sự cố P1 thường bao gồm 5 bước chính. Bước đầu tiên trong quy trình này là \"Xác định và phân loại sự cố\". Sau khi xác định, các bước tiếp theo sẽ được thực hiện để xử lý sự cố một cách hiệu quả. Tuy nhiên, thông tin chi tiết về quy trình cụ thể có thể không được cung cấp trong các tài liệu nội bộ mà tôi có. Bạn có thể tham khảo thêm từ bộ phận IT hoặc tài liệu quy trình xử lý sự cố của công ty để có thông tin chính xác hơn.",
+    "retrieved_chunk_ids": [
+      "hr_leave_policy_002",
+      "it_helpdesk_faq_003",
+      "access_control_sop_000",
+      "it_helpdesk_faq_004",
+      "it_helpdesk_faq_001"
+    ],
+    "latency_ms": 2651.665458999993,
+    "tokens_used": 639,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 1,
+      "agreement_rate": 0.5,
+      "individual_scores": {
+        "role_strict": 1.0,
+        "role_lenient": 3.0
+      },
+      "conflict": true,
+      "reasoning": "Câu trả lời không chính xác hoàn toàn so với thông tin chuẩn (Ground Truth), ví dụ như không nêu đúng tên các bước và trình tự cụ thể của quy trình P1."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "ERR-403-AUTH là lỗi gì và cách xử lý?",
+    "agent_response": "Lỗi ERR-403-AUTH thường liên quan đến việc truy cập bị từ chối do thiếu quyền truy cập hoặc xác thực không thành công. Để xử lý lỗi này, bạn có thể thực hiện các bước sau:\n\n1. **Kiểm tra quyền truy cập**: Đảm bảo rằng bạn có quyền truy cập vào tài nguyên hoặc trang web mà bạn đang cố gắng truy cập. Nếu không, hãy liên hệ với quản trị viên hệ thống hoặc bộ phận IT để được cấp quyền.\n\n2. **Đăng nhập lại**: Nếu bạn đang sử dụng một tài khoản, hãy thử đăng xuất và đăng nhập lại để đảm bảo rằng thông tin xác thực của bạn là chính xác.\n\n3. **Xóa cache và cookies**: Đôi khi, dữ liệu cache hoặc cookies cũ có thể gây ra sự cố. Hãy thử xóa cache và cookies của trình duyệt và sau đó thử lại.\n\n4. **Kiểm tra URL**: Đảm bảo rằng bạn đang nhập đúng URL. Một lỗi nhỏ trong địa chỉ có thể dẫn đến lỗi 403.\n\nNếu bạn đã thử tất cả các bước trên mà vẫn gặp lỗi, hãy liên hệ với bộ phận hỗ trợ kỹ thuật để được trợ giúp thêm.",
+    "retrieved_chunk_ids": [
+      "it_helpdesk_faq_003",
+      "it_helpdesk_faq_004",
+      "hr_leave_policy_002",
+      "policy_refund_v4_005",
+      "policy_refund_v4_003"
+    ],
+    "latency_ms": 4171.679499999997,
+    "tokens_used": 767,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 1,
+      "agreement_rate": 0.5,
+      "individual_scores": {
+        "role_strict": 1.0,
+        "role_lenient": 3.0
+      },
+      "conflict": true,
+      "reasoning": "Câu trả lời cung cấp thông tin không chính xác về mã lỗi ERR-403-AUTH; thực tế không có thông tin về lỗi này trong tài liệu nội bộ. Ngoài ra, câu trả lời không hoàn toàn tương thích với Ground Truth."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "Store credit khi hoàn tiền có giá trị bao nhiêu so với tiền gốc?",
+    "agent_response": "Theo thông tin từ tài liệu nội bộ, không có quy định cụ thể nào về việc store credit có giá trị bao nhiêu so với tiền gốc khi hoàn tiền. Tuy nhiên, để biết thêm chi tiết về chính sách hoàn tiền và store credit, bạn có thể liên hệ với bộ phận hỗ trợ khách hàng qua email cs-refund@company.internal hoặc gọi đến hotline nội bộ ext. 1234 trong giờ làm việc từ thứ 2 đến thứ 6, 8:00 - 17:30.",
+    "retrieved_chunk_ids": [
+      "it_helpdesk_faq_004",
+      "it_helpdesk_faq_003",
+      "policy_refund_v4_005",
+      "policy_refund_v4_002",
+      "policy_refund_v4_003"
+    ],
+    "latency_ms": 2757.229125000002,
+    "tokens_used": 634,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 1.0,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 1.0,
+        "role_lenient": 1.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời không chính xác và cung cấp thông tin sai về tỷ lệ store credit so với tiền gốc, cũng như thiếu thông tin quan trọng trong câu hỏi."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "Ticket P1 được tạo lúc 22:47. Ai sẽ nhận thông báo đầu tiên và qua kênh nào? Escalation xảy ra lúc mấy giờ?",
+    "agent_response": "Theo quy trình xử lý ticket, thông thường, các ticket sẽ được phân loại theo mức độ ưu tiên. Ticket P1 là mức độ cao nhất và sẽ được xử lý ngay lập tức. Người nhận thông báo đầu tiên về ticket P1 sẽ là CS Agent phụ trách qua kênh thông báo nội bộ (có thể là email hoặc hệ thống ticket).\n\nVề phần escalation, thông thường, nếu ticket P1 không được xử lý trong khoảng thời gian quy định (thường là 1 giờ), nó sẽ được escalated lên cấp quản lý hoặc nhóm hỗ trợ cao hơn. Tuy nhiên, tài liệu không cung cấp thông tin cụ thể về thời gian escalation cho ticket P1. Bạn có thể cần kiểm tra thêm trong quy trình nội bộ để biết thời gian chính xác cho việc escalation.\n\nNếu ticket P1 được tạo lúc 22:47, và giả sử thời gian xử lý là 1 giờ, thì escalation sẽ xảy ra vào khoảng 23:47 nếu không có ai xử lý ticket đó.",
+    "retrieved_chunk_ids": [
+      "it_helpdesk_faq_004",
+      "policy_refund_v4_003",
+      "it_helpdesk_faq_003",
+      "policy_refund_v4_005",
+      "access_control_sop_000"
+    ],
+    "latency_ms": 3720.8813340000047,
+    "tokens_used": 701,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 1.5,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 1.0,
+        "role_lenient": 2.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời không chính xác vì không nêu đúng kênh thông báo và thời gian escalation. Thông tin về thông báo gửi đến Slack #incident-p1 và email incident@company.internal cùng với thời gian escalation là 10 phút không được đề cập."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "Khách hàng đặt đơn ngày 31/01/2026 và yêu cầu hoàn tiền ngày 07/02/2026. Sản phẩm lỗi nhà sản xuất, chưa kích hoạt, không phải Flash Sale. Được hoàn tiền không?",
+    "agent_response": "Theo quy trình hoàn tiền, khách hàng có thể được hoàn tiền nếu sản phẩm lỗi do nhà sản xuất, chưa kích hoạt và không phải là sản phẩm trong chương trình Flash Sale. \n\nĐể yêu cầu hoàn tiền, khách hàng cần thực hiện các bước sau:\n\n1. Gửi yêu cầu qua hệ thống ticket nội bộ với category \"Refund Request\".\n2. CS Agent sẽ xem xét yêu cầu trong vòng 1 ngày làm việc và xác nhận điều kiện đủ điều kiện.\n3. Nếu đủ điều kiện, yêu cầu sẽ được chuyển sang Finance Team để xử lý hoàn tiền.\n4. Finance Team sẽ xử lý trong 3-5 ngày làm việc và thông báo kết quả cho khách hàng [Nguồn 4].\n\nVới thông tin bạn cung cấp, sản phẩm đáp ứng đủ điều kiện để được hoàn tiền. Khách hàng nên gửi yêu cầu hoàn tiền theo quy trình trên để được xử lý.",
+    "retrieved_chunk_ids": [
+      "it_helpdesk_faq_004",
+      "it_helpdesk_faq_003",
+      "policy_refund_v4_005",
+      "policy_refund_v4_003",
+      "hr_leave_policy_002"
+    ],
+    "latency_ms": 3778.653833,
+    "tokens_used": 736,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 1,
+      "agreement_rate": 0.5,
+      "individual_scores": {
+        "role_strict": 1.0,
+        "role_lenient": 3.0
+      },
+      "conflict": true,
+      "reasoning": "Câu trả lời không chính xác vì không xem xét chính xác về chính sách hoàn tiền phiên bản 3 áp dụng cho đơn đặt ngày 31/01/2026, mà chỉ dựa vào thông tin về sản phẩm lỗi và quy trình hoàn tiền mà không nhắc đến sự cần thiết phải xác nhận với CS Team."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "Contractor cần Admin Access (Level 3) để khắc phục sự cố P1 đang active. Quy trình cấp quyền tạm thời như thế nào?",
+    "agent_response": "Để cấp quyền Admin Access (Level 4) cho Contractor nhằm khắc phục sự cố P1 đang active, bạn cần thực hiện quy trình sau:\n\n1. **Phê duyệt**: Yêu cầu cấp quyền Admin Access cần được phê duyệt bởi IT Manager và CISO.\n2. **Thời gian xử lý**: Thời gian xử lý cho việc cấp quyền Admin Access là 5 ngày làm việc.\n3. **Yêu cầu thêm**: Contractor cần hoàn thành training bắt buộc về security policy trước khi được cấp quyền.\n\nLưu ý rằng, trong trường hợp khẩn cấp như sự cố P1, bạn nên liên hệ trực tiếp với IT Manager để xem xét khả năng cấp quyền tạm thời nhanh chóng hơn, nếu có thể. \n\nThông tin chi tiết về quy trình cấp quyền có thể tham khảo từ [Nguồn 4].",
+    "retrieved_chunk_ids": [
+      "hr_leave_policy_002",
+      "it_helpdesk_faq_004",
+      "it_helpdesk_faq_003",
+      "access_control_sop_001",
+      "policy_refund_v4_003"
+    ],
+    "latency_ms": 3307.6962499999995,
+    "tokens_used": 860,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 1.5,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 1.0,
+        "role_lenient": 2.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời cung cấp thông tin sai về cấp quyền Admin Access là Level 4 thay vì Level 3, không nêu đúng quy trình phê duyệt cần thiết và không đề cập đến việc không có cấp quyền tạm thời."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "Nhân viên vừa vào thử việc (trong probation period) muốn làm remote vì lý do cá nhân. Điều kiện là gì?",
+    "agent_response": "Nhân viên trong thời gian thử việc (probation period) muốn làm việc từ xa (remote) cần phải có sự phê duyệt từ Line Manager. Việc này phải được thực hiện bằng văn bản để đảm bảo tuân thủ quy định của công ty. Nếu bạn cần thêm thông tin hoặc hỗ trợ, hãy liên hệ với Line Manager của mình để thảo luận về yêu cầu này.",
+    "retrieved_chunk_ids": [
+      "hr_leave_policy_002",
+      "it_helpdesk_faq_004",
+      "it_helpdesk_faq_003",
+      "policy_refund_v4_003",
+      "policy_refund_v4_005"
+    ],
+    "latency_ms": 2559.685583000004,
+    "tokens_used": 609,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 1.0,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 1.0,
+        "role_lenient": 1.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời sai về điều kiện làm remote của nhân viên trong probation period, không cung cấp thông tin chính xác và đầy đủ từ Ground Truth."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "Ticket P1 lúc 2am. Cần cấp Level 2 access tạm thời cho contractor để thực hiện emergency fix. Đồng thời cần notify stakeholders theo SLA. Nêu đủ cả hai quy trình.",
+    "agent_response": "Để cấp Level 2 access tạm thời cho contractor và notify stakeholders theo SLA, bạn cần thực hiện các bước sau:\n\n### 1. Cấp Level 2 Access Tạm Thời\n- **Bước 1:** Tạo một ticket P1 trong hệ thống ticket nội bộ với thông tin chi tiết về yêu cầu cấp Level 2 access cho contractor. Đảm bảo ghi rõ lý do là để thực hiện emergency fix.\n- **Bước 2:** Chờ phản hồi từ IT Admin hoặc người có thẩm quyền để phê duyệt yêu cầu cấp quyền tạm thời.\n- **Bước 3:** Sau khi được phê duyệt, IT Admin sẽ thực hiện việc cấp quyền truy cập Level 2 cho contractor theo quy trình nội bộ.\n\n### 2. Notify Stakeholders Theo SLA\n- **Bước 1:** Xác định danh sách stakeholders cần được thông báo về tình huống khẩn cấp này.\n- **Bước 2:** Soạn thảo email thông báo, trong đó nêu rõ tình hình, lý do cấp quyền tạm thời cho contractor và các bước tiếp theo.\n- **Bước 3:** Gửi email thông báo đến tất cả stakeholders đã xác định trong thời gian quy định theo SLA.\n\nLưu ý rằng việc notify stakeholders cần được thực hiện ngay sau khi ticket P1 được tạo và yêu cầu cấp quyền được phê duyệt để đảm bảo thông tin được truyền đạt kịp thời.",
+    "retrieved_chunk_ids": [
+      "it_helpdesk_faq_003",
+      "it_helpdesk_faq_004",
+      "hr_leave_policy_002",
+      "policy_refund_v4_005",
+      "policy_refund_v4_003"
+    ],
+    "latency_ms": 4828.233582999999,
+    "tokens_used": 845,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 2.5,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 2.0,
+        "role_lenient": 3.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời thiếu thông tin quan trọng về quy trình notify stakeholders và cấp Level 2 access, không đề cập đến cách thức cụ thể và các bước chi tiết trong Ground Truth. Một số thông tin cũng chưa chính xác, như yêu cầu phê duyệt từ IT Security."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "Khách hàng đã gửi yêu cầu hoàn tiền sau 10 ngày kể từ khi đặt hàng. Theo chính sách, họ có được hoàn tiền không?",
+    "agent_response": "Theo quy trình hoàn tiền, khách hàng cần gửi yêu cầu qua hệ thống ticket nội bộ với category \"Refund Request\". Tuy nhiên, để đủ điều kiện hoàn tiền, yêu cầu phải được gửi trong khoảng thời gian quy định, mà thông tin cụ thể về thời gian này không được nêu rõ trong tài liệu. \n\nNếu chính sách của công ty quy định rằng yêu cầu hoàn tiền phải được gửi trong một khoảng thời gian nhất định (thường là trong vòng 7 ngày hoặc 14 ngày), thì khách hàng đã gửi yêu cầu sau 10 ngày có thể không đủ điều kiện để được hoàn tiền. \n\nĐể có thông tin chính xác hơn, bạn nên kiểm tra lại chính sách hoàn tiền cụ thể của công ty hoặc liên hệ với bộ phận hỗ trợ khách hàng.",
+    "retrieved_chunk_ids": [
+      "it_helpdesk_faq_004",
+      "hr_leave_policy_002",
+      "policy_refund_v4_003",
+      "policy_refund_v4_005",
+      "it_helpdesk_faq_003"
+    ],
+    "latency_ms": 3409.838125,
+    "tokens_used": 691,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 2.5,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 2.0,
+        "role_lenient": 3.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời không chính xác hoàn toàn vì không xác định rõ thời gian yêu cầu hoàn tiền theo chính sách là 7 ngày. Thêm vào đó, nó không cung cấp thông tin cụ thể về việc yêu cầu không hợp lệ."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "Theo tài liệu, nhân viên cần có ít nhất 3 năm kinh nghiệm để được thăng chức lên vị trí quản lý. Tuy nhiên, một nhân viên chỉ có 2 năm 6 tháng đã được thăng chức. Điều này có hợp lệ không?",
+    "agent_response": "Theo tài liệu nội bộ, để được thăng chức lên vị trí quản lý, nhân viên cần có ít nhất 3 năm kinh nghiệm. Trong trường hợp này, nhân viên chỉ có 2 năm 6 tháng kinh nghiệm, do đó việc thăng chức này không hợp lệ theo quy định đã nêu. Bạn nên liên hệ với bộ phận nhân sự để làm rõ tình huống này.",
+    "retrieved_chunk_ids": [
+      "it_helpdesk_faq_003",
+      "it_helpdesk_faq_004",
+      "hr_leave_policy_002",
+      "policy_refund_v4_005",
+      "policy_refund_v4_003"
+    ],
+    "latency_ms": 1677.8741660000023,
+    "tokens_used": 636,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 4.0,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 4.0,
+        "role_lenient": 4.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời hoàn toàn chính xác về việc thăng chức không hợp lệ do không đủ kinh nghiệm, nhưng thiếu thông tin về việc cần xem xét lại quy trình thăng chức."
+    },
+    "status": "pass"
+  },
+  {
+    "test_case": "Theo tài liệu, quy trình xử lý sự cố P1 mất 4 giờ. Nếu một sự cố P1 xảy ra, ai là người đầu tiên phải được thông báo?",
+    "agent_response": "Theo tài liệu nội bộ, quy trình xử lý sự cố P1 không được đề cập cụ thể trong các nguồn mà tôi có. Tuy nhiên, thông thường, trong các quy trình xử lý sự cố, người đầu tiên cần được thông báo thường là quản lý trực tiếp hoặc bộ phận IT để họ có thể nhanh chóng đánh giá và xử lý tình huống. Để có thông tin chính xác hơn, bạn có thể tham khảo thêm tài liệu nội bộ liên quan đến quy trình xử lý sự cố P1.",
+    "retrieved_chunk_ids": [
+      "hr_leave_policy_002",
+      "it_helpdesk_faq_003",
+      "it_helpdesk_faq_004",
+      "policy_refund_v4_003",
+      "access_control_sop_000"
+    ],
+    "latency_ms": 2643.805542000003,
+    "tokens_used": 636,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 1,
+      "agreement_rate": 0.5,
+      "individual_scores": {
+        "role_strict": 1.0,
+        "role_lenient": 3.0
+      },
+      "conflict": true,
+      "reasoning": "Câu trả lời không chính xác vì không chỉ rõ người đầu tiên cần thông báo là On-call Engineer, và do đó không đáp ứng được tiêu chí độ chính xác và đầy đủ thông tin."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "Khách hàng đã đặt hàng vào ngày 01/01/2023 và yêu cầu hoàn tiền vào ngày 15/01/2023. Họ có được hoàn tiền không?",
+    "agent_response": "Để xác định xem khách hàng có đủ điều kiện hoàn tiền hay không, cần xem xét thời gian yêu cầu hoàn tiền so với thời gian đặt hàng. Theo quy trình hoàn tiền, khách hàng cần gửi yêu cầu qua hệ thống ticket nội bộ với category \"Refund Request\" và CS Agent sẽ xem xét trong vòng 1 ngày làm việc.\n\nNếu yêu cầu hoàn tiền được gửi vào ngày 15/01/2023, và nếu không có quy định cụ thể nào về thời gian tối đa để yêu cầu hoàn tiền sau khi đặt hàng, thì khách hàng có thể đủ điều kiện để được hoàn tiền. Tuy nhiên, để có câu trả lời chính xác, cần kiểm tra các điều kiện cụ thể về chính sách hoàn tiền của công ty.\n\nNếu khách hàng đã thực hiện đầy đủ các bước yêu cầu hoàn tiền, thì họ có thể được hoàn tiền trong khoảng thời gian từ 3-5 ngày làm việc sau khi yêu cầu được chuyển sang Finance Team [Nguồn 5].",
+    "retrieved_chunk_ids": [
+      "it_helpdesk_faq_004",
+      "hr_leave_policy_002",
+      "it_helpdesk_faq_003",
+      "policy_refund_v4_005",
+      "policy_refund_v4_003"
+    ],
+    "latency_ms": 3615.302833000001,
+    "tokens_used": 740,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 1.5,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 1.0,
+        "role_lenient": 2.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời không chính xác vì không phản ánh rằng yêu cầu hoàn tiền không hợp lệ do đã quá thời gian quy định. Thông tin về quy trình hoàn tiền và thời gian chấp nhận yêu cầu là không cần thiết và không liên quan đến câu hỏi."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "Theo tài liệu IT, nhân viên phải đổi mật khẩu sau 30 ngày. Tuy nhiên, một nhân viên đã không đổi mật khẩu trong 45 ngày mà vẫn được phép truy cập. Điều này có mâu thuẫn không?",
+    "agent_response": "Theo quy định trong tài liệu IT, nhân viên phải đổi mật khẩu sau 30 ngày. Nếu một nhân viên đã không đổi mật khẩu trong 45 ngày mà vẫn được phép truy cập, điều này có thể được coi là mâu thuẫn với quy định đã nêu. Việc không tuân thủ quy định về đổi mật khẩu có thể dẫn đến rủi ro về bảo mật cho hệ thống. Bạn nên báo cáo tình huống này cho bộ phận IT để họ có thể kiểm tra và xử lý kịp thời.",
+    "retrieved_chunk_ids": [
+      "it_helpdesk_faq_004",
+      "policy_refund_v4_003",
+      "hr_leave_policy_002",
+      "it_helpdesk_faq_003",
+      "policy_refund_v4_005"
+    ],
+    "latency_ms": 2604.719582999998,
+    "tokens_used": 658,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 4.5,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 4.0,
+        "role_lenient": 5.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời đúng về mâu thuẫn với quy định nhưng chưa đề cập rõ ràng đến biện pháp xử lý, chỉ khuyến nghị báo cáo cho bộ phận IT."
+    },
+    "status": "pass"
+  },
+  {
+    "test_case": "Nếu một nhân viên trong probation period bị kỷ luật, họ có quyền kháng cáo không?",
+    "agent_response": "Theo quy định nội bộ, nhân viên trong thời gian thử việc (probation period) không có quyền kháng cáo đối với các quyết định kỷ luật. Quy trình kỷ luật trong thời gian này thường được thực hiện theo quy định của công ty mà không có cơ chế kháng cáo. Tuy nhiên, nhân viên vẫn có thể trao đổi với quản lý trực tiếp hoặc bộ phận nhân sự để hiểu rõ hơn về quyết định kỷ luật và các lý do liên quan.",
+    "retrieved_chunk_ids": [
+      "it_helpdesk_faq_004",
+      "it_helpdesk_faq_003",
+      "hr_leave_policy_002",
+      "policy_refund_v4_005",
+      "policy_refund_v4_003"
+    ],
+    "latency_ms": 2149.311250000004,
+    "tokens_used": 620,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 5.0,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 5.0,
+        "role_lenient": 5.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời hoàn toàn chính xác theo Ground Truth, đầy đủ thông tin quan trọng và không có thông tin sai."
+    },
+    "status": "pass"
+  },
+  {
+    "test_case": "Theo tài liệu, thời gian phản hồi tối đa cho sự cố P1 là 10 phút. Nếu sự cố xảy ra lúc 14:00, thời gian phản hồi là mấy giờ?",
+    "agent_response": "Theo tài liệu, thời gian phản hồi tối đa cho sự cố P1 là 10 phút. Nếu sự cố xảy ra lúc 14:00, thời gian phản hồi sẽ là 14:10.",
+    "retrieved_chunk_ids": [
+      "hr_leave_policy_002",
+      "it_helpdesk_faq_004",
+      "it_helpdesk_faq_003",
+      "policy_refund_v4_003",
+      "access_control_sop_000"
+    ],
+    "latency_ms": 1338.396084000003,
+    "tokens_used": 576,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 5.0,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 5.0,
+        "role_lenient": 5.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời chính xác hoàn toàn, nêu rõ thời gian phản hồi là 14:10 mà không có thông tin sai lệch."
+    },
+    "status": "pass"
+  },
+  {
+    "test_case": "Khách hàng đã đặt hàng vào ngày 01/01/2025 và yêu cầu hoàn tiền vào ngày 02/01/2025. Họ có được hoàn tiền không?",
+    "agent_response": "Để xác định xem khách hàng có đủ điều kiện hoàn tiền hay không, cần xem xét quy trình hoàn tiền theo các bước đã được quy định. Theo [Nguồn 4], khách hàng cần gửi yêu cầu hoàn tiền qua hệ thống ticket nội bộ với category \"Refund Request\". Sau đó, CS Agent sẽ xem xét yêu cầu trong vòng 1 ngày làm việc và xác nhận điều kiện đủ điều kiện.\n\nNếu khách hàng đã đặt hàng vào ngày 01/01/2025 và yêu cầu hoàn tiền vào ngày 02/01/2025, yêu cầu hoàn tiền sẽ được xem xét trong ngày làm việc tiếp theo (ngày 02/01/2025). Nếu yêu cầu được gửi đúng cách và trong thời gian quy định, khách hàng có khả năng được hoàn tiền.\n\nTuy nhiên, để có câu trả lời chính xác hơn, cần biết thêm thông tin về chính sách hoàn tiền cụ thể của công ty (như thời gian cho phép để yêu cầu hoàn tiền sau khi đặt hàng). Nếu không có thông tin cụ thể nào khác, khách hàng nên thực hiện theo quy trình đã nêu để đảm bảo yêu cầu của họ được xử lý.",
+    "retrieved_chunk_ids": [
+      "it_helpdesk_faq_004",
+      "it_helpdesk_faq_003",
+      "hr_leave_policy_002",
+      "policy_refund_v4_003",
+      "policy_refund_v4_005"
+    ],
+    "latency_ms": 3985.3581670000012,
+    "tokens_used": 777,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 3.5,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 3.0,
+        "role_lenient": 4.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời cung cấp thông tin về quy trình hoàn tiền và khả năng yêu cầu được xem xét. Tuy nhiên, nó không khẳng định rõ ràng rằng yêu cầu hoàn tiền là hợp lệ như Ground Truth đã chỉ ra."
+    },
+    "status": "pass"
+  },
+  {
+    "test_case": "Một nhân viên đã làm việc 4 năm nhưng không có chứng chỉ cần thiết vẫn được thăng chức. Điều này có đúng không?",
+    "agent_response": "Theo quy định nội bộ, việc thăng chức thường phụ thuộc vào nhiều yếu tố, bao gồm hiệu suất làm việc, kinh nghiệm và các chứng chỉ cần thiết. Nếu một nhân viên đã làm việc 4 năm nhưng không có chứng chỉ cần thiết, việc thăng chức có thể không hoàn toàn phù hợp với tiêu chuẩn thông thường. Tuy nhiên, quyết định cuối cùng về việc thăng chức sẽ do cấp quản lý (Line Manager) xem xét và phê duyệt dựa trên các yếu tố khác nhau, bao gồm cả đóng góp của nhân viên trong công việc.\n\nNếu bạn cần thêm thông tin hoặc có thắc mắc cụ thể hơn, hãy liên hệ với bộ phận nhân sự (HR) để được tư vấn chi tiết hơn.",
+    "retrieved_chunk_ids": [
+      "it_helpdesk_faq_004",
+      "it_helpdesk_faq_003",
+      "hr_leave_policy_002",
+      "policy_refund_v4_005",
+      "policy_refund_v4_003"
+    ],
+    "latency_ms": 3338.8987089999987,
+    "tokens_used": 682,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 2.5,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 2.0,
+        "role_lenient": 3.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời không chính xác hoàn toàn theo ground truth và thiếu thông tin quan trọng về quy định nội bộ liên quan đến việc thăng chức."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "Theo tài liệu, nhân viên cần phải có Level 2 access để truy cập vào hệ thống. Một nhân viên có Level 1 access đã truy cập vào hệ thống. Điều này có hợp lệ không?",
+    "agent_response": "Theo tài liệu nội bộ, nhân viên cần có Level 2 access để truy cập vào hệ thống. Nếu một nhân viên chỉ có Level 1 access mà vẫn truy cập vào hệ thống, điều này là không hợp lệ. Nhân viên cần phải được nâng cấp quyền truy cập lên Level 2 để đảm bảo tuân thủ các quy định về bảo mật và quyền truy cập hệ thống.",
+    "retrieved_chunk_ids": [
+      "hr_leave_policy_002",
+      "it_helpdesk_faq_003",
+      "it_helpdesk_faq_004",
+      "policy_refund_v4_005",
+      "policy_refund_v4_003"
+    ],
+    "latency_ms": 1808.426541000003,
+    "tokens_used": 623,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 5.0,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 5.0,
+        "role_lenient": 5.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời chính xác hoàn toàn về tính hợp lệ của việc truy cập của nhân viên và đầy đủ thông tin quan trọng liên quan đến quy định trong tài liệu."
+    },
+    "status": "pass"
+  },
+  {
+    "test_case": "Khách hàng đã đặt hàng vào ngày 01/01/2023 và yêu cầu hoàn tiền vào ngày 01/02/2023. Họ có được hoàn tiền không?",
+    "agent_response": "Để xác định xem khách hàng có đủ điều kiện hoàn tiền hay không, cần xem xét các điều kiện hoàn tiền theo quy trình. Theo quy trình hoàn tiền, khách hàng cần gửi yêu cầu qua hệ thống ticket nội bộ với category \"Refund Request\" (Bước 1). Sau đó, CS Agent sẽ xem xét yêu cầu trong vòng 1 ngày làm việc và xác nhận điều kiện đủ điều kiện (Bước 2).\n\nNếu yêu cầu hoàn tiền được gửi vào ngày 01/02/2023, thì CS Agent sẽ xem xét trong ngày làm việc tiếp theo. Tuy nhiên, để xác định rõ hơn về việc hoàn tiền, cần biết thêm thông tin về chính sách hoàn tiền của công ty, chẳng hạn như thời gian tối đa để yêu cầu hoàn tiền sau khi đặt hàng.\n\nNếu không có thông tin cụ thể về thời gian yêu cầu hoàn tiền, tôi không thể khẳng định chắc chắn khách hàng có được hoàn tiền hay không. Bạn có thể kiểm tra chính sách hoàn tiền của công ty hoặc liên hệ với bộ phận hỗ trợ khách hàng để biết thêm chi tiết.",
+    "retrieved_chunk_ids": [
+      "it_helpdesk_faq_004",
+      "hr_leave_policy_002",
+      "it_helpdesk_faq_003",
+      "policy_refund_v4_003",
+      "policy_refund_v4_005"
+    ],
+    "latency_ms": 3484.691291000004,
+    "tokens_used": 762,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 2.5,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 2.0,
+        "role_lenient": 3.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời không chính xác hoàn toàn vì không nêu rõ rằng yêu cầu hoàn tiền không hợp lệ do đã quá thời gian quy định. Thông tin về quy trình hoàn tiền là hữu ích nhưng không đầy đủ để xác định rõ ràng tình trạng hoàn tiền."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "Theo quy định, nhân viên phải làm việc ít nhất 6 tháng trước khi được phép làm remote. Một nhân viên đã làm việc 5 tháng và yêu cầu làm remote. Điều này có hợp lệ không?",
+    "agent_response": "Theo quy định, nhân viên phải làm việc ít nhất 6 tháng trước khi được phép làm remote. Vì nhân viên này chỉ mới làm việc được 5 tháng, nên yêu cầu làm remote của họ không hợp lệ. Họ cần phải hoàn thành thêm 1 tháng nữa để đủ điều kiện làm remote.",
+    "retrieved_chunk_ids": [
+      "it_helpdesk_faq_003",
+      "policy_refund_v4_003",
+      "it_helpdesk_faq_004",
+      "policy_refund_v4_005",
+      "hr_leave_policy_002"
+    ],
+    "latency_ms": 1760.7864169999984,
+    "tokens_used": 607,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 5.0,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 5.0,
+        "role_lenient": 5.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời chính xác hoàn toàn, đầy đủ thông tin quan trọng và không có thông tin sai."
+    },
+    "status": "pass"
+  },
+  {
+    "test_case": "Nếu một sự cố P1 xảy ra và không có ai phản hồi trong 20 phút, hệ thống sẽ làm gì tiếp theo?",
+    "agent_response": "Theo quy trình xử lý sự cố, nếu một sự cố P1 xảy ra và không có ai phản hồi trong 20 phút, hệ thống sẽ tự động escalated (tăng cường) sự cố đó lên cấp độ cao hơn để đảm bảo rằng sự cố được xử lý kịp thời. Tuy nhiên, thông tin chi tiết về quy trình escalated cụ thể không được cung cấp trong các tài liệu nội bộ hiện có. Bạn có thể cần tham khảo thêm tài liệu hoặc quy trình nội bộ liên quan đến quản lý sự cố để biết thêm chi tiết.",
+    "retrieved_chunk_ids": [
+      "hr_leave_policy_002",
+      "it_helpdesk_faq_004",
+      "it_helpdesk_faq_003",
+      "policy_refund_v4_003",
+      "policy_refund_v4_005"
+    ],
+    "latency_ms": 2253.0117499999988,
+    "tokens_used": 643,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 2.5,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 2.0,
+        "role_lenient": 3.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời thiếu thông tin quan trọng về việc sự cố sẽ được escalate đến Senior Engineer, và có phần bịa thêm thông tin khi đề cập cần tham khảo tài liệu hoặc quy trình khác."
+    },
+    "status": "fail"
+  },
+  {
+    "test_case": "Theo tài liệu, thời gian xử lý sự cố P1 là 4 giờ. Nếu sự cố xảy ra lúc 10:00, thời gian xử lý sẽ là mấy giờ?",
+    "agent_response": "Theo tài liệu, thời gian xử lý sự cố P1 là 4 giờ. Nếu sự cố xảy ra lúc 10:00, thời gian xử lý sẽ kết thúc vào lúc 14:00 (10:00 + 4 giờ).",
+    "retrieved_chunk_ids": [
+      "hr_leave_policy_002",
+      "it_helpdesk_faq_003",
+      "it_helpdesk_faq_004",
+      "policy_refund_v4_003",
+      "access_control_sop_000"
+    ],
+    "latency_ms": 1410.8140000000021,
+    "tokens_used": 582,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 5.0,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 5.0,
+        "role_lenient": 5.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời chính xác 100%, đầy đủ thông tin và không có thông tin sai lệch."
+    },
+    "status": "pass"
+  },
+  {
+    "test_case": "Khách hàng đã đặt hàng vào ngày 01/01/2023 và yêu cầu hoàn tiền vào ngày 10/01/2023. Họ có được hoàn tiền không?",
+    "agent_response": "Để xác định xem khách hàng có đủ điều kiện hoàn tiền hay không, cần xem xét quy trình hoàn tiền theo các bước đã được quy định. Theo [Nguồn 4], khách hàng cần gửi yêu cầu hoàn tiền qua hệ thống ticket nội bộ với category \"Refund Request\". Sau đó, CS Agent sẽ xem xét yêu cầu trong vòng 1 ngày làm việc và xác nhận điều kiện đủ điều kiện.\n\nTuy nhiên, thông tin về thời gian hoàn tiền hoặc chính sách hoàn tiền cụ thể (như thời gian tối đa để yêu cầu hoàn tiền sau khi đặt hàng) không được cung cấp trong tài liệu. Do đó, để biết chắc chắn khách hàng có đủ điều kiện hoàn tiền hay không, bạn cần kiểm tra chính sách hoàn tiền cụ thể của công ty hoặc liên hệ với bộ phận liên quan để xác nhận. \n\nNếu không có thông tin cụ thể nào về thời gian yêu cầu hoàn tiền, bạn có thể giả định rằng khách hàng có thể đủ điều kiện hoàn tiền, nhưng cần phải xác nhận từ bộ phận CS hoặc theo quy trình đã nêu.",
+    "retrieved_chunk_ids": [
+      "it_helpdesk_faq_004",
+      "hr_leave_policy_002",
+      "it_helpdesk_faq_003",
+      "policy_refund_v4_003",
+      "access_control_sop_003"
+    ],
+    "latency_ms": 3933.957999999997,
+    "tokens_used": 834,
+    "ragas": {
+      "hit_rate": 1.0,
+      "mrr": 1.0
+    },
+    "judge": {
+      "final_score": 2.5,
+      "agreement_rate": 1.0,
+      "individual_scores": {
+        "role_strict": 2.0,
+        "role_lenient": 3.0
+      },
+      "conflict": false,
+      "reasoning": "Câu trả lời không chính xác vì không nêu rõ rằng yêu cầu hoàn tiền của khách hàng là hợp lệ do nằm trong thời gian quy định. Nó cũng không đầy đủ, thiếu thông tin về thời gian chính xác cho yêu cầu hoàn tiền mà khách hàng cần biết."
+    },
+    "status": "fail"
+  }
+]

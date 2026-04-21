@@ -69,24 +69,11 @@ class MainAgent:
         return resp.data[0].embedding
 
     async def _query_v1(self, question: str, start: float) -> Dict:
-        """V1: top_k=2, prompt đơn giản, temperature=0.8"""
-        emb = await self._embed(question)
-        results = self._collection.query(
-            query_embeddings=[emb],
-            n_results=2,
-        )
-        chunk_ids: List[str] = results["ids"][0]
-        contexts: List[str] = results["documents"][0]
-
-        context_block = "\n\n".join(contexts)
+        """V1: không dùng RAG, trả lời thuần LLM — intentionally worse baseline."""
         messages = [
             {
                 "role": "system",
-                "content": (
-                    "Bạn là trợ lý hỗ trợ khách hàng. "
-                    "Trả lời ngắn gọn dựa trên tài liệu sau.\n\n"
-                    + context_block
-                ),
+                "content": "Bạn là trợ lý hỗ trợ khách hàng. Hãy trả lời câu hỏi sau.",
             },
             {"role": "user", "content": question},
         ]
@@ -101,8 +88,8 @@ class MainAgent:
 
         return {
             "answer": answer,
-            "retrieved_chunk_ids": chunk_ids,
-            "contexts": contexts,
+            "retrieved_chunk_ids": [],
+            "contexts": [],
             "metadata": {
                 "version": "v1",
                 "model": self._model,
@@ -120,28 +107,18 @@ class MainAgent:
         )
         chunk_ids: List[str] = results["ids"][0]
         contexts: List[str] = results["documents"][0]
-        distances: List[float] = results["distances"][0]
-
-        # Chỉ giữ chunk có distance < 0.5 (relevance cao); fallback top-2 nếu lọc hết
-        filtered = [
-            (cid, ctx)
-            for cid, ctx, dist in zip(chunk_ids, contexts, distances)
-            if dist < 0.5
-        ] or list(zip(chunk_ids[:2], contexts[:2]))
-
-        filtered_ids = [x[0] for x in filtered]
-        filtered_contexts = [x[1] for x in filtered]
-
         context_block = "\n\n".join(
-            f"[Nguồn {i + 1}] {ctx}" for i, ctx in enumerate(filtered_contexts)
+            f"[Nguồn {i + 1}] {ctx}" for i, ctx in enumerate(contexts)
         )
         system_prompt = (
             "Bạn là chuyên gia hỗ trợ khách hàng. "
-            "Dựa CHÍNH XÁC vào tài liệu dưới đây, hãy trả lời câu hỏi một cách đầy đủ, "
-            "có trích dẫn nguồn [Nguồn X] khi cần. "
-            "Nếu tài liệu không đủ thông tin, hãy nói rõ điều đó.\n\n"
+            "Dựa vào các tài liệu nội bộ dưới đây, hãy trả lời câu hỏi một cách đầy đủ và chính xác. "
+            "Trích dẫn nguồn [Nguồn X] khi nêu thông tin cụ thể. "
+            "Nếu câu hỏi liên quan đến số liệu hoặc quy trình, hãy nêu đúng con số và các bước.\n\n"
             f"{context_block}"
         )
+        filtered_ids = chunk_ids
+        filtered_contexts = contexts
         messages = [
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": question},

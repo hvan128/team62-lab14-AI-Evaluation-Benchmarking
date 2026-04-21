@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "version": "v2",
+    "total": 55,
+    "elapsed_s": 34.55,
+    "timestamp": "2026-04-21 16:55:22"
+  },
+  "metrics": {
+    "avg_score": 2.3091,
+    "hit_rate": 1.0,
+    "mrr": 1.0,
+    "agreement_rate": 0.9182
+  },
+  "cost": {
+    "total_tokens": 37096,
+    "estimated_usd": 0.0056
+  },
+  "regression": {
+    "v1_avg_score": 1.8818,
+    "v2_avg_score": 2.3091,
+    "delta": 0.4273,
+    "decision": "APPROVE"
+  }
+}
