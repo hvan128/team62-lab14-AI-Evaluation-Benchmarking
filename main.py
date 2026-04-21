@@ -79,10 +79,11 @@ def release_gate(v1_summary: dict, v2_summary: dict) -> str:
     """
     delta = v2_summary["metrics"]["avg_score"] - v1_summary["metrics"]["avg_score"]
     hit_rate_drop = v1_summary["metrics"]["hit_rate"] - v2_summary["metrics"]["hit_rate"]
-    
-    if delta >= RELEASE_GATE.get("min_score_delta", 0.0) and hit_rate_drop <= RELEASE_GATE.get("max_hit_rate_drop", 0.05):
+    if (
+        delta >= RELEASE_GATE["min_score_delta"]
+        and hit_rate_drop <= RELEASE_GATE["max_hit_rate_drop"]
+    ):
         return "APPROVE"
-    
     return "BLOCK"
 
 
