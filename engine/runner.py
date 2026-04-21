@@ -55,34 +55,40 @@ class BenchmarkRunner:
         question = test_case.get("question", "")
         expected_answer = test_case.get("expected_answer", "")
         expected_chunk_ids = test_case.get("ground_truth_chunk_ids", [])
-        ground_truth_chunk_ids = test_case.get("ground_truth_chunk_ids", [])
 
-        # 1. Gọi agent
-        agent_resp = await self.agent.query(question, version=version)
-        retrieved_ids = agent_resp.get("retrieved_chunk_ids", [])
-        answer = agent_resp.get("answer", "")
+        agent_result = await self.agent.query(question, version=version)
+        retrieved_chunk_ids = agent_result.get("retrieved_chunk_ids", [])
+        answer = agent_result.get("answer", "")
 
-        # 2. Tính hit_rate và mrr
-        hit_rate = self.evaluator.calculate_hit_rate(ground_truth_chunk_ids, retrieved_ids)
-        mrr = self.evaluator.calculate_mrr(ground_truth_chunk_ids, retrieved_ids)
+        hit_rate = self.evaluator.calculate_hit_rate(
+            expected_chunk_ids, retrieved_chunk_ids, top_k=3
+        )
+        mrr = self.evaluator.calculate_mrr(expected_chunk_ids, retrieved_chunk_ids)
 
-        # 3. Gọi judge
-        judge_result = await self.judge.evaluate_multi_judge(question, answer, expected_answer)
+        judge_result = await self.judge.evaluate_multi_judge(
+            question, answer, expected_answer
+        )
 
-        # 4. Build TestResult
-        final_score = judge_result.get("final_score", 0.0)
+        latency_ms = (time.perf_counter() - start) * 1000
+        final_score = float(judge_result.get("final_score", 1.0))
+
         return {
             "test_case": question,
             "agent_response": answer,
-            "retrieved_chunk_ids": retrieved_ids,
-            "latency_ms": agent_resp.get("metadata", {}).get("latency_ms", 0.0),
-            "tokens_used": agent_resp.get("metadata", {}).get("tokens_used", 0),
+            "retrieved_chunk_ids": retrieved_chunk_ids,
+            "latency_ms": latency_ms,
             "ragas": {
                 "hit_rate": hit_rate,
-                "mrr": mrr
+                "mrr": mrr,
             },
-            "judge": judge_result,
-            "status": "pass" if final_score >= 3.0 else "fail"
+            "judge": {
+                "final_score": final_score,
+                "agreement_rate": float(judge_result.get("agreement_rate", 0.5)),
+                "individual_scores": judge_result.get("individual_scores", {}),
+                "conflict": bool(judge_result.get("conflict", False)),
+            },
+            "tokens_used": agent_result.get("metadata", {}).get("tokens_used", 0),
+            "status": "pass" if final_score >= 3.0 else "fail",
         }
 
     async def run_all(
@@ -102,9 +108,9 @@ class BenchmarkRunner:
         """
         sem = asyncio.Semaphore(batch_size)
 
-        async def _run_with_sem(case):
+        async def _run_with_sem(case: Dict) -> Dict:
             async with sem:
-                return await self.run_single_test(case, version)
-        
-        results = await asyncio.gather(*[_run_with_sem(c) for c in dataset])
-        return list(results)
+                return await self.run_single_test(case, version=version)
+
+        tasks = [_run_with_sem(case) for case in dataset]
+        return await asyncio.gather(*tasks)
