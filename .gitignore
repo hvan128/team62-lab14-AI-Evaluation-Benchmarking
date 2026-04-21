@@ -6,3 +6,4 @@ data/golden_set.jsonl
 data/chroma_db/
 reports/*.json
 !reports/.gitkeep
+.venv/
