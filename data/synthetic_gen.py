@@ -5,16 +5,15 @@ import asyncio
 import json
 import os
 import sys
+import sys
 from typing import Dict, List
 
-import chromadb
 from dotenv import load_dotenv
 from openai import AsyncOpenAI
 
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
 from engine.chroma_utils import get_or_bootstrap_collection, query_collection
-from openai import AsyncOpenAI
 
 load_dotenv()
 
@@ -93,109 +92,6 @@ def _lookup_chunk_ids(question: str, collection) -> List[str]:
         return []
     try:
         result = query_collection(collection, question, n_results=1)
-        ids = result.get("ids", [])
-        if ids and ids[0]:
-            return [ids[0][0]]
-    except Exception:
-        return []
-    return []
-
-
-def load_existing_questions(collection=None) -> List[Dict]:
-    """Load and normalize existing cases from available files."""
-CHROMA_PATH = "data/chroma_db"
-ALLOWED_DIFFICULTIES = {"easy", "medium", "hard", "adversarial"}
-ALLOWED_CATEGORIES = {
-    "SLA",
-    "Refund",
-    "Access Control",
-    "HR",
-    "IT FAQ",
-    "Edge Case",
-}
-
-
-def _normalize_difficulty(value: str) -> str:
-    if not value:
-        return "medium"
-    normalized = value.strip().lower()
-    return normalized if normalized in ALLOWED_DIFFICULTIES else "medium"
-
-
-def _normalize_category(value: str) -> str:
-    if not value:
-        return "Edge Case"
-    normalized = value.strip().lower()
-    if normalized in {"sla", "incident", "p1"}:
-        return "SLA"
-    if normalized in {"refund", "refund policy"}:
-        return "Refund"
-    if normalized in {"access", "access control", "security"}:
-        return "Access Control"
-    if normalized in {"hr", "hr policy", "human resources"}:
-        return "HR"
-    if normalized in {"it", "it faq", "it helpdesk", "it support"}:
-        return "IT FAQ"
-    return "Edge Case"
-
-
-def _normalize_case(case: Dict) -> Dict:
-    return {
-        "id": str(case["id"]),
-        "question": str(case["question"]),
-        "expected_answer": str(case["expected_answer"]),
-        "expected_sources": [str(s) for s in case.get("expected_sources", [])],
-        "ground_truth_chunk_ids": [
-            str(c) for c in case.get("ground_truth_chunk_ids", [])
-        ],
-        "difficulty": _normalize_difficulty(case.get("difficulty", "medium")),
-        "category": _normalize_category(case.get("category", "Edge Case")),
-    }
-
-
-def _build_expected_answer(item: Dict) -> str:
-    if item.get("expected_answer"):
-        return item["expected_answer"]
-
-    criteria = item.get("grading_criteria")
-    if isinstance(criteria, list) and criteria:
-        return " ".join(str(c) for c in criteria)
-
-    return "Không có thông tin đủ trong tài liệu hiện có."
-
-
-def _init_collection():
-    if not os.path.exists(CHROMA_PATH):
-        return None
-
-    try:
-        client = chromadb.PersistentClient(path=CHROMA_PATH)
-        collections = client.list_collections()
-        if not collections:
-            return None
-
-        preferred = os.getenv("CHROMA_COLLECTION")
-        if preferred:
-            try:
-                return client.get_collection(preferred)
-            except Exception:
-                pass
-
-        first = collections[0]
-        if hasattr(first, "name"):
-            return first
-        if isinstance(first, str):
-            return client.get_collection(first)
-    except Exception:
-        return None
-    return None
-
-
-def _lookup_chunk_ids(question: str, collection) -> List[str]:
-    if not collection:
-        return []
-    try:
-        result = collection.query(query_texts=[question], n_results=1)
         ids = result.get("ids", [])
         if ids and ids[0]:
             return [ids[0][0]]
