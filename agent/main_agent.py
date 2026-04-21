@@ -31,6 +31,8 @@ import chromadb
 from dotenv import load_dotenv
 from openai import AsyncOpenAI
 
+from engine.chroma_utils import get_or_bootstrap_collection, query_collection
+
 load_dotenv()
 
 

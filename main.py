@@ -40,7 +40,6 @@ def load_dataset(path: str = "data/golden_set.jsonl"):
 def build_summary(results, version: str, elapsed_s: float) -> dict:
     """Tổng hợp metrics từ list TestResult thành summary dict."""
     total = len(results)
-    # TODO (Dũng): tính avg từ results thật thay vì hardcode
     avg_score = sum(r["judge"]["final_score"] for r in results) / total
     hit_rate = sum(r["ragas"]["hit_rate"] for r in results) / total
     mrr = sum(r["ragas"]["mrr"] for r in results) / total
@@ -74,12 +73,14 @@ def release_gate(v1_summary: dict, v2_summary: dict) -> str:
     Returns:
         "APPROVE" hoặc "BLOCK"
     """
-    # TODO (Dũng): implement
-    # delta = v2_summary["metrics"]["avg_score"] - v1_summary["metrics"]["avg_score"]
-    # hit_rate_drop = v1_summary["metrics"]["hit_rate"] - v2_summary["metrics"]["hit_rate"]
-    # APPROVE nếu delta >= RELEASE_GATE["min_score_delta"]
-    #          VÀ hit_rate_drop <= RELEASE_GATE["max_hit_rate_drop"]
-    raise NotImplementedError("Dũng implement release_gate()")
+    delta = v2_summary["metrics"]["avg_score"] - v1_summary["metrics"]["avg_score"]
+    hit_rate_drop = v1_summary["metrics"]["hit_rate"] - v2_summary["metrics"]["hit_rate"]
+    if (
+        delta >= RELEASE_GATE["min_score_delta"]
+        and hit_rate_drop <= RELEASE_GATE["max_hit_rate_drop"]
+    ):
+        return "APPROVE"
+    return "BLOCK"
 
 
 async def run_benchmark(version: str, dataset, runner: BenchmarkRunner):
