@@ -27,7 +27,6 @@ import os
 import time
 from typing import Dict, List
 
-import chromadb
 from dotenv import load_dotenv
 from openai import AsyncOpenAI
 
@@ -41,9 +40,16 @@ class MainAgent:
         self.name = "SupportAgent"
 
         chroma_path = os.getenv("CHROMA_DB_PATH", "data/chroma_db")
-        self._chroma = chromadb.PersistentClient(path=chroma_path)
-        collection_name = os.getenv("CHROMA_COLLECTION_NAME", "rag_documents")
-        self._collection = self._chroma.get_collection(collection_name)
+        preferred_collection = os.getenv("CHROMA_COLLECTION_NAME") or os.getenv("CHROMA_COLLECTION")
+        if preferred_collection:
+            self._collection = get_or_bootstrap_collection(
+                chroma_path, collection_name=preferred_collection
+            )
+        else:
+            # Safe default when user has not prepared a specific collection.
+            self._collection = get_or_bootstrap_collection(
+                chroma_path, collection_name="lab14_seed_kb"
+            )
 
         self._llm = AsyncOpenAI(api_key=os.getenv("OPENAI_API_KEY"))
         self._model = os.getenv("AGENT_MODEL", "gpt-4o-mini")
@@ -67,10 +73,7 @@ class MainAgent:
 
     async def _query_v1(self, question: str, start: float) -> Dict:
         """V1: top_k=2, prompt đơn giản, temperature=0.8"""
-        results = self._collection.query(
-            query_texts=[question],
-            n_results=2,
-        )
+        results = query_collection(self._collection, question, n_results=2)
         chunk_ids: List[str] = results["ids"][0]
         contexts: List[str] = results["documents"][0]
 
@@ -109,10 +112,7 @@ class MainAgent:
 
     async def _query_v2(self, question: str, start: float) -> Dict:
         """V2: top_k=5, filter distance < 0.5, prompt kỹ, temperature=0.1"""
-        results = self._collection.query(
-            query_texts=[question],
-            n_results=5,
-        )
+        results = query_collection(self._collection, question, n_results=5)
         chunk_ids: List[str] = results["ids"][0]
         contexts: List[str] = results["documents"][0]
         distances: List[float] = results["distances"][0]
