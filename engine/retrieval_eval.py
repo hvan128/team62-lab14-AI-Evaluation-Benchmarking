@@ -66,27 +66,20 @@ class RetrievalEvaluator:
         Returns:
             Dict theo schema BatchRetrievalResult ở trên
         """
-        per_case: List[Dict] = []
-
-        for case in dataset:
+        async def _eval_one(case: Dict) -> Dict:
             question: str = case["question"]
             expected_ids: List[str] = case.get("ground_truth_chunk_ids", [])
-
             response = await agent.query(question, version=version)
             retrieved_ids: List[str] = response.get("retrieved_chunk_ids", [])
+            return {
+                "question": question,
+                "expected_chunk_ids": expected_ids,
+                "retrieved_chunk_ids": retrieved_ids,
+                "hit": bool(self.calculate_hit_rate(expected_ids, retrieved_ids, top_k=3)),
+                "mrr": self.calculate_mrr(expected_ids, retrieved_ids),
+            }
 
-            hit = bool(self.calculate_hit_rate(expected_ids, retrieved_ids, top_k=3))
-            mrr = self.calculate_mrr(expected_ids, retrieved_ids)
-
-            per_case.append(
-                {
-                    "question": question,
-                    "expected_chunk_ids": expected_ids,
-                    "retrieved_chunk_ids": retrieved_ids,
-                    "hit": hit,
-                    "mrr": mrr,
-                }
-            )
+        per_case: List[Dict] = await asyncio.gather(*[_eval_one(c) for c in dataset])
 
         n = len(per_case)
         avg_hit_rate = sum(c["hit"] for c in per_case) / n if n else 0.0
@@ -95,5 +88,5 @@ class RetrievalEvaluator:
         return {
             "avg_hit_rate": avg_hit_rate,
             "avg_mrr": avg_mrr,
-            "per_case": per_case,
+            "per_case": list(per_case),
         }
