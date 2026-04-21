@@ -51,12 +51,45 @@ class BenchmarkRunner:
         Returns:
             Dict theo schema TestResult ở trên
         """
-        # TODO (Dũng): implement
-        # 1. Gọi self.agent.query(test_case["question"], version=version)
-        # 2. Tính hit_rate và mrr từ evaluator (dùng retrieved_chunk_ids vs ground_truth_chunk_ids)
-        # 3. Gọi self.judge.evaluate_multi_judge(question, answer, expected_answer)
-        # 4. Build và return TestResult
-        raise NotImplementedError("Dũng implement run_single_test()")
+        start = time.perf_counter()
+        question = test_case.get("question", "")
+        expected_answer = test_case.get("expected_answer", "")
+        expected_chunk_ids = test_case.get("ground_truth_chunk_ids", [])
+
+        agent_result = await self.agent.query(question, version=version)
+        retrieved_chunk_ids = agent_result.get("retrieved_chunk_ids", [])
+        answer = agent_result.get("answer", "")
+
+        hit_rate = self.evaluator.calculate_hit_rate(
+            expected_chunk_ids, retrieved_chunk_ids, top_k=3
+        )
+        mrr = self.evaluator.calculate_mrr(expected_chunk_ids, retrieved_chunk_ids)
+
+        judge_result = await self.judge.evaluate_multi_judge(
+            question, answer, expected_answer
+        )
+
+        latency_ms = (time.perf_counter() - start) * 1000
+        final_score = float(judge_result.get("final_score", 1.0))
+
+        return {
+            "test_case": question,
+            "agent_response": answer,
+            "retrieved_chunk_ids": retrieved_chunk_ids,
+            "latency_ms": latency_ms,
+            "ragas": {
+                "hit_rate": hit_rate,
+                "mrr": mrr,
+            },
+            "judge": {
+                "final_score": final_score,
+                "agreement_rate": float(judge_result.get("agreement_rate", 0.5)),
+                "individual_scores": judge_result.get("individual_scores", {}),
+                "conflict": bool(judge_result.get("conflict", False)),
+            },
+            "tokens_used": agent_result.get("metadata", {}).get("tokens_used", 0),
+            "status": "pass" if final_score >= 3.0 else "fail",
+        }
 
     async def run_all(
         self, dataset: List[Dict], version: str = "v2", batch_size: int = 10
@@ -73,11 +106,11 @@ class BenchmarkRunner:
         Returns:
             List[TestResult]
         """
-        # TODO (Dũng): implement
-        # Gợi ý:
-        #   sem = asyncio.Semaphore(batch_size)
-        #   async def _run_with_sem(case):
-        #       async with sem:
-        #           return await self.run_single_test(case, version)
-        #   return await asyncio.gather(*[_run_with_sem(c) for c in dataset])
-        raise NotImplementedError("Dũng implement run_all()")
+        sem = asyncio.Semaphore(batch_size)
+
+        async def _run_with_sem(case: Dict) -> Dict:
+            async with sem:
+                return await self.run_single_test(case, version=version)
+
+        tasks = [_run_with_sem(case) for case in dataset]
+        return await asyncio.gather(*tasks)

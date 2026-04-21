@@ -66,11 +66,31 @@ class RetrievalEvaluator:
         Returns:
             Dict theo schema BatchRetrievalResult ở trên
         """
-        # TODO (Khiêm): implement
-        # Với mỗi case trong dataset:
-        #   1. Gọi agent.query(case["question"], version=version)
-        #   2. Lấy response["retrieved_chunk_ids"]
-        #   3. So sánh với case["ground_truth_chunk_ids"]
-        #   4. Tính hit_rate và mrr
-        # Trả về avg và per_case
-        raise NotImplementedError("Khiêm implement evaluate_batch()")
+        per_case = []
+
+        for case in dataset:
+            response = await agent.query(case["question"], version=version)
+            expected_ids = case.get("ground_truth_chunk_ids", [])
+            retrieved_ids = response.get("retrieved_chunk_ids", [])
+
+            hit_rate = self.calculate_hit_rate(expected_ids, retrieved_ids, top_k=3)
+            mrr = self.calculate_mrr(expected_ids, retrieved_ids)
+            per_case.append(
+                {
+                    "question": case["question"],
+                    "expected_chunk_ids": expected_ids,
+                    "retrieved_chunk_ids": retrieved_ids,
+                    "hit": hit_rate == 1.0,
+                    "mrr": mrr,
+                }
+            )
+
+        total = len(per_case) if per_case else 1
+        avg_hit_rate = sum(1.0 if item["hit"] else 0.0 for item in per_case) / total
+        avg_mrr = sum(item["mrr"] for item in per_case) / total
+
+        return {
+            "avg_hit_rate": avg_hit_rate,
+            "avg_mrr": avg_mrr,
+            "per_case": per_case,
+        }

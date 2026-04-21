@@ -3,11 +3,15 @@
 import asyncio
 import json
 import os
+import sys
 from typing import Dict, List
 
-import chromadb
 from dotenv import load_dotenv
 from openai import AsyncOpenAI
+
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+
+from engine.chroma_utils import get_or_bootstrap_collection, query_collection
 
 load_dotenv()
 
@@ -74,37 +78,18 @@ def _build_expected_answer(item: Dict) -> str:
 
 
 def _init_collection():
-    if not os.path.exists(CHROMA_PATH):
-        return None
-
     try:
-        client = chromadb.PersistentClient(path=CHROMA_PATH)
-        collections = client.list_collections()
-        if not collections:
-            return None
-
-        preferred = os.getenv("CHROMA_COLLECTION")
-        if preferred:
-            try:
-                return client.get_collection(preferred)
-            except Exception:
-                pass
-
-        first = collections[0]
-        if hasattr(first, "name"):
-            return first
-        if isinstance(first, str):
-            return client.get_collection(first)
+        collection_name = os.getenv("CHROMA_COLLECTION", "lab14_seed_kb")
+        return get_or_bootstrap_collection(CHROMA_PATH, collection_name=collection_name)
     except Exception:
         return None
-    return None
 
 
 def _lookup_chunk_ids(question: str, collection) -> List[str]:
     if not collection:
         return []
     try:
-        result = collection.query(query_texts=[question], n_results=1)
+        result = query_collection(collection, question, n_results=1)
         ids = result.get("ids", [])
         if ids and ids[0]:
             return [ids[0][0]]
