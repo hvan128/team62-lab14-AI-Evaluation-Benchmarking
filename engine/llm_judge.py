@@ -26,13 +26,20 @@ import json
 import os
 from typing import Dict
 
-from openai import AsyncOpenAI
 from dotenv import load_dotenv
 from openai import AsyncOpenAI
 
 load_dotenv()
 
 JUDGE_MODEL = os.getenv("JUDGE_MODEL", "gpt-4o-mini")
+JUDGE_MODEL_STRICT = os.getenv("JUDGE_MODEL_STRICT", JUDGE_MODEL)
+JUDGE_MODEL_LENIENT = os.getenv("JUDGE_MODEL_LENIENT", JUDGE_MODEL)
+
+
+def _unique_model_key(primary: str, secondary: str, suffix: str) -> str:
+    if primary == secondary:
+        return f"{primary} ({suffix})"
+    return primary
 
 RUBRIC = """
 Chấm điểm câu trả lời từ 1 đến 5 dựa trên:
@@ -62,7 +69,12 @@ class LLMJudge:
         self.client = AsyncOpenAI()
 
     async def _call_judge(
-        self, system_prompt: str, question: str, answer: str, ground_truth: str
+        self,
+        system_prompt: str,
+        question: str,
+        answer: str,
+        ground_truth: str,
+        model: str,
     ) -> Dict:
         """
         Gọi LLM với system prompt cho trước, parse JSON response.
@@ -95,7 +107,7 @@ class LLMJudge:
             f"Ground Truth: {ground_truth}"
         )
         response = await self.client.chat.completions.create(
-            model=self.model,
+            model=model,
             response_format={"type": "json_object"},
             messages=[
                 {"role": "system", "content": system_prompt},
@@ -123,8 +135,20 @@ class LLMJudge:
             Dict theo schema JudgeResult ở trên
         """
         strict_result, lenient_result = await asyncio.gather(
-            self._call_judge(SYSTEM_STRICT, question, answer, ground_truth),
-            self._call_judge(SYSTEM_LENIENT, question, answer, ground_truth),
+            self._call_judge(
+                SYSTEM_STRICT,
+                question,
+                answer,
+                ground_truth,
+                model=JUDGE_MODEL_STRICT,
+            ),
+            self._call_judge(
+                SYSTEM_LENIENT,
+                question,
+                answer,
+                ground_truth,
+                model=JUDGE_MODEL_LENIENT,
+            ),
         )
 
         score_strict = float(strict_result["score"])
@@ -143,6 +167,16 @@ class LLMJudge:
             "individual_scores": {
                 "role_strict": score_strict,
                 "role_lenient": score_lenient,
+            },
+            "individual_results": {
+                _unique_model_key(JUDGE_MODEL_STRICT, JUDGE_MODEL_LENIENT, "strict"): {
+                    "score": score_strict,
+                    "reasoning": strict_result.get("reasoning", ""),
+                },
+                _unique_model_key(JUDGE_MODEL_LENIENT, JUDGE_MODEL_STRICT, "lenient"): {
+                    "score": score_lenient,
+                    "reasoning": lenient_result.get("reasoning", ""),
+                },
             },
             "conflict": conflict,
             "reasoning": strict_result.get("reasoning", ""),

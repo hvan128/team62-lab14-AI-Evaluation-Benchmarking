@@ -37,7 +37,9 @@ load_dotenv()
 class MainAgent:
     def __init__(self):
         self.name = "SupportAgent"
-        self.model = os.getenv("AGENT_MODEL", "gpt-4o-mini")
+        base_model = os.getenv("AGENT_MODEL", "gpt-4o-mini")
+        self.model_v1 = os.getenv("AGENT_MODEL_V1", base_model)
+        self.model_v2 = os.getenv("AGENT_MODEL_V2", base_model)
         self.client = AsyncOpenAI(api_key=os.getenv("OPENAI_API_KEY")) if os.getenv("OPENAI_API_KEY") else None
         self.collection = None
 
@@ -68,7 +70,13 @@ class MainAgent:
             "distances": distances[0] if distances else [],
         }
 
-    async def _generate_answer(self, question: str, contexts: List[str], temperature: float) -> Dict:
+    async def _generate_answer(
+        self,
+        question: str,
+        contexts: List[str],
+        temperature: float,
+        model: str,
+    ) -> Dict:
         if not contexts:
             return {
                 "answer": "Không có thông tin phù hợp trong tài liệu hiện có.",
@@ -84,7 +92,7 @@ class MainAgent:
 
         context_text = "\n\n".join(contexts)
         response = await self.client.chat.completions.create(
-            model=self.model,
+            model=model,
             temperature=temperature,
             messages=[
                 {
@@ -122,38 +130,20 @@ class MainAgent:
 
     async def _query_v1(self, question: str, start: float) -> Dict:
         """V1: top_k=2, prompt đơn giản, temperature=0.8"""
-        results = query_collection(self._collection, question, n_results=2)
-        chunk_ids: List[str] = results["ids"][0]
-        contexts: List[str] = results["documents"][0]
-
-        context_block = "\n\n".join(contexts)
-        messages = [
-            {
-                "role": "system",
-                "content": (
-                    "Bạn là trợ lý hỗ trợ khách hàng. "
-                    "Trả lời ngắn gọn dựa trên tài liệu sau.\n\n"
-                    + context_block
-                ),
-            },
-            {"role": "user", "content": question},
-        ]
-
-        completion = await self._llm.chat.completions.create(
-            model=self._model,
-            messages=messages,
+        retrieval = self._retrieve(question, top_k=2)
+        gen = await self._generate_answer(
+            question,
+            retrieval["documents"],
             temperature=0.8,
+            model=self.model_v1,
         )
-        answer = completion.choices[0].message.content
-        tokens_used = completion.usage.total_tokens
-
         return {
             "answer": gen["answer"],
             "retrieved_chunk_ids": retrieval["ids"],
             "contexts": retrieval["documents"],
             "metadata": {
                 "version": "v1",
-                "model": self.model,
+                "model": self.model_v1,
                 "tokens_used": gen["tokens_used"],
                 "latency_ms": (time.perf_counter() - start) * 1000,
             },
@@ -180,14 +170,19 @@ class MainAgent:
             filtered_ids = retrieval["ids"]
             filtered_docs = retrieval["documents"]
 
-        gen = await self._generate_answer(question, filtered_docs, temperature=0.1)
+        gen = await self._generate_answer(
+            question,
+            filtered_docs,
+            temperature=0.1,
+            model=self.model_v2,
+        )
         return {
             "answer": gen["answer"],
             "retrieved_chunk_ids": filtered_ids,
             "contexts": filtered_docs,
             "metadata": {
                 "version": "v2",
-                "model": self.model,
+                "model": self.model_v2,
                 "tokens_used": gen["tokens_used"],
                 "latency_ms": (time.perf_counter() - start) * 1000,
             },

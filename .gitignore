@@ -4,6 +4,6 @@ __pycache__/
 .DS_Store
 # data/golden_set.jsonl
 # data/chroma_db/
-reports/*.json
+# reports/*.json
 !reports/.gitkeep
 .venv/

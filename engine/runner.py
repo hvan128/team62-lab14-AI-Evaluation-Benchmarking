@@ -58,12 +58,15 @@ class BenchmarkRunner:
 
         agent_result = await self.agent.query(question, version=version)
         retrieved_chunk_ids = agent_result.get("retrieved_chunk_ids", [])
+        contexts = agent_result.get("contexts", [])
         answer = agent_result.get("answer", "")
 
         hit_rate = self.evaluator.calculate_hit_rate(
             expected_chunk_ids, retrieved_chunk_ids, top_k=3
         )
         mrr = self.evaluator.calculate_mrr(expected_chunk_ids, retrieved_chunk_ids)
+        faithfulness = self.evaluator.calculate_faithfulness(answer, contexts)
+        relevancy = self.evaluator.calculate_relevancy(question, answer)
 
         judge_result = await self.judge.evaluate_multi_judge(
             question, answer, expected_answer
@@ -80,11 +83,14 @@ class BenchmarkRunner:
             "ragas": {
                 "hit_rate": hit_rate,
                 "mrr": mrr,
+                "faithfulness": faithfulness,
+                "relevancy": relevancy,
             },
             "judge": {
                 "final_score": final_score,
                 "agreement_rate": float(judge_result.get("agreement_rate", 0.5)),
                 "individual_scores": judge_result.get("individual_scores", {}),
+                "individual_results": judge_result.get("individual_results", {}),
                 "conflict": bool(judge_result.get("conflict", False)),
             },
             "tokens_used": agent_result.get("metadata", {}).get("tokens_used", 0),
