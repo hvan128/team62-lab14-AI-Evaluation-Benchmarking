@@ -147,6 +147,16 @@ python check_lab.py
 	- `analysis/failure_analysis.md`
 	- reflection cho từng thành viên trong `analysis/reflections/`
 
+## Tính năng làm thêm ngoài GRADING_RUBRIC
+- **Manual Dataset Review riêng:** có biên bản review thủ công dataset tại `analysis/manual_review_dataset.md`.
+- **Judge Spot-check Report riêng:** có báo cáo đối chiếu Judge vs đánh giá thủ công tại `analysis/judge_spot_check_report.md`.
+- **Faithfulness & Relevancy per-case:** ngoài Hit Rate/MRR và Judge score, mỗi test case còn có thêm 2 chỉ số chất lượng này trong `reports/benchmark_results.json`.
+- **Position Bias check cho Judge:** có hàm kiểm tra bias do thứ tự đáp án trong `engine/llm_judge.py` (`check_position_bias`).
+- **Model-level judge trace:** kết quả từng Judge được lưu theo tên model trong `judge.individual_results` thay vì chỉ lưu theo role.
+- **Offline-friendly retrieval bootstrap:** tự động tạo/seed collection khi thiếu vector DB bằng deterministic embedding trong `engine/chroma_utils.py`.
+- **Fallback judge khi thiếu API key:** vẫn chạy được chế độ đánh giá lexical fallback để pipeline không bị gãy khi thiếu key.
+- **Release gate tự động:** quyết định APPROVE/BLOCK dựa trên delta chất lượng và hit-rate drop trong `main.py`.
+
 ## Lưu ý
 - Không commit `.env` và secret key.
 - Nếu thay đổi dataset hoặc prompt retrieval, phải chạy lại benchmark để cập nhật report.
