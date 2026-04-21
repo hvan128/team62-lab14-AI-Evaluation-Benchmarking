@@ -1,0 +1,50 @@
+# Báo Cáo Reflection Cá Nhân - Trần Tiến Dũng
+
+## 1) Đóng góp kỹ thuật (Engineering Contribution)
+- Các module tôi tham gia và phát triển:
+    - `engine/runner.py`: Xây dựng Async Benchmark Runner. Triển khai `run_single_test` để tích hợp toàn bộ pipeline từ Agent (RAG) -> Retrieval Evaluator (tính Hit Rate, MRR) -> LLM Judge (đánh giá chấm điểm). Triển khai `run_all` bằng `asyncio.Semaphore` và `asyncio.gather` để xử lý song song các test case, giúp rút ngắn thời gian chạy nhưng vẫn tránh bị giới hạn Rate Limit của API.
+    - `main.py`: Giữ vai trò entry point của hệ thống. Xây dựng hàm `build_summary` để tổng hợp tất cả metics (Avg Score, Hit Rate, MRR, Agreement Rate) và ước lượng chi phí (Tokens, USD Cost). Triển khai logic `release_gate` để tự động hóa khâu quyết định (APPROVE / BLOCK) dựa vào các tham số regression như `min_score_delta` và `max_hit_rate_drop`.
+    - Xử lý các xung đột mã nguồn (git stash/merge conflicts) khi tích hợp phần runner của mình với các module khác (agent, chroma DB) để đảm bảo toàn bộ pipeline hoạt động thống nhất.
+- Các commit kỹ thuật chính và lý do thực hiện (Kế hoạch commit trước khi nộp):
+    - `feat(runner): implement async benchmark runner with batch concurrency`
+    - `feat(main): aggregate metrics, compute cost and build release gate logic`
+    - `fix(git): resolve stash conflicts in runner and agent`
+    - `docs(reflection): add personal reflection for Dung`
+- Các quyết định triển khai quan trọng:
+    - Sử dụng `async/await` kết hợp với Semaphore trong `runner.py` để xử lý I/O-bound khi gọi API LLM, quyết định này giúp cân bằng giữa giới hạn Rate Limit và hiệu năng (throughput) của hệ thống.
+    - Thiết kế `release_gate` minh bạch, lấy số liệu trực tiếp từ Regression Report từ V1 vs V2 nhằm đảm bảo rằng bất kỳ release nào có độ tụt giảm hiệu suất sẽ lập tức bị chặn (BLOCK), đáp ứng đúng chuẩn CI/CD cho AI.
+
+## 2) Chiều sâu kỹ thuật (Technical Depth)
+- Giải thích về Async Concurrency và Semaphore:
+    - Trong benchmark, gọi LLM là một tác vụ nặng về I/O. Nếu chạy tuần tự (sync) cho 60 test cases có thể mất rất nhiều thời gian. Nếu chạy đồng loạt không kiểm soát sẽ gây lỗi Rate Limit (HTTP 429) hoặc Timeout.
+    - Việc sử dụng `asyncio.Semaphore(batch_size)` cho phép quản lý chính xác lượng request được gửi đi tại một thời điểm, giúp tối ưu hóa băng thông gọi API mà vẫn an toàn.
+- Giải thích về Cơ chế Release Gate tự động trong AI:
+    - Trong phát triển phần mềm truyền thống, Release Gate dựa trên số lượng Unit Test pass/fail. Với hệ thống RAG/AI, kết quả là xác suất và khó đoán định, do đó Release Gate phải dựa trên Delta (sự thay đổi) của các metrics tổng hợp như trung bình điểm (Avg Score) hoặc Hit Rate so với version trước (baseline V1).
+    - Việc áp dụng tự động logic `BLOCK` hay `APPROVE` giảm bớt sự phụ thuộc vào đánh giá chủ quan của con người, tăng độ tin cậy và tần suất cập nhật model an toàn.
+- Đánh giá khả năng mở rộng (Scalability) của Runner:
+    - Cấu trúc `TestResult` và luồng chạy hiện tại được thiết kế đủ phân tách để nếu trong tương lai bổ sung thêm các loại Evaluator khác (như Ragas metrics) thì chỉ cần gắn thêm vào `run_single_test` mà không làm phá vỡ kiến trúc cũ.
+
+## 3) Giải quyết vấn đề (Problem Solving)
+- Vấn đề khó nhất tôi gặp phải:
+    - Tích hợp tất cả các module rời rạc từ các thành viên khác lại thành một pipeline mượt mà ở `main.py` và `runner.py`. Khó khăn gồm việc xử lý mismatch cấu trúc schema do các biến đổi trong kết quả LLM và việc một số cases có Ground Truth ID không khớp chuẩn của Chroma DB.
+- Phân tích nguyên nhân gốc rễ:
+    - Sự thiếu đồng bộ ngay từ đầu đối với định dạng ID và kết quả trả về của Agent và Evaluator. Rủi ro về phiên bản DB cũ (embeddings dimension) cũng gây gián đoạn luồng test đứt đoạn.
+- Cách tôi xử lý và tại sao lại hiệu quả:
+    - Cùng phân tích và linh hoạt điều chỉnh lại chuẩn `expected_sources` bên evaluator, cũng như viết các handle fallback/exception trong `runner.py` để một case thất bại không làm văng toàn bộ batch đang chạy dở. Pipeline sau khi fix đã chạy xuyên suốt và báo cáo đầy đủ chỉ số.
+
+## 4) Bài học rút ra (Lessons Learned)
+- Kế hoạch cải tiến trong tương lai:
+    - Bổ sung cơ chế Rate Limit Backoff & Retry tự động (như `tenacity`) ngay tại mức `runner.py` để tăng độ bền bỉ thay vì chỉ dựa vào Semaphore.
+    - Cải tiến phần UI hoặc output thành HTML/Markdown thay vì chỉ JSON để dễ đọc hơn cho các non-technical stakeholder.
+- Về sự phối hợp:
+    - Trong một dự án Agentic AI mà nhiều thành viên cùng đóng góp, việc thống nhất một schema cho Data/Logging và Evaluation Output từ Day 1 là điều kiện tiên quyết để việc gộp code vào `main.py` không trở thành ác mộng.
+- Tư duy vận hành AI:
+    - Tối ưu AI không chỉ dùng mắt hay vài ví dụ. Nhờ hệ thống Runner được tự động hóa, nhóm mới thấy rõ được con số cụ thể giữa V1 ngây ngô và V2 được prompt chặt chẽ, tạo động lực để hướng tới data-driven decision.
+
+## 5) Minh chứng (Evidence)
+- Danh sách file trực tiếp tham gia và commit code:
+    - `engine/runner.py`
+    - `main.py`
+- Báo cáo và kết quả liên quan có thể kiểm soát:
+    - `reports/benchmark_results.json`: Cấu trúc chạy mượt mà tất cả records, bắt được chi tiết độ trễ, token, và điểm cho từng trường hợp.
+    - `reports/summary.json`: Report cuối cùng chứa quyết định regression chạy chuẩn và chi phí ước tính, là điểm chốt đầu ra của `main.py`.
